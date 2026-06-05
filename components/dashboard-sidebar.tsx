@@ -19,13 +19,13 @@ export function DashboardSidebar() {
   const pathname = usePathname()
 
   return (
-    <aside className="w-64 bg-[#111827] border-r border-[#1F2937] h-screen fixed left-0 top-0 flex flex-col overflow-y-auto">
-      <div className="p-6 border-b border-[#1F2937]">
+    <aside className="w-64 bg-white border-r border-slate-200 h-screen fixed left-0 top-0 flex flex-col overflow-y-auto">
+      <div className="p-6 border-b border-slate-200">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-[#00E5FF] to-[#14F195] rounded-lg flex items-center justify-center">
-            <span className="text-[#0A0E1A] font-bold text-sm">SV</span>
+          <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-pink-500 rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold text-sm">SV</span>
           </div>
-          <span className="text-xl font-bold text-[#F9FAFB]">SkillVerse</span>
+          <span className="text-xl font-bold text-slate-900">SkillVerse</span>
         </Link>
       </div>
 
@@ -40,8 +40,8 @@ export function DashboardSidebar() {
               href={item.href}
               className={`flex items-center gap-3 px-4 py-3 rounded-lg transition ${
                 isActive
-                  ? 'bg-[#00E5FF]/10 text-[#00E5FF] border border-[#00E5FF]/30'
-                  : 'text-[#9CA3AF] hover:text-[#F9FAFB] hover:bg-[#0A0E1A]'
+                  ? 'bg-purple-100 text-purple-600 border border-purple-200'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}
             >
               <IconComponent size={20} />
@@ -51,15 +51,15 @@ export function DashboardSidebar() {
         })}
       </nav>
 
-      <div className="p-4 border-t border-[#1F2937] space-y-2">
+      <div className="p-4 border-t border-slate-200 space-y-2">
         <Link
           href="/dashboard/settings"
-          className="flex items-center gap-3 px-4 py-3 rounded-lg text-[#9CA3AF] hover:text-[#F9FAFB] hover:bg-[#0A0E1A] transition"
+          className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition"
         >
           <Settings size={20} />
           <span className="font-medium">Settings</span>
         </Link>
-        <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-[#9CA3AF] hover:text-[#F9FAFB] hover:bg-[#0A0E1A] transition">
+        <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
           <LogOut size={20} />
           <span className="font-medium">Logout</span>
         </button>

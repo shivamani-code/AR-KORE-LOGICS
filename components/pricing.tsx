@@ -39,13 +39,13 @@ const plans = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0A0E1A]">
+    <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-[#F9FAFB] mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-[#9CA3AF] text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
             Choose the plan that works for you. Upgrade or downgrade anytime.
           </p>
         </div>
@@ -56,36 +56,36 @@ export function Pricing() {
               key={idx}
               className={`relative rounded-xl p-8 border transition ${
                 plan.highlighted
-                  ? 'bg-gradient-to-br from-[#111827] to-[#0A0E1A] border-[#00E5FF] shadow-2xl shadow-[#00E5FF]/20 transform md:scale-105'
-                  : 'bg-[#111827] border-[#1F2937] hover:border-[#14F195]'
+                  ? 'bg-gradient-to-br from-purple-50 to-pink-50 border-purple-300 shadow-2xl shadow-purple-300/20 transform md:scale-105'
+                  : 'bg-white border-slate-200 hover:border-purple-200 hover:shadow-lg'
               }`}
             >
               {plan.highlighted && (
-                <div className="absolute -top-4 right-8 bg-[#14F195] text-[#0A0E1A] px-4 py-1 rounded-full text-sm font-bold">
+                <div className="absolute -top-4 right-8 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold">
                   Popular
                 </div>
               )}
 
-              <h3 className="text-2xl font-bold text-[#F9FAFB] mb-2">
+              <h3 className="text-2xl font-bold text-slate-900 mb-2">
                 {plan.name}
               </h3>
-              <p className="text-[#9CA3AF] text-sm mb-6">
+              <p className="text-slate-600 text-sm mb-6">
                 {plan.description}
               </p>
 
               <div className="mb-8">
-                <span className="text-5xl font-bold text-[#F9FAFB]">
+                <span className="text-5xl font-bold text-slate-900">
                   {plan.price}
                 </span>
-                <span className="text-[#9CA3AF] ml-2">
+                <span className="text-slate-600 ml-2">
                   {plan.period}
                 </span>
               </div>
 
               <button className={`w-full py-3 rounded-lg font-semibold transition mb-8 ${
                 plan.highlighted
-                  ? 'bg-gradient-to-r from-[#00E5FF] to-[#14F195] text-[#0A0E1A] hover:shadow-lg hover:shadow-[#00E5FF]/30'
-                  : 'bg-[#00E5FF]/10 text-[#00E5FF] hover:bg-[#00E5FF] hover:text-[#0A0E1A]'
+                  ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-300/50'
+                  : 'bg-purple-100 text-purple-600 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-500 hover:text-white'
               }`}>
                 {plan.cta}
               </button>
@@ -93,8 +93,8 @@ export function Pricing() {
               <div className="space-y-4">
                 {plan.features.map((feature, fidx) => (
                   <div key={fidx} className="flex items-center gap-3">
-                    <Check className="text-[#14F195]" size={20} />
-                    <span className="text-[#9CA3AF]">
+                    <Check className="text-green-500" size={20} />
+                    <span className="text-slate-700">
                       {feature}
                     </span>
                   </div>
