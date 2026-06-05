@@ -10,8 +10,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'SkillVerse - Career Navigation Platform',
-  description: 'Learn skills, follow structured roadmaps, get mentored, and become industry-ready with SkillVerse',
+  title: 'AR LOGICS - Career Navigation Platform',
+  description: 'Learn skills, follow structured roadmaps, get mentored, and become industry-ready with AR LOGICS',
   generator: 'v0.app',
   icons: {
     icon: [

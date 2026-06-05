@@ -11,28 +11,22 @@ export function Navbar() {
     <nav className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200" role="navigation" aria-label="Main navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center gap-2 flex-shrink-0" aria-label="SkillVerse home">
-            <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-pink-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm" aria-hidden="true">SV</span>
+          <Link href="/" className="flex items-center gap-2 flex-shrink-0" aria-label="AR LOGICS home">
+            <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm" aria-hidden="true">AR</span>
             </div>
-            <span className="hidden sm:inline text-xl font-bold text-slate-900">SkillVerse</span>
+            <span className="hidden sm:inline text-xl font-bold text-slate-900">AR LOGICS</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <Link href="#roadmaps" className="text-slate-600 hover:text-slate-900 transition font-medium focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-2 py-1">
-              Roadmaps
+            <Link href="/" className="text-slate-600 hover:text-slate-900 transition font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1">
+              Home
             </Link>
-            <Link href="#resources" className="text-slate-600 hover:text-slate-900 transition font-medium focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-2 py-1">
-              Resources
+            <Link href="#how-it-works" className="text-slate-600 hover:text-slate-900 transition font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1">
+              How It Works
             </Link>
-            <Link href="#mentors" className="text-slate-600 hover:text-slate-900 transition font-medium focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-2 py-1">
-              Mentors
-            </Link>
-            <Link href="#community" className="text-slate-600 hover:text-slate-900 transition font-medium focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-2 py-1">
-              Community
-            </Link>
-            <Link href="#pricing" className="text-slate-600 hover:text-slate-900 transition font-medium focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-2 py-1">
-              Pricing
+            <Link href="#testimonials" className="text-slate-600 hover:text-slate-900 transition font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1">
+              What Our Students Say
             </Link>
           </div>
 
@@ -57,25 +51,19 @@ export function Navbar() {
 
         {isOpen && (
           <div className="md:hidden pb-4 border-t border-slate-200 pt-4 space-y-3">
-            <Link href="#roadmaps" className="block text-slate-600 hover:text-slate-900 py-2 font-medium px-2 rounded hover:bg-slate-50">
-              Roadmaps
+            <Link href="/" className="block text-slate-600 hover:text-slate-900 py-2 font-medium px-2 rounded hover:bg-slate-50">
+              Home
             </Link>
-            <Link href="#resources" className="block text-slate-600 hover:text-slate-900 py-2 font-medium px-2 rounded hover:bg-slate-50">
-              Resources
+            <Link href="#how-it-works" className="block text-slate-600 hover:text-slate-900 py-2 font-medium px-2 rounded hover:bg-slate-50">
+              How It Works
             </Link>
-            <Link href="#mentors" className="block text-slate-600 hover:text-slate-900 py-2 font-medium px-2 rounded hover:bg-slate-50">
-              Mentors
-            </Link>
-            <Link href="#community" className="block text-slate-600 hover:text-slate-900 py-2 font-medium px-2 rounded hover:bg-slate-50">
-              Community
-            </Link>
-            <Link href="#pricing" className="block text-slate-600 hover:text-slate-900 py-2 font-medium px-2 rounded hover:bg-slate-50">
-              Pricing
+            <Link href="#testimonials" className="block text-slate-600 hover:text-slate-900 py-2 font-medium px-2 rounded hover:bg-slate-50">
+              What Our Students Say
             </Link>
             <Link href="/login" className="block text-slate-600 hover:text-slate-900 py-2 font-medium px-2 rounded hover:bg-slate-50">
               Login
             </Link>
-            <Link href="/signup" className="block w-full text-center px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-lg font-semibold mt-4 hover:shadow-lg transition">
+            <Link href="/signup" className="block w-full text-center px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg font-semibold mt-4 hover:shadow-lg transition">
               Get Started
             </Link>
           </div>

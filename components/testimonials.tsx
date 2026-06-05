@@ -6,7 +6,7 @@ const testimonials = [
   {
     name: 'Priya Sharma',
     role: 'Software Engineer at Google',
-    text: 'SkillVerse completely transformed my learning journey. The structured roadmaps and mentorship made all the difference in landing my dream job.',
+    text: 'AR LOGICS completely transformed my learning journey. The structured roadmaps and mentorship made all the difference in landing my dream job.',
     image: 'PS',
   },
   {
@@ -25,14 +25,14 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-purple-50 to-white">
+    <section id="testimonials" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50 to-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
             What Our Students Say
           </h2>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-            Join thousands of students who have transformed their careers with SkillVerse
+            Join thousands of students who have transformed their careers with AR LOGICS
           </p>
         </div>
 
@@ -40,9 +40,9 @@ export function Testimonials() {
           {testimonials.map((testimonial, idx) => (
             <article
               key={idx}
-              className="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 relative hover:shadow-lg hover:border-purple-200 transition"
+              className="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 relative hover:shadow-lg hover:border-blue-200 transition"
             >
-              <Quote className="text-purple-200 absolute top-6 right-6" size={32} aria-hidden="true" />
+              <Quote className="text-blue-200 absolute top-6 right-6" size={32} aria-hidden="true" />
               
               <blockquote className="text-slate-700 mb-6 relative z-10 italic">
                 "{testimonial.text}"

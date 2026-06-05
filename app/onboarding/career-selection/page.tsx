@@ -4,8 +4,6 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { Navbar } from '@/components/navbar'
-import { Footer } from '@/components/footer'
 
 const careerPaths = [
   {
@@ -81,10 +79,8 @@ export default function CareerSelectionPage() {
   }
 
   return (
-    <main className="min-h-screen bg-white">
-      <Navbar />
-      
-      <div className="pt-24 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50 flex items-center justify-center">
+      <div className="py-12 px-4 sm:px-6 lg:px-8 w-full max-w-4xl">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 text-balance">
@@ -100,10 +96,10 @@ export default function CareerSelectionPage() {
               <button
                 key={path.id}
                 onClick={() => handleSelect(path.id)}
-                className={`text-left p-4 sm:p-6 rounded-xl border-2 transition transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 ${
+                className={`text-left p-4 sm:p-6 rounded-xl border-2 transition transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
                   selectedCareer === path.id
-                    ? 'border-purple-600 bg-purple-50'
-                    : 'border-slate-200 bg-white hover:border-purple-300 hover:shadow-lg'
+                    ? 'border-blue-600 bg-blue-50'
+                    : 'border-slate-200 bg-white hover:border-blue-300 hover:shadow-lg'
                 }`}
                 aria-pressed={selectedCareer === path.id}
                 aria-label={`Select ${path.title} career path`}
@@ -137,7 +133,7 @@ export default function CareerSelectionPage() {
                   </div>
                 </div>
                 {selectedCareer === path.id && (
-                  <div className="mt-4 flex items-center gap-2 text-purple-600 font-semibold">
+                  <div className="mt-4 flex items-center gap-2 text-blue-600 font-semibold">
                     Redirecting <ArrowRight size={16} className="animate-pulse" />
                   </div>
                 )}
@@ -148,15 +144,13 @@ export default function CareerSelectionPage() {
           <div className="mt-16 text-center">
             <p className="text-slate-600">
               Not sure yet?{' '}
-              <Link href="/dashboard" className="text-purple-600 hover:text-pink-500 font-semibold transition">
+              <Link href="/dashboard" className="text-blue-600 hover:text-cyan-600 font-semibold transition">
                 Skip for now
               </Link>
             </p>
           </div>
         </div>
       </div>
-
-      <Footer />
     </main>
   )
 }

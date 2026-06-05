@@ -45,10 +45,10 @@ export function DashboardSidebar() {
       }`}>
       <div className="p-6 border-b border-slate-200">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-pink-500 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">SV</span>
+          <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold text-sm">AR</span>
           </div>
-          <span className="text-xl font-bold text-slate-900">SkillVerse</span>
+          <span className="text-xl font-bold text-slate-900">AR LOGICS</span>
         </Link>
       </div>
 

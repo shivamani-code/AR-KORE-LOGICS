@@ -7,12 +7,14 @@ export default function DashboardLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="bg-gradient-to-br from-white via-purple-50 to-pink-50 min-h-screen">
+    <div className="bg-gradient-to-br from-blue-50 via-white to-cyan-50 min-h-screen flex flex-col md:flex-row">
       <DashboardSidebar />
-      <DashboardNavbar />
-      <main className="mt-16 md:ml-64 p-4 sm:p-6 md:p-8">
-        {children}
-      </main>
+      <div className="flex-1 flex flex-col">
+        <DashboardNavbar />
+        <main className="flex-1 mt-16 md:mt-0 p-4 sm:p-6 md:p-8 overflow-y-auto">
+          {children}
+        </main>
+      </div>
     </div>
   )
 }

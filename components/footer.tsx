@@ -8,19 +8,18 @@ export function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div>
-            <h4 className="text-lg font-bold text-white mb-4">SkillVerse</h4>
+            <h4 className="text-lg font-bold text-white mb-4">AR LOGICS</h4>
             <p className="text-slate-400 text-sm">
-              Transforming how students discover career paths and become industry-ready professionals.
+              Empowering learners with cutting-edge education technology and career guidance.
             </p>
           </div>
 
           <div>
-            <h5 className="font-semibold text-white mb-4">Product</h5>
+            <h5 className="font-semibold text-white mb-4">Platform</h5>
             <ul className="space-y-2">
-              <li><Link href="#roadmaps" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-1 py-0.5">Roadmaps</Link></li>
-              <li><Link href="#resources" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-1 py-0.5">Resources</Link></li>
-              <li><Link href="#mentors" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-1 py-0.5">Mentorship</Link></li>
-              <li><Link href="#pricing" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-1 py-0.5">Pricing</Link></li>
+              <li><Link href="/" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-0.5">Home</Link></li>
+              <li><Link href="#how-it-works" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-0.5">How It Works</Link></li>
+              <li><Link href="#testimonials" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-0.5">Testimonials</Link></li>
             </ul>
           </div>
 
@@ -47,7 +46,7 @@ export function Footer() {
 
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-400 text-sm">
-            © 2024 SkillVerse. All rights reserved.
+            © 2024 AR LOGICS. All rights reserved.
           </p>
 
           <div className="flex gap-6">
