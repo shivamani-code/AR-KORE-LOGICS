@@ -38,18 +38,21 @@ export function Testimonials() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, idx) => (
-            <div
+            <article
               key={idx}
-              className="bg-white border border-slate-200 rounded-xl p-8 relative hover:shadow-lg hover:border-purple-200 transition"
+              className="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 relative hover:shadow-lg hover:border-purple-200 transition"
             >
-              <Quote className="text-purple-200 absolute top-6 right-6" size={32} />
+              <Quote className="text-purple-200 absolute top-6 right-6" size={32} aria-hidden="true" />
               
-              <p className="text-slate-700 mb-6 relative z-10">
-                {testimonial.text}
-              </p>
+              <blockquote className="text-slate-700 mb-6 relative z-10 italic">
+                "{testimonial.text}"
+              </blockquote>
 
               <div className="flex items-center gap-4 relative z-10">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full flex items-center justify-center text-white font-bold">
+                <div
+                  className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0"
+                  aria-label={`Avatar for ${testimonial.name}`}
+                >
                   {testimonial.image}
                 </div>
                 <div>
@@ -61,7 +64,7 @@ export function Testimonials() {
                   </p>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

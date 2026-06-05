@@ -39,34 +39,34 @@ const plans = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="pricing" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 text-balance">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto text-pretty">
             Choose the plan that works for you. Upgrade or downgrade anytime.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-3xl mx-auto">
           {plans.map((plan, idx) => (
             <div
               key={idx}
-              className={`relative rounded-xl p-8 border transition ${
+              className={`relative rounded-xl p-6 sm:p-8 border transition ${
                 plan.highlighted
-                  ? 'bg-gradient-to-br from-purple-50 to-pink-50 border-purple-300 shadow-2xl shadow-purple-300/20 transform md:scale-105'
+                  ? 'bg-gradient-to-br from-purple-50 to-pink-50 border-purple-300 shadow-2xl shadow-purple-300/20 lg:scale-105'
                   : 'bg-white border-slate-200 hover:border-purple-200 hover:shadow-lg'
               }`}
             >
               {plan.highlighted && (
-                <div className="absolute -top-4 right-8 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                <div className="absolute -top-4 right-4 sm:right-8 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-bold">
                   Popular
                 </div>
               )}
 
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">
                 {plan.name}
               </h3>
               <p className="text-slate-600 text-sm mb-6">
@@ -74,27 +74,30 @@ export function Pricing() {
               </p>
 
               <div className="mb-8">
-                <span className="text-5xl font-bold text-slate-900">
+                <span className="text-4xl sm:text-5xl font-bold text-slate-900">
                   {plan.price}
                 </span>
-                <span className="text-slate-600 ml-2">
+                <span className="text-slate-600 ml-2 text-sm sm:text-base">
                   {plan.period}
                 </span>
               </div>
 
-              <button className={`w-full py-3 rounded-lg font-semibold transition mb-8 ${
-                plan.highlighted
-                  ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-300/50'
-                  : 'bg-purple-100 text-purple-600 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-500 hover:text-white'
-              }`}>
+              <button
+                className={`w-full py-3 px-4 rounded-lg font-semibold transition mb-8 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 ${
+                  plan.highlighted
+                    ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-300/50'
+                    : 'bg-purple-100 text-purple-600 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-500 hover:text-white'
+                }`}
+                aria-label={`${plan.cta} for ${plan.name} plan`}
+              >
                 {plan.cta}
               </button>
 
               <div className="space-y-4">
                 {plan.features.map((feature, fidx) => (
-                  <div key={fidx} className="flex items-center gap-3">
-                    <Check className="text-green-500" size={20} />
-                    <span className="text-slate-700">
+                  <div key={fidx} className="flex items-start gap-3">
+                    <Check className="text-green-500 flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
+                    <span className="text-slate-700 text-sm sm:text-base">
                       {feature}
                     </span>
                   </div>

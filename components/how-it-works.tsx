@@ -48,24 +48,24 @@ export function HowItWorks() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {steps.map((step, idx) => (
             <div key={idx} className="relative">
-              <div className="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg hover:border-purple-200 transition">
-                <div className="text-5xl font-bold text-purple-200 mb-4">
+              <div className="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 hover:shadow-lg hover:border-purple-200 transition h-full">
+                <div className="text-4xl sm:text-5xl font-bold text-purple-200 mb-4" aria-hidden="true">
                   {step.number}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
-                  <CheckCircle2 className="text-green-500" size={24} />
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+                  <CheckCircle2 className="text-green-500 flex-shrink-0" size={24} aria-hidden="true" />
                   {step.title}
                 </h3>
-                <p className="text-slate-600">
+                <p className="text-slate-600 text-sm sm:text-base">
                   {step.description}
                 </p>
               </div>
 
               {idx < steps.length - 1 && idx % 3 !== 2 && (
-                <div className="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2">
+                <div className="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2" aria-hidden="true">
                   <div className="w-8 h-0.5 bg-gradient-to-r from-purple-500 to-transparent" />
                 </div>
               )}

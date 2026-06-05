@@ -35,26 +35,26 @@ export function DashboardOverview() {
   ]
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       <div>
-        <h1 className="text-4xl font-bold text-slate-900 mb-2">Welcome back, John!</h1>
-        <p className="text-slate-600">Here&apos;s your learning progress this week</p>
+        <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-2">Welcome back, John!</h1>
+        <p className="text-sm sm:text-base text-slate-600">Here&apos;s your learning progress this week</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {stats.map((stat, idx) => {
           const IconComponent = stat.icon
           return (
             <div
               key={idx}
-              className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg hover:border-purple-200 transition"
+              className="bg-white border border-slate-200 rounded-xl p-4 sm:p-6 hover:shadow-lg hover:border-purple-200 transition"
             >
-              <div className={`w-12 h-12 bg-gradient-to-br ${stat.color} to-pink-500 rounded-lg flex items-center justify-center mb-4`}>
-                <IconComponent className="text-white" size={24} />
+              <div className={`w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-br ${stat.color} to-pink-500 rounded-lg flex items-center justify-center mb-4 flex-shrink-0`}>
+                <IconComponent className="text-white" size={20} aria-hidden="true" />
               </div>
-              <p className="text-slate-600 text-sm mb-1">{stat.label}</p>
-              <p className="text-2xl font-bold text-slate-900 mb-2">{stat.value}</p>
-              <p className="text-sm text-green-600">{stat.change}</p>
+              <p className="text-slate-600 text-xs sm:text-sm mb-1">{stat.label}</p>
+              <p className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">{stat.value}</p>
+              <p className="text-xs sm:text-sm text-green-600">{stat.change}</p>
             </div>
           )
         })}

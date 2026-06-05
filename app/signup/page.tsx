@@ -36,71 +36,80 @@ export default function SignupPage() {
               </p>
             </div>
 
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form className="space-y-6" onSubmit={handleSubmit} noValidate>
               <div>
-                <label className="block text-sm font-medium text-slate-900 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-slate-900 mb-2">
                   Full Name
                 </label>
                 <div className="relative">
-                  <User className="absolute left-3 top-3 text-slate-400" size={20} />
+                  <User className="absolute left-3 top-3.5 text-slate-400 pointer-events-none" size={20} aria-hidden="true" />
                   <input
+                    id="name"
                     type="text"
                     placeholder="John Doe"
-                    className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:border-purple-500 focus:outline-none transition"
+                    className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 focus:outline-none transition"
+                    required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-900 mb-2">
+                <label htmlFor="signup-email" className="block text-sm font-medium text-slate-900 mb-2">
                   Email Address
                 </label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-3 text-slate-400" size={20} />
+                  <Mail className="absolute left-3 top-3.5 text-slate-400 pointer-events-none" size={20} aria-hidden="true" />
                   <input
+                    id="signup-email"
                     type="email"
                     placeholder="you@example.com"
-                    className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:border-purple-500 focus:outline-none transition"
+                    className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 focus:outline-none transition"
+                    required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-900 mb-2">
+                <label htmlFor="signup-password" className="block text-sm font-medium text-slate-900 mb-2">
                   Password
                 </label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-3 text-slate-400" size={20} />
+                  <Lock className="absolute left-3 top-3.5 text-slate-400 pointer-events-none" size={20} aria-hidden="true" />
                   <input
+                    id="signup-password"
                     type={showPassword ? 'text' : 'password'}
                     placeholder="••••••••"
-                    className="w-full pl-10 pr-10 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:border-purple-500 focus:outline-none transition"
+                    className="w-full pl-10 pr-10 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 focus:outline-none transition"
+                    required
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-3 text-slate-400 hover:text-slate-600"
+                    className="absolute right-3 top-3.5 text-slate-400 hover:text-slate-600 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded p-1"
+                    aria-label={showPassword ? 'Hide password' : 'Show password'}
                   >
-                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                    {showPassword ? <EyeOff size={20} aria-hidden="true" /> : <Eye size={20} aria-hidden="true" />}
                   </button>
                 </div>
-                <p className="text-xs text-slate-500 mt-2">
+                <p className="text-xs text-slate-500 mt-2" id="password-hint">
                   At least 8 characters with uppercase and numbers
                 </p>
               </div>
 
-              <label className="flex items-center gap-2">
+              <label htmlFor="terms" className="flex items-start gap-2 cursor-pointer">
                 <input
+                  id="terms"
                   type="checkbox"
-                  className="w-4 h-4 bg-white border border-slate-300 rounded cursor-pointer"
+                  className="w-4 h-4 bg-white border border-slate-300 rounded cursor-pointer mt-0.5 focus:ring-2 focus:ring-purple-500"
+                  required
                 />
                 <span className="text-slate-600 text-sm">
                   I agree to the{' '}
-                  <Link href="#" className="text-purple-600 hover:text-pink-500">
+                  <Link href="#" className="text-purple-600 hover:text-pink-500 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-1 py-0.5">
                     Terms of Service
                   </Link>{' '}
                   and{' '}
-                  <Link href="#" className="text-purple-600 hover:text-pink-500">
+                  <Link href="#" className="text-purple-600 hover:text-pink-500 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-1 py-0.5">
                     Privacy Policy
                   </Link>
                 </span>
@@ -108,7 +117,7 @@ export default function SignupPage() {
 
               <button
                 type="submit"
-                className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-lg font-bold hover:shadow-lg hover:shadow-purple-300/50 transition"
+                className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-lg font-bold hover:shadow-lg hover:shadow-purple-300/50 transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
               >
                 Create Account
               </button>
@@ -124,17 +133,25 @@ export default function SignupPage() {
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <button className="py-3 border border-slate-200 rounded-lg text-slate-700 hover:text-slate-900 hover:border-purple-300 hover:bg-purple-50 transition font-semibold">
+              <button
+                type="button"
+                className="py-3 px-4 border border-slate-200 rounded-lg text-slate-700 hover:text-slate-900 hover:border-purple-300 hover:bg-purple-50 transition font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500"
+                aria-label="Sign up with Google"
+              >
                 Google
               </button>
-              <button className="py-3 border border-slate-200 rounded-lg text-slate-700 hover:text-slate-900 hover:border-purple-300 hover:bg-purple-50 transition font-semibold">
+              <button
+                type="button"
+                className="py-3 px-4 border border-slate-200 rounded-lg text-slate-700 hover:text-slate-900 hover:border-purple-300 hover:bg-purple-50 transition font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500"
+                aria-label="Sign up with GitHub"
+              >
                 GitHub
               </button>
             </div>
 
             <p className="text-center text-slate-600 mt-8">
               Already have an account?{' '}
-              <Link href="/login" className="text-purple-600 hover:text-pink-500 transition font-semibold">
+              <Link href="/login" className="text-purple-600 hover:text-pink-500 transition font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-1 py-0.5">
                 Sign in
               </Link>
             </p>
