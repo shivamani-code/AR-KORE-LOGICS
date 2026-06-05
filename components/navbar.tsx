@@ -31,10 +31,10 @@ export function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <Link href="/login" className="text-slate-600 hover:text-slate-900 transition font-medium focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-2 py-1">
+            <Link href="/login" className="text-slate-600 hover:text-slate-900 transition font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1">
               Login
             </Link>
-            <Link href="/signup" className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-lg font-semibold hover:shadow-lg transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
+            <Link href="/signup" className="px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-blue-300/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 hover:scale-105 hover:-translate-y-0.5 active:scale-95">
               Get Started
             </Link>
           </div>
@@ -63,7 +63,7 @@ export function Navbar() {
             <Link href="/login" className="block text-slate-600 hover:text-slate-900 py-2 font-medium px-2 rounded hover:bg-slate-50">
               Login
             </Link>
-            <Link href="/signup" className="block w-full text-center px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg font-semibold mt-4 hover:shadow-lg transition">
+            <Link href="/signup" className="block w-full text-center px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-xl font-semibold mt-4 hover:shadow-lg hover:shadow-blue-300/50 transition-all duration-300 hover:scale-105 active:scale-95">
               Get Started
             </Link>
           </div>

@@ -16,32 +16,37 @@ const menuItems = [
   { icon: Trophy, label: 'Achievements', href: '/dashboard/achievements' },
 ]
 
-export function DashboardSidebar() {
+export function DashboardSidebar({ isOpen = true, onToggle = () => {} }) {
   const pathname = usePathname()
-  const [isOpen, setIsOpen] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(isOpen)
+
+  const handleToggle = () => {
+    setSidebarOpen(!sidebarOpen)
+    onToggle()
+  }
 
   return (
     <>
       {/* Mobile menu button - appears above navbar on mobile */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 md:hidden bg-purple-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition"
+        onClick={handleToggle}
+        className="fixed bottom-6 right-6 z-50 md:hidden bg-blue-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition hover:scale-110 active:scale-95"
         aria-label="Toggle navigation menu"
       >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
+        {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
       {/* Mobile overlay */}
-      {isOpen && (
+      {sidebarOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-30 md:hidden"
-          onClick={() => setIsOpen(false)}
+          onClick={handleToggle}
           aria-hidden="true"
         />
       )}
 
       <aside className={`w-64 bg-white border-r border-slate-200 h-screen fixed left-0 top-0 flex flex-col overflow-y-auto z-40 transition-transform duration-300 md:relative md:z-auto ${
-        isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
+        sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
       }`}>
       <div className="p-6 border-b border-slate-200">
         <Link href="/" className="flex items-center gap-2">
@@ -63,10 +68,10 @@ export function DashboardSidebar() {
               href={item.href}
               className={`flex items-center gap-3 px-4 py-3 rounded-lg transition ${
                 isActive
-                  ? 'bg-purple-100 text-purple-600 border border-purple-200'
+                  ? 'bg-blue-100 text-blue-600 border border-blue-200'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}
-              onClick={() => setIsOpen(false)}
+              onClick={handleToggle}
             >
               <IconComponent size={20} aria-hidden="true" />
               <span className="font-medium">{item.label}</span>
@@ -79,14 +84,14 @@ export function DashboardSidebar() {
         <Link
           href="/dashboard/settings"
           className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition"
-          onClick={() => setIsOpen(false)}
+          onClick={handleToggle}
         >
           <Settings size={20} aria-hidden="true" />
           <span className="font-medium">Settings</span>
         </Link>
         <button
           className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition"
-          onClick={() => setIsOpen(false)}
+          onClick={handleToggle}
           aria-label="Logout"
         >
           <LogOut size={20} aria-hidden="true" />
