@@ -5,9 +5,20 @@ import { Footer } from '@/components/footer'
 import Link from 'next/link'
 import { Mail, Lock, User, Eye, EyeOff } from 'lucide-react'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function SignupPage() {
   const [showPassword, setShowPassword] = useState(false)
+  const router = useRouter()
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // In a real app, create user account here
+    // For now, redirect to career selection
+    setTimeout(() => {
+      router.push('/onboarding/career-selection')
+    }, 300)
+  }
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-white via-purple-50 to-pink-50">
@@ -25,7 +36,7 @@ export default function SignupPage() {
               </p>
             </div>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-sm font-medium text-slate-900 mb-2">
                   Full Name
