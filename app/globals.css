@@ -50,24 +50,24 @@
 
 :root {
   --background: #FFFFFF;
-  --card: #F9F7FF;
-  --primary: #8B5CF6;
-  --secondary: #A855F7;
-  --accent: #EC4899;
+  --card: #F0F7FF;
+  --primary: #2563EB;
+  --secondary: #06B6D4;
+  --accent: #3B82F6;
   --text-primary: #1F2937;
   --text-secondary: #6B7280;
   --border: #E5E7EB;
-  --purple-light: #F3E8FF;
-  --purple-dark: #6D28D9;
+  --purple-light: #DBEAFE;
+  --purple-dark: #1E40AF;
   --radius: 0.75rem;
 }
 
 .dark {
   --background: #FFFFFF;
-  --card: #F9F7FF;
-  --primary: #8B5CF6;
-  --secondary: #A855F7;
-  --accent: #EC4899;
+  --card: #F0F7FF;
+  --primary: #2563EB;
+  --secondary: #06B6D4;
+  --accent: #3B82F6;
   --text-primary: #1F2937;
   --text-secondary: #6B7280;
   --border: #E5E7EB;

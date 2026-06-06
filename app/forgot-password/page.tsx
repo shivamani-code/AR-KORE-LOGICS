@@ -17,7 +17,7 @@ export default function ForgotPasswordPage() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-white via-purple-50 to-pink-50">
+    <main className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-cyan-50">
       <Navbar />
       
       <div className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
@@ -48,14 +48,14 @@ export default function ForgotPasswordPage() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@example.com"
                       required
-                      className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:border-purple-500 focus:outline-none transition"
+                      className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:outline-none transition"
                     />
                   </div>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-lg font-bold hover:shadow-lg hover:shadow-purple-300/50 transition"
+                  className="w-full py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg font-bold hover:shadow-lg hover:shadow-blue-300/50 transition"
                 >
                   Send Reset Link
                 </button>
@@ -71,7 +71,7 @@ export default function ForgotPasswordPage() {
             <div className="mt-8 text-center">
               <Link
                 href="/login"
-                className="inline-flex items-center gap-2 text-purple-600 hover:text-pink-500 transition font-semibold"
+                className="inline-flex items-center gap-2 text-blue-600 hover:text-cyan-500 transition font-semibold"
               >
                 <ArrowLeft size={16} />
                 Back to Login

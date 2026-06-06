@@ -124,7 +124,7 @@ export default function ResourcesPage() {
             onClick={() => setSelectedCategory(cat)}
             className={`px-4 py-2 rounded-lg font-semibold transition capitalize ${
               selectedCategory === cat
-                ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg'
+                ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg'
                 : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:border-slate-300'
             }`}
           >
@@ -138,18 +138,18 @@ export default function ResourcesPage() {
         {filteredResources.map((resource, idx) => (
           <div
             key={idx}
-            className="bg-white border border-slate-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition group"
+            className="bg-white border border-slate-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition group"
           >
             <div className="flex items-start justify-between mb-4">
-              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                <BookOpen className="text-purple-600" size={20} />
+              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                <BookOpen className="text-blue-600" size={20} />
               </div>
-              <button className="text-slate-400 hover:text-pink-500 transition">
+              <button className="text-slate-400 hover:text-cyan-500 transition">
                 <Bookmark size={20} />
               </button>
             </div>
 
-            <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-purple-600 transition">
+            <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition">
               {resource.title}
             </h3>
 
@@ -174,7 +174,7 @@ export default function ResourcesPage() {
               Duration: {resource.duration}
             </p>
 
-            <button className="w-full py-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-300/50 transition inline-flex items-center justify-center gap-2">
+            <button className="w-full py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-300/50 transition inline-flex items-center justify-center gap-2">
               View Resource
               <ExternalLink size={16} />
             </button>

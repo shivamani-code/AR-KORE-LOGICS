@@ -9,28 +9,28 @@ export function DashboardOverview() {
       label: 'Current Roadmap',
       value: 'Full Stack Development',
       change: '45% complete',
-      color: 'from-blue-500',
+      color: 'from-blue-600 to-cyan-500',
     },
     {
       icon: TrendingUp,
       label: 'Progress',
       value: '45%',
       change: '+5% this week',
-      color: 'from-green-500',
+      color: 'from-green-500 to-emerald-400',
     },
     {
       icon: BookOpen,
       label: 'Resources Completed',
       value: '23',
       change: 'of 51 total',
-      color: 'from-purple-600',
+      color: 'from-blue-600 to-cyan-500',
     },
     {
       icon: Flame,
       label: 'Learning Streak',
       value: '12 days',
       change: 'Keep it going!',
-      color: 'from-orange-500',
+      color: 'from-orange-500 to-yellow-400',
     },
   ]
 
@@ -47,9 +47,9 @@ export function DashboardOverview() {
           return (
             <div
               key={idx}
-              className="bg-white border border-slate-200 rounded-xl p-4 sm:p-6 hover:shadow-lg hover:border-purple-200 transition"
+              className="bg-white border border-slate-200 rounded-xl p-4 sm:p-6 hover:shadow-lg hover:border-blue-200 transition"
             >
-              <div className={`w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-br ${stat.color} to-pink-500 rounded-lg flex items-center justify-center mb-4 flex-shrink-0`}>
+              <div className={`w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-br ${stat.color} rounded-lg flex items-center justify-center mb-4 flex-shrink-0`}>
                 <IconComponent className="text-white" size={20} aria-hidden="true" />
               </div>
               <p className="text-slate-600 text-xs sm:text-sm mb-1">{stat.label}</p>
@@ -77,11 +77,11 @@ export function DashboardOverview() {
                     <h3 className="font-semibold text-slate-900">{course.title}</h3>
                     <p className="text-sm text-slate-600">Next: {course.next}</p>
                   </div>
-                  <span className="text-sm font-bold text-purple-600">{course.progress}%</span>
+                  <span className="text-sm font-bold text-blue-600">{course.progress}%</span>
                 </div>
                 <div className="w-full bg-slate-200 rounded-full h-2">
                   <div
-                    className="bg-gradient-to-r from-purple-600 to-pink-500 h-2 rounded-full"
+                    className="bg-gradient-to-r from-blue-600 to-cyan-500 h-2 rounded-full"
                     style={{ width: `${course.progress}%` }}
                   />
                 </div>
@@ -89,7 +89,7 @@ export function DashboardOverview() {
             ))}
           </div>
 
-          <button className="w-full mt-6 py-2 bg-purple-100 text-purple-600 rounded-lg font-semibold hover:bg-purple-600 hover:text-white transition">
+          <button className="w-full mt-6 py-2 bg-blue-100 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition">
             View All Courses
           </button>
         </div>
@@ -105,14 +105,14 @@ export function DashboardOverview() {
               <p className="text-sm text-green-600 mt-2">Tomorrow at 2:00 PM</p>
             </div>
 
-            <div className="bg-slate-50 rounded-lg p-4 border-l-4 border-purple-600">
+            <div className="bg-slate-50 rounded-lg p-4 border-l-4 border-blue-600">
               <p className="font-semibold text-slate-900 mb-1">Code Review Session</p>
               <p className="text-sm text-slate-600">React Project</p>
               <p className="text-sm text-green-600 mt-2">Friday at 3:00 PM</p>
             </div>
           </div>
 
-          <button className="w-full mt-6 py-2 bg-purple-100 text-purple-600 rounded-lg font-semibold hover:bg-purple-600 hover:text-white transition">
+          <button className="w-full mt-6 py-2 bg-blue-100 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition">
             Book More Sessions
           </button>
         </div>

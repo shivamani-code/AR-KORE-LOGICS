@@ -23,10 +23,10 @@ export function Navbar() {
               Home
             </Link>
             <Link href="#how-it-works" className="text-slate-600 hover:text-slate-900 transition font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1">
-              How It Works
+              Process
             </Link>
             <Link href="#testimonials" className="text-slate-600 hover:text-slate-900 transition font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1">
-              What Our Students Say
+              Reviews
             </Link>
           </div>
 
@@ -55,10 +55,10 @@ export function Navbar() {
               Home
             </Link>
             <Link href="#how-it-works" className="block text-slate-600 hover:text-slate-900 py-2 font-medium px-2 rounded hover:bg-slate-50">
-              How It Works
+              Process
             </Link>
             <Link href="#testimonials" className="block text-slate-600 hover:text-slate-900 py-2 font-medium px-2 rounded hover:bg-slate-50">
-              What Our Students Say
+              Reviews
             </Link>
             <Link href="/login" className="block text-slate-600 hover:text-slate-900 py-2 font-medium px-2 rounded hover:bg-slate-50">
               Login

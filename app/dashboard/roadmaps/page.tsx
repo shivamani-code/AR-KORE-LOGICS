@@ -143,11 +143,11 @@ export default function RoadmapsPage() {
             <div>
               <p className="text-slate-600 text-sm mb-2">Overall Progress</p>
               <div className="w-64 bg-slate-200 rounded-full h-3">
-                <div className="bg-gradient-to-r from-purple-600 to-pink-500 h-3 rounded-full" style={{ width: `${Math.round((roadmap.progress / roadmap.total) * 100)}%` }} />
+                <div className="bg-gradient-to-r from-blue-600 to-cyan-500 h-3 rounded-full" style={{ width: `${Math.round((roadmap.progress / roadmap.total) * 100)}%` }} />
               </div>
               <p className="text-sm text-slate-600 mt-2">{roadmap.progress}% of {roadmap.total} modules completed</p>
             </div>
-            <button className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-300/50 transition">
+            <button className="px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-300/50 transition">
               Continue Learning
             </button>
           </div>

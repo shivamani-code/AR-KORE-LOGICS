@@ -18,87 +18,91 @@ const menuItems = [
 
 export function DashboardSidebar({ isOpen = true, onToggle = () => {} }) {
   const pathname = usePathname()
-  const [sidebarOpen, setSidebarOpen] = useState(isOpen)
 
-  const handleToggle = () => {
-    setSidebarOpen(!sidebarOpen)
-    onToggle()
+  const handleLinkClick = () => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      onToggle()
+    }
   }
 
   return (
     <>
       {/* Mobile menu button - appears above navbar on mobile */}
       <button
-        onClick={handleToggle}
+        onClick={onToggle}
         className="fixed bottom-6 right-6 z-50 md:hidden bg-blue-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition hover:scale-110 active:scale-95"
         aria-label="Toggle navigation menu"
       >
-        {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
+        {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
       {/* Mobile overlay */}
-      {sidebarOpen && (
+      {isOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-30 md:hidden"
-          onClick={handleToggle}
+          onClick={onToggle}
           aria-hidden="true"
         />
       )}
 
-      <aside className={`w-64 bg-white border-r border-slate-200 h-screen fixed left-0 top-0 flex flex-col overflow-y-auto z-40 transition-transform duration-300 md:relative md:z-auto ${
-        sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
+      <aside className={`bg-white h-screen fixed left-0 top-0 flex flex-col overflow-y-auto z-40 transition-all duration-300 md:relative md:z-auto ${
+        isOpen 
+          ? 'w-64 border-r border-slate-200 translate-x-0' 
+          : 'w-0 border-r-0 -translate-x-full md:w-0 md:border-r-0 md:-translate-x-full overflow-hidden'
       }`}>
-      <div className="p-6 border-b border-slate-200">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">AR</span>
-          </div>
-          <span className="text-xl font-bold text-slate-900">AR LOGICS</span>
-        </Link>
-      </div>
-
-      <nav className="flex-1 p-4 space-y-2">
-        {menuItems.map((item, idx) => {
-          const IconComponent = item.icon
-          const isActive = item.exact ? pathname === item.href : pathname.startsWith(item.href)
-          
-          return (
-            <Link
-              key={idx}
-              href={item.href}
-              className={`flex items-center gap-3 px-4 py-3 rounded-lg transition ${
-                isActive
-                  ? 'bg-blue-100 text-blue-600 border border-blue-200'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-              }`}
-              onClick={handleToggle}
-            >
-              <IconComponent size={20} aria-hidden="true" />
-              <span className="font-medium">{item.label}</span>
+        <div className="w-64 flex flex-col h-full flex-shrink-0">
+          <div className="p-6 border-b border-slate-200">
+            <Link href="/" className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">AR</span>
+              </div>
+              <span className="text-xl font-bold text-slate-900">AR LOGICS</span>
             </Link>
-          )
-        })}
-      </nav>
+          </div>
 
-      <div className="p-4 border-t border-slate-200 space-y-2">
-        <Link
-          href="/dashboard/settings"
-          className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition"
-          onClick={handleToggle}
-        >
-          <Settings size={20} aria-hidden="true" />
-          <span className="font-medium">Settings</span>
-        </Link>
-        <button
-          className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition"
-          onClick={handleToggle}
-          aria-label="Logout"
-        >
-          <LogOut size={20} aria-hidden="true" />
-          <span className="font-medium">Logout</span>
-        </button>
-      </div>
-    </aside>
+          <nav className="flex-1 p-4 space-y-2">
+            {menuItems.map((item, idx) => {
+              const IconComponent = item.icon
+              const isActive = item.exact ? pathname === item.href : pathname.startsWith(item.href)
+              
+              return (
+                <Link
+                  key={idx}
+                  href={item.href}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition ${
+                    isActive
+                      ? 'bg-blue-100 text-blue-600 border border-blue-200'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                  }`}
+                  onClick={handleLinkClick}
+                >
+                  <IconComponent size={20} aria-hidden="true" />
+                  <span className="font-medium">{item.label}</span>
+                </Link>
+              )
+            })}
+          </nav>
+
+          <div className="p-4 border-t border-slate-200 space-y-2">
+            <Link
+              href="/dashboard/settings"
+              className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition"
+              onClick={handleLinkClick}
+            >
+              <Settings size={20} aria-hidden="true" />
+              <span className="font-medium">Settings</span>
+            </Link>
+            <button
+              className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition"
+              onClick={handleLinkClick}
+              aria-label="Logout"
+            >
+              <LogOut size={20} aria-hidden="true" />
+              <span className="font-medium">Logout</span>
+            </button>
+          </div>
+        </div>
+      </aside>
     </>
   )
 }

@@ -18,28 +18,28 @@ export function Footer() {
             <h5 className="font-semibold text-white mb-4">Platform</h5>
             <ul className="space-y-2">
               <li><Link href="/" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-0.5">Home</Link></li>
-              <li><Link href="#how-it-works" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-0.5">How It Works</Link></li>
-              <li><Link href="#testimonials" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-0.5">Testimonials</Link></li>
+              <li><Link href="#how-it-works" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-0.5">Process</Link></li>
+              <li><Link href="#testimonials" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-0.5">Reviews</Link></li>
             </ul>
           </div>
 
           <div>
             <h5 className="font-semibold text-white mb-4">Company</h5>
             <ul className="space-y-2">
-              <li><Link href="#" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-1 py-0.5">About</Link></li>
-              <li><Link href="#" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-1 py-0.5">Blog</Link></li>
-              <li><Link href="#" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-1 py-0.5">Careers</Link></li>
-              <li><Link href="#" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-1 py-0.5">Contact</Link></li>
+              <li><Link href="#" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-0.5">About</Link></li>
+              <li><Link href="#" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-0.5">Blog</Link></li>
+              <li><Link href="#" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-0.5">Careers</Link></li>
+              <li><Link href="#" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-0.5">Contact</Link></li>
             </ul>
           </div>
 
           <div>
             <h5 className="font-semibold text-white mb-4">Legal</h5>
             <ul className="space-y-2">
-              <li><Link href="#" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-1 py-0.5">Privacy</Link></li>
-              <li><Link href="#" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-1 py-0.5">Terms</Link></li>
-              <li><Link href="#" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-1 py-0.5">Security</Link></li>
-              <li><Link href="#" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-1 py-0.5">Cookies</Link></li>
+              <li><Link href="#" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-0.5">Privacy</Link></li>
+              <li><Link href="#" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-0.5">Terms</Link></li>
+              <li><Link href="#" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-0.5">Security</Link></li>
+              <li><Link href="#" className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-0.5">Cookies</Link></li>
             </ul>
           </div>
         </div>
@@ -50,13 +50,13 @@ export function Footer() {
           </p>
 
           <div className="flex gap-6">
-            <Link href="#" className="text-slate-400 hover:text-purple-400 transition font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-2 py-1" aria-label="GitHub">
+            <Link href="#" className="text-slate-400 hover:text-blue-400 transition font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1" aria-label="GitHub">
               GitHub
             </Link>
-            <Link href="#" className="text-slate-400 hover:text-purple-400 transition font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-2 py-1" aria-label="Twitter">
+            <Link href="#" className="text-slate-400 hover:text-blue-400 transition font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1" aria-label="Twitter">
               Twitter
             </Link>
-            <Link href="#" className="text-slate-400 hover:text-purple-400 transition font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-2 py-1" aria-label="LinkedIn">
+            <Link href="#" className="text-slate-400 hover:text-blue-400 transition font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1" aria-label="LinkedIn">
               LinkedIn
             </Link>
           </div>

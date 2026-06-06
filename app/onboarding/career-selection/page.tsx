@@ -120,7 +120,7 @@ export default function CareerSelectionPage() {
                     {path.skills.slice(0, 2).map((skill, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded"
+                        className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded"
                       >
                         {skill}
                       </span>

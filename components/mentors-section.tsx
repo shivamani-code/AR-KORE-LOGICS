@@ -58,7 +58,7 @@ export function MentorsSection() {
           {mentors.map((mentor, idx) => (
             <div
               key={idx}
-              className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg hover:border-purple-200 transition group"
+              className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg hover:border-blue-200 transition group"
             >
               <div className="flex items-start justify-between mb-4">
                 <div>
@@ -86,14 +86,14 @@ export function MentorsSection() {
                 {mentor.expertise.map((skill, sidx) => (
                   <span
                     key={sidx}
-                    className="px-3 py-1 bg-purple-100 text-purple-600 text-xs rounded-full font-semibold"
+                    className="px-3 py-1 bg-blue-100 text-blue-600 text-xs rounded-full font-semibold"
                   >
                     {skill}
                   </span>
                 ))}
               </div>
 
-              <button className="w-full px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-300/50 transition inline-flex items-center justify-center gap-2 group-hover:scale-105">
+              <button className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-300/50 transition inline-flex items-center justify-center gap-2 group-hover:scale-105">
                 <Calendar size={16} />
                 Book Session
               </button>

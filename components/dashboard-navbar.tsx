@@ -3,17 +3,19 @@
 import { Search, Bell, User, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useState } from 'react'
 
-export function DashboardNavbar({ onToggleSidebar }) {
+export function DashboardNavbar({ onToggleSidebar, isSidebarOpen }) {
   return (
-    <nav className="fixed top-0 left-0 right-0 md:left-64 h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 sm:px-6 z-40 shadow-sm">
+    <nav className={`fixed top-0 left-0 right-0 h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 sm:px-6 z-40 shadow-sm transition-all duration-300 ${
+      isSidebarOpen ? 'md:left-64' : 'md:left-0'
+    }`}>
       <div className="flex items-center gap-3 flex-1 max-w-xs sm:max-w-md">
         <button
           onClick={onToggleSidebar}
           className="hidden md:flex p-2 hover:bg-slate-100 rounded-lg transition text-slate-600"
-          aria-label="Toggle sidebar"
-          title="Toggle sidebar"
+          aria-label={isSidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
+          title={isSidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
         >
-          <ChevronLeft size={20} />
+          {isSidebarOpen ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
         </button>
         <div className="relative flex-1">
           <Search className="absolute left-3 top-2.5 text-slate-400" size={20} aria-hidden="true" />

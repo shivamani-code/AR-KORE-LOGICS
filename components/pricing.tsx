@@ -56,12 +56,12 @@ export function Pricing() {
               key={idx}
               className={`relative rounded-xl p-6 sm:p-8 border transition ${
                 plan.highlighted
-                  ? 'bg-gradient-to-br from-purple-50 to-pink-50 border-purple-300 shadow-2xl shadow-purple-300/20 lg:scale-105'
-                  : 'bg-white border-slate-200 hover:border-purple-200 hover:shadow-lg'
+                  ? 'bg-gradient-to-br from-blue-50 to-cyan-50 border-blue-300 shadow-2xl shadow-blue-300/20 lg:scale-105'
+                  : 'bg-white border-slate-200 hover:border-blue-200 hover:shadow-lg'
               }`}
             >
               {plan.highlighted && (
-                <div className="absolute -top-4 right-4 sm:right-8 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-bold">
+                <div className="absolute -top-4 right-4 sm:right-8 bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-bold">
                   Popular
                 </div>
               )}
@@ -83,10 +83,10 @@ export function Pricing() {
               </div>
 
               <button
-                className={`w-full py-3 px-4 rounded-lg font-semibold transition mb-8 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 ${
+                className={`w-full py-3 px-4 rounded-lg font-semibold transition mb-8 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
                   plan.highlighted
-                    ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-300/50'
-                    : 'bg-purple-100 text-purple-600 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-500 hover:text-white'
+                    ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:shadow-lg hover:shadow-blue-300/50'
+                    : 'bg-blue-100 text-blue-600 hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-500 hover:text-white'
                 }`}
                 aria-label={`${plan.cta} for ${plan.name} plan`}
               >

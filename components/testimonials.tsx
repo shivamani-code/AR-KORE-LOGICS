@@ -50,7 +50,7 @@ export function Testimonials() {
 
               <div className="flex items-center gap-4 relative z-10">
                 <div
-                  className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0"
+                  className="w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0"
                   aria-label={`Avatar for ${testimonial.name}`}
                 >
                   {testimonial.image}
