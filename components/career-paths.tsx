@@ -1,126 +1,207 @@
 'use client'
 
-import { Code2, Lock, Users, Zap, Cloud, Palette, Shield, Smartphone, ArrowRight } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { ArrowRight, CheckCircle2, Award, Clock, Star } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useUser } from '@/components/user-context'
 
 const careerPaths = [
   {
-    title: 'Full Stack Development',
-    difficulty: 'Intermediate',
-    duration: '6 months',
-    students: '12,500+',
-    icon: Code2,
-  },
-  {
-    title: 'Cybersecurity',
-    difficulty: 'Advanced',
-    duration: '8 months',
-    students: '5,200+',
-    icon: Shield,
-  },
-  {
+    id: 'ai-ml',
     title: 'AI & Machine Learning',
-    difficulty: 'Advanced',
-    duration: '7 months',
-    students: '8,900+',
-    icon: Zap,
-  },
-  {
-    title: 'Data Science',
-    difficulty: 'Intermediate',
-    duration: '6 months',
-    students: '7,800+',
-    icon: Lock,
-  },
-  {
-    title: 'Cloud Computing',
-    difficulty: 'Intermediate',
-    duration: '5 months',
-    students: '6,300+',
-    icon: Cloud,
-  },
-  {
-    title: 'UI/UX Design',
-    difficulty: 'Beginner',
-    duration: '4 months',
-    students: '9,100+',
-    icon: Palette,
-  },
-  {
-    title: 'DevOps Engineering',
-    difficulty: 'Advanced',
-    duration: '6 months',
-    students: '4,500+',
-    icon: Users,
-  },
-  {
-    title: 'Mobile App Development',
-    difficulty: 'Intermediate',
-    duration: '5 months',
-    students: '10,200+',
-    icon: Smartphone,
+    description: 'Learn Python, statistical modeling, PyTorch deep learning networks, and LLM orchestration.',
+    duration: '8-12 months',
+    colorClass: 'border-indigo-500',
+    accentColor: '#6366F1',
+    glowClass: 'shadow-[0_0_30px_rgba(99,102,241,0.15)]',
+    hoverBg: 'hover:bg-indigo-500/5',
+    selectedBg: 'bg-indigo-500/5',
+    skills: ['Python', 'PyTorch', 'NLP Basics', 'LLM Tuning'],
+    outcomes: ['Machine Learning Engineer', 'Data Scientist', 'AI Researcher'],
   },
 ]
 
 export function CareerPaths() {
+  const { selectedCareer: userSelectedCareer, setSelectedCareer: setUserSelectedCareer } = useUser()
+  const [selectedCareer, setSelectedCareer] = useState<string | null>(userSelectedCareer)
+  const router = useRouter()
+
+  useEffect(() => {
+    if (userSelectedCareer) {
+      const matched = careerPaths.find(p => p.title.toLowerCase() === userSelectedCareer.toLowerCase() || p.id === userSelectedCareer)
+      if (matched) {
+        setSelectedCareer(matched.id)
+      }
+    }
+  }, [userSelectedCareer])
+
+  const handleSelect = (careerId: string) => {
+    setSelectedCareer(careerId)
+  }
+
+  const handleLaunch = async () => {
+    if (!selectedCareer) return
+    const path = careerPaths.find(p => p.id === selectedCareer)
+    if (path) {
+      setUserSelectedCareer(path.id)
+      try {
+        await fetch('/api/settings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ careerPath: path.id }),
+        })
+      } catch (err) {
+        console.error('Failed to save selected career:', err)
+      }
+      router.push('/dashboard')
+    }
+  }
+
+  const selectedPathInfo = careerPaths.find(p => p.id === selectedCareer)
+
   return (
-    <section id="roadmaps" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-blue-50/20 to-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
-            Choose Your Learning Path
+    <section id="roadmaps" className="py-8 bg-white/[0.02] rounded-3xl border border-white/5 relative overflow-hidden">
+      {/* Background spotlights */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-primary/5 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="px-6 sm:px-8 max-w-7xl mx-auto relative z-10">
+        <div className="text-left mb-8">
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-2">
+            Choose Your Career Path
           </h2>
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-            Explore 30+ carefully curated roadmaps designed by industry experts to get you job-ready
+          <p className="text-sm text-text-secondary max-w-2xl leading-relaxed">
+            Select a career path to update your Career Workspace. You can switch paths at any time.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {careerPaths.map((path, idx) => {
-            const IconComponent = path.icon
+        {/* 4x2 Grid of Glass Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          {careerPaths.map((path) => {
+            const isSelected = selectedCareer === path.id
             return (
-              <div
-                key={idx}
-                className="bg-white/80 backdrop-blur-sm border border-slate-150 rounded-2xl p-6 hover:shadow-xl hover:border-blue-350 transition-all duration-300 group cursor-pointer flex flex-col justify-between hover:-translate-y-2 relative"
+              <button
+                key={path.id}
+                onClick={() => handleSelect(path.id)}
+                className={`text-left p-6 rounded-2xl border transition-all duration-300 relative flex flex-col justify-between h-[210px] overflow-hidden group focus:outline-none focus:ring-2 focus:ring-brand-primary/50 ${
+                  isSelected
+                    ? `border-t-2 border-x border-b ${path.colorClass} ${path.selectedBg} ${path.glowClass}`
+                    : 'border-white/[0.08] bg-white/[0.03] hover:border-white/[0.15] hover:bg-white/[0.06]'
+                }`}
+                aria-pressed={isSelected}
+                aria-label={`Select ${path.title}`}
               >
-                <div>
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-xl flex items-center justify-center mb-5 group-hover:shadow-lg group-hover:shadow-blue-300/40 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                    <IconComponent className="text-white" size={24} />
+                {/* Background color glow on hover/selected */}
+                <div 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{
+                    background: `radial-gradient(120px circle at 50% 50%, ${path.accentColor}0e, transparent 70%)`
+                  }}
+                />
+
+                <div className="w-full relative z-10">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-white transition duration-200">
+                      {path.title}
+                    </h3>
+                    
+                    {/* Checkmark Badge */}
+                    {isSelected && (
+                      <CheckCircle2 size={16} className="text-white fill-none" style={{ color: path.accentColor }} />
+                    )}
+                  </div>
+                  <p className="text-xs text-text-secondary mb-4 leading-relaxed line-clamp-3">
+                    {path.description}
+                  </p>
+                </div>
+
+                <div className="relative z-10">
+                  <span className="text-[10px] text-text-muted font-bold uppercase tracking-wider block mb-1">Duration</span>
+                  <span className="text-xs text-text-secondary font-bold">{path.duration}</span>
+                </div>
+              </button>
+            )
+          })}
+        </div>
+
+        {/* Selected Outcome details drawer */}
+        <AnimatePresence>
+          {selectedPathInfo && (
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-8 bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 sm:p-8 shadow-2xl relative"
+            >
+              {/* Glow border line on top */}
+              <div 
+                className="absolute top-0 left-6 right-6 h-[1.5px] rounded-full"
+                style={{ background: `linear-gradient(90deg, transparent, ${selectedPathInfo.accentColor}, transparent)` }}
+              />
+
+              <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+                <div className="space-y-4 flex-1">
+                  <div>
+                    <span className="text-[10px] font-bold text-text-muted uppercase tracking-wider block mb-1">Detailed Outcomes</span>
+                    <h4 className="text-lg sm:text-xl font-bold text-white">
+                      Becoming a {selectedPathInfo.title}
+                    </h4>
                   </div>
 
-                  <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
-                    {path.title}
-                  </h3>
-
-                  <div className="space-y-3 mb-6 text-sm">
-                    <div className="flex justify-between items-center text-slate-600">
-                      <span>Difficulty</span>
-                      <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold border ${
-                        path.difficulty === 'Beginner' ? 'bg-green-50 text-green-700 border-green-200' :
-                        path.difficulty === 'Intermediate' ? 'bg-blue-50 text-blue-700 border-blue-200' :
-                        'bg-indigo-55 bg-opacity-10 bg-indigo-50 text-indigo-700 border-indigo-200'
-                      }`}>
-                        {path.difficulty}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <span className="text-[10px] font-bold text-text-muted uppercase tracking-wider block mb-1.5 flex items-center gap-1">
+                        <Clock size={11} /> Skills You Will Build
                       </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {selectedPathInfo.skills.map((skill, sIdx) => (
+                          <span
+                            key={sIdx}
+                            className="px-2 py-0.5 bg-white/[0.04] border border-white/[0.08] text-text-secondary text-[10px] sm:text-xs rounded font-semibold"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                    <div className="flex justify-between text-slate-600">
-                      <span>Duration</span>
-                      <span className="text-slate-900 font-medium">{path.duration}</span>
-                    </div>
-                    <div className="flex justify-between text-slate-600">
-                      <span>Enrolled</span>
-                      <span className="text-slate-900 font-medium">{path.students}</span>
+
+                    <div>
+                      <span className="text-[10px] font-bold text-text-muted uppercase tracking-wider block mb-1.5 flex items-center gap-1">
+                        <Award size={11} /> Target Job Roles
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {selectedPathInfo.outcomes.map((role, rIdx) => (
+                          <span
+                            key={rIdx}
+                            className="px-2 py-0.5 bg-white/[0.04] border border-white/[0.08] text-white/90 text-[10px] sm:text-xs rounded flex items-center gap-1.5 font-semibold"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0" />
+                            {role}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <button className="w-full mt-4 px-4 py-2.5 bg-blue-50 text-blue-600 rounded-xl font-semibold border border-blue-100 hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-500 hover:text-white hover:border-transparent transition-all duration-300 inline-flex items-center justify-center gap-2 group-hover:translate-x-0 group-hover:shadow-md active:scale-95">
-                  View Roadmap
-                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                </button>
+                <div className="w-full lg:w-auto flex-shrink-0">
+                  <button
+                    onClick={handleLaunch}
+                    className="w-full lg:w-auto h-12 px-8 text-white font-bold text-sm rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
+                    style={{
+                      background: `linear-gradient(135deg, ${selectedPathInfo.accentColor}, ${selectedPathInfo.accentColor}bb)`,
+                      boxShadow: `0 0 25px ${selectedPathInfo.accentColor}35`
+                    }}
+                  >
+                    Launch Career OS Workspace
+                    <ArrowRight size={15} />
+                  </button>
+                </div>
               </div>
-            )
-          })}
-        </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   )

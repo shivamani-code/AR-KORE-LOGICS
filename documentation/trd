@@ -1,0 +1,1029 @@
+# SKILLVERSE
+
+# Technical Requirements Document (TRD)
+
+## Version 1.0
+
+---
+
+# 1. Document Purpose
+
+This Technical Requirements Document defines the complete technical architecture, system design, infrastructure, database structure, security model, deployment strategy, integrations, and scalability plan for SkillVerse.
+
+This document serves as the technical blueprint for:
+
+* Frontend Development
+* Backend Development
+* Firebase Configuration
+* API Design
+* Database Design
+* Deployment
+* Security
+* Future Scaling
+
+---
+
+# 2. Product Overview
+
+SkillVerse is a Career Workspace Platform that guides users from beginner to industry-ready professional through:
+
+* Career Roadmaps
+* Learning Resources
+* Projects
+* Mentorship
+* Community
+* Progress Tracking
+
+The platform is roadmap-first rather than course-first.
+
+---
+
+# 3. System Architecture
+
+Architecture Type:
+
+Modern Serverless Architecture
+
+Structure:
+
+Client Layer
+
+↓
+
+Frontend Application
+
+↓
+
+Firebase Services
+
+↓
+
+Database & Storage
+
+↓
+
+External Integrations
+
+---
+
+# 4. Technology Stack
+
+## Frontend
+
+Framework
+
+Next.js 15
+
+Language
+
+TypeScript
+
+Styling
+
+Tailwind CSS
+
+UI Components
+
+ShadCN UI
+
+Icons
+
+Lucide Icons
+
+Animations
+
+Framer Motion
+
+Forms
+
+React Hook Form
+
+Validation
+
+Zod
+
+State Management
+
+Zustand
+
+---
+
+## Backend
+
+Backend Platform
+
+Firebase
+
+Services Used
+
+Firebase Authentication
+
+Firestore Database
+
+Firebase Storage
+
+Cloud Functions
+
+Firebase Analytics
+
+Firebase Hosting (Optional)
+
+---
+
+## Deployment
+
+Frontend
+
+Vercel
+
+Backend
+
+Firebase
+
+CDN
+
+Vercel Edge Network
+
+Monitoring
+
+Firebase Analytics
+
+Sentry
+
+---
+
+# 5. Application Structure
+
+/app
+
+Public Pages
+
+Authentication
+
+Dashboard
+
+Course Pages
+
+Community
+
+Mentorship
+
+Settings
+
+---
+
+/components
+
+Shared Components
+
+Buttons
+
+Cards
+
+Inputs
+
+Modals
+
+Sidebar
+
+Navigation
+
+---
+
+/features
+
+Authentication
+
+Courses
+
+Roadmaps
+
+Resources
+
+Community
+
+Mentorship
+
+---
+
+/lib
+
+Firebase Config
+
+Utilities
+
+Helpers
+
+Constants
+
+---
+
+# 6. Authentication System
+
+Provider
+
+Firebase Authentication
+
+Methods
+
+Email/Password
+
+Google OAuth
+
+Forgot Password
+
+Session Persistence
+
+---
+
+User Roles
+
+Student
+
+Mentor
+
+Admin
+
+---
+
+Authorization
+
+Role Based Access Control
+
+RBAC
+
+---
+
+# 7. Database Design
+
+Database
+
+Cloud Firestore
+
+---
+
+users
+
+userId
+
+name
+
+email
+
+role
+
+profileImage
+
+careerPath
+
+joinedAt
+
+settings
+
+---
+
+courses
+
+courseId
+
+title
+
+description
+
+slug
+
+duration
+
+difficulty
+
+thumbnail
+
+status
+
+---
+
+roadmaps
+
+roadmapId
+
+courseId
+
+title
+
+description
+
+order
+
+---
+
+modules
+
+moduleId
+
+roadmapId
+
+title
+
+description
+
+duration
+
+difficulty
+
+resourcesCount
+
+projectsCount
+
+status
+
+---
+
+resources
+
+resourceId
+
+moduleId
+
+title
+
+type
+
+url
+
+difficulty
+
+tags
+
+---
+
+projects
+
+projectId
+
+moduleId
+
+title
+
+description
+
+difficulty
+
+estimatedTime
+
+---
+
+progress
+
+userId
+
+courseId
+
+completedModules
+
+currentModule
+
+completionPercentage
+
+lastUpdated
+
+---
+
+community_posts
+
+postId
+
+authorId
+
+title
+
+content
+
+tags
+
+createdAt
+
+---
+
+community_comments
+
+commentId
+
+postId
+
+authorId
+
+content
+
+createdAt
+
+---
+
+mentors
+
+mentorId
+
+name
+
+expertise
+
+experience
+
+bio
+
+availability
+
+rating
+
+---
+
+sessions
+
+sessionId
+
+studentId
+
+mentorId
+
+date
+
+status
+
+notes
+
+---
+
+notifications
+
+notificationId
+
+userId
+
+title
+
+message
+
+read
+
+createdAt
+
+---
+
+# 8. Roadmap Engine
+
+Purpose
+
+Drive learning progression.
+
+---
+
+Module States
+
+Locked
+
+Available
+
+In Progress
+
+Completed
+
+---
+
+Unlock Logic
+
+Module N+1 unlocks only after:
+
+Module N completed.
+
+---
+
+Completion Logic
+
+User completes:
+
+Resources
+
+Assignments
+
+Projects
+
+↓
+
+Module marked complete.
+
+↓
+
+Progress updated.
+
+↓
+
+Next module unlocked.
+
+---
+
+# 9. Resource Management
+
+Supported Resource Types
+
+Video
+
+Article
+
+Documentation
+
+Book
+
+Tool
+
+Practice Platform
+
+GitHub Repository
+
+---
+
+Features
+
+Search
+
+Filtering
+
+Bookmarking
+
+Progress Tracking
+
+Resource Recommendations
+
+---
+
+# 10. Community System
+
+Features
+
+Discussion Feed
+
+Comments
+
+Upvotes
+
+Bookmarks
+
+Tags
+
+Study Groups
+
+Events
+
+---
+
+Moderation
+
+Admin Controls
+
+Report Content
+
+Delete Content
+
+User Suspension
+
+---
+
+# 11. Mentorship System
+
+Features
+
+Mentor Directory
+
+Mentor Profiles
+
+Session Booking
+
+Resume Reviews
+
+Mock Interviews
+
+Career Guidance
+
+---
+
+Booking Flow
+
+Student
+
+↓
+
+Select Mentor
+
+↓
+
+Choose Slot
+
+↓
+
+Confirm Session
+
+↓
+
+Session Scheduled
+
+---
+
+# 12. Notification System
+
+Types
+
+Roadmap Progress
+
+Module Unlock
+
+Mentorship Updates
+
+Community Activity
+
+Announcements
+
+---
+
+Delivery
+
+In-App Notifications
+
+Email Notifications
+
+---
+
+# 13. Search System
+
+Search Scope
+
+Courses
+
+Modules
+
+Resources
+
+Mentors
+
+Community Posts
+
+---
+
+Features
+
+Keyword Search
+
+Filtering
+
+Sorting
+
+Suggestions
+
+---
+
+# 14. Analytics
+
+Track
+
+User Registrations
+
+Course Enrollments
+
+Roadmap Completion
+
+Module Completion
+
+Resource Engagement
+
+Community Engagement
+
+Mentorship Sessions
+
+---
+
+Tools
+
+Firebase Analytics
+
+Custom Events
+
+---
+
+# 15. Security Requirements
+
+Authentication
+
+Firebase Auth
+
+---
+
+Authorization
+
+Role-Based Access
+
+---
+
+Data Security
+
+Firestore Rules
+
+Storage Rules
+
+Input Validation
+
+Sanitization
+
+---
+
+Protection
+
+XSS Protection
+
+CSRF Protection
+
+Rate Limiting
+
+Secure API Access
+
+---
+
+# 16. Performance Requirements
+
+Page Load
+
+< 2 Seconds
+
+---
+
+Lighthouse Score
+
+90+
+
+---
+
+Time To Interactive
+
+< 3 Seconds
+
+---
+
+Image Optimization
+
+Next.js Image
+
+Lazy Loading
+
+Compression
+
+---
+
+Caching
+
+Static Assets
+
+Firestore Query Optimization
+
+---
+
+# 17. Accessibility Requirements
+
+WCAG AA Compliance
+
+Keyboard Navigation
+
+Screen Reader Support
+
+Focus States
+
+Color Contrast Standards
+
+---
+
+# 18. Responsive Requirements
+
+Desktop
+
+1440px+
+
+Laptop
+
+1024px+
+
+Tablet
+
+768px+
+
+Mobile
+
+375px+
+
+---
+
+All Features Must Work Across:
+
+Chrome
+
+Edge
+
+Safari
+
+Firefox
+
+---
+
+# 19. API Requirements
+
+Future API Layer
+
+REST API Ready
+
+GraphQL Ready
+
+---
+
+Potential Endpoints
+
+/auth
+
+/users
+
+/courses
+
+/roadmaps
+
+/modules
+
+/resources
+
+/community
+
+/mentors
+
+/sessions
+
+/progress
+
+---
+
+# 20. Deployment Pipeline
+
+Developer
+
+↓
+
+GitHub
+
+↓
+
+Pull Request
+
+↓
+
+Review
+
+↓
+
+Merge
+
+↓
+
+Vercel Build
+
+↓
+
+Production Deployment
+
+---
+
+Environment Setup
+
+Development
+
+Staging
+
+Production
+
+---
+
+# 21. Scalability Plan
+
+Version 1
+
+1,000 Users
+
+---
+
+Version 2
+
+10,000 Users
+
+---
+
+Version 3
+
+100,000+ Users
+
+---
+
+Migration Path
+
+Firebase
+
+↓
+
+Node.js Backend
+
+↓
+
+PostgreSQL
+
+↓
+
+Microservices
+
+(If required)
+
+---
+
+# 22. Future Integrations
+
+AI Mentor
+
+Gemini API
+
+---
+
+Resume Builder
+
+PDF Generation
+
+---
+
+Interview Simulator
+
+AI Voice Systems
+
+---
+
+Internship Matching
+
+Job APIs
+
+---
+
+Certificate System
+
+Digital Credentials
+
+---
+
+# 23. MVP Scope
+
+Included
+
+Authentication
+
+Career Selection
+
+My Course Workspace
+
+Roadmap Engine
+
+Module Learning
+
+Resources
+
+Community
+
+Mentorship
+
+Settings
+
+Progress Tracking
+
+---
+
+Excluded
+
+AI Mentor
+
+Certificates
+
+Job Board
+
+Resume Builder
+
+Interview Simulator
+
+Advanced Analytics
+
+---
+
+# Technical Success Criteria
+
+The platform should support a complete learning journey from career selection to industry readiness while maintaining:
+
+* Fast Performance
+* High Reliability
+* Strong Security
+* Scalability
+* Excellent User Experience
+* Maintainable Codebase
+* Future Expansion Capability

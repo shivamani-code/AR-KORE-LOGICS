@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AR EduTek — CBSE AI Class IX · Week 3 Daily Posters</title>
+<link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Poppins:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&family=Lilita+One&family=Nunito:wght@400;700;800;900&family=Righteous&family=Baloo+2:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#0d0d1a;font-family:'Poppins',sans-serif;min-height:100vh}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:200;background:rgba(10,10,20,.97);backdrop-filter:blur(12px);border-bottom:2px solid #1e1e3a;padding:10px 16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.nav-logo{font-family:'Boogaloo',cursive;font-size:18px;color:#60a5fa;margin-right:8px;white-space:nowrap}
+.nav-sub{font-size:11px;color:#6b7280;margin-right:12px}
+.day-btn{font-family:'Poppins',sans-serif;font-weight:700;font-size:12px;padding:6px 14px;border-radius:30px;border:2px solid transparent;cursor:pointer;transition:all .25s;background:#1a1a2e;color:#9ca3af;white-space:nowrap}
+.day-btn:hover{transform:scale(1.06)}
+.day-btn.active{color:#fff;transform:scale(1.06)}
+
+/* ── POSTER CONTAINER ── */
+.poster-wrap{display:none;padding:24px 16px 60px;max-width:1000px;margin:0 auto;animation:fadeUp .45s ease}
+.poster-wrap.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── PRINT ── */
+.print-btn{display:inline-flex;align-items:center;gap:6px;font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;padding:8px 20px;border-radius:30px;border:2px solid;cursor:pointer;margin-bottom:18px;transition:all .2s;background:transparent}
+.print-btn:hover{transform:scale(1.04)}
+@media print{.nav,.print-btn{display:none!important}.poster-wrap{display:block!important;padding:0;max-width:100%}}
+
+/* ── POSTER BASE ── */
+.poster{border-radius:28px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.7)}
+
+/* shared detail-block — colours overridden inline per day */
+.detail-block{border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.detail-block .db-head{font-size:13px;font-weight:700;margin-bottom:7px}
+.detail-block .db-body{font-size:13px;line-height:1.75}
+
+/* ══════════════ DAY 1 — Royal Blue ══════════════ */
+#d1 .poster{background:#020b18;color:#fff}
+#d1 .p-header{background:linear-gradient(135deg,#0c1a3a 0%,#1e3a8a 55%,#2563eb 100%);padding:44px 40px 36px;position:relative;overflow:hidden;border-bottom:3px solid #60a5fa}
+#d1 .p-header::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 50%,rgba(96,165,250,.28) 0%,transparent 65%)}
+#d1 .day-chip{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:4px;color:#bfdbfe;background:rgba(96,165,250,.15);border:1px solid #60a5fa;padding:6px 16px;border-radius:20px;display:inline-block;margin-bottom:14px;position:relative;z-index:2}
+#d1 .p-title{font-family:'Lilita One',cursive;font-size:52px;line-height:1.05;color:#fff;text-shadow:0 0 40px rgba(96,165,250,.8);position:relative;z-index:2}
+#d1 .p-title span{color:#93c5fd}
+#d1 .p-emoji{position:absolute;right:40px;top:50%;transform:translateY(-50%);font-size:100px;opacity:.18;line-height:1}
+#d1 .p-subtitle{font-size:15px;color:#bfdbfe;margin-top:10px;font-weight:600;position:relative;z-index:2}
+#d1 .p-body{padding:32px 40px;background:#030d1e}
+#d1 .section-tag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:3px;color:#60a5fa;margin-bottom:10px}
+#d1 .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:14px;margin-bottom:28px}
+#d1 .card{background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.3);border-radius:16px;padding:18px;transition:transform .2s}
+#d1 .card:hover{transform:translateY(-4px)}
+#d1 .card-icon{font-size:32px;margin-bottom:8px}
+#d1 .card-title{font-family:'Boogaloo',cursive;font-size:18px;color:#93c5fd;margin-bottom:4px}
+#d1 .card-body{font-size:13px;color:#bfdbfe;line-height:1.6}
+#d1 .step-list{list-style:none;margin-bottom:26px}
+#d1 .step-list li{display:flex;gap:12px;margin-bottom:14px;padding:14px 16px;border-radius:14px;background:rgba(96,165,250,.07);border-left:4px solid #60a5fa;align-items:flex-start}
+#d1 .step-num{font-family:'Boogaloo',cursive;font-size:26px;color:#60a5fa;min-width:32px;line-height:1}
+#d1 .step-content h4{font-weight:800;font-size:14px;color:#93c5fd;margin-bottom:3px}
+#d1 .step-content p{font-size:13px;color:#bfdbfe;line-height:1.55}
+#d1 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+#d1 .joke-box{background:rgba(96,165,250,.07);border:2px dashed #1e40af;border-radius:16px;padding:18px 22px;margin:24px 0;display:flex;gap:14px;align-items:flex-start}
+#d1 .joke-icon{font-size:28px;flex-shrink:0}
+#d1 .joke-text{font-size:14px;color:#dbeafe;line-height:1.7}
+#d1 .joke-text strong{color:#93c5fd}
+#d1 .activity-bar{background:linear-gradient(90deg,#1e40af,#2563eb);border-radius:14px;padding:16px 22px;margin-top:18px;display:flex;gap:16px;align-items:flex-start}
+#d1 .act-label{font-family:'Boogaloo',cursive;font-size:20px;color:#fff;white-space:nowrap}
+#d1 .act-body{font-size:13px;color:#bfdbfe;line-height:1.6}
+#d1 .tag-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+#d1 .tag{font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;border:1px solid}
+#d1 .p-footer{background:#020b18;border-top:1px solid #0d1e3a;padding:14px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+#d1 .p-footer-left{font-family:'Space Mono',monospace;font-size:12px;color:#2563eb}
+#d1 .p-footer-right{font-size:12px;color:#6b7280}
+
+/* ══════════════ DAY 2 — Crimson Shield ══════════════ */
+#d2 .poster{background:#0f0206;color:#fff;font-family:'Nunito',sans-serif}
+#d2 .p-header{background:linear-gradient(135deg,#450a0a 0%,#7f1d1d 55%,#b91c1c 100%);padding:40px 40px 32px;position:relative;overflow:hidden;border-bottom:3px solid #f87171}
+#d2 .p-header::before{content:'🛡️';position:absolute;right:-10px;top:-20px;font-size:180px;opacity:.08;transform:rotate(15deg)}
+#d2 .day-chip{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:4px;color:#fecaca;background:rgba(248,113,113,.12);border:1px solid #f87171;padding:6px 16px;border-radius:20px;display:inline-block;margin-bottom:14px;position:relative;z-index:2}
+#d2 .p-title{font-family:'Righteous',cursive;font-size:48px;line-height:1.05;color:#fff;text-shadow:0 0 28px rgba(248,113,113,.7),4px 4px 0 #7f1d1d;position:relative;z-index:2}
+#d2 .p-title span{color:#fca5a5}
+#d2 .p-emoji{position:absolute;right:40px;top:50%;transform:translateY(-50%);font-size:90px;opacity:.15;line-height:1;z-index:1}
+#d2 .p-subtitle{font-size:14px;color:#fca5a5;margin-top:8px;font-weight:700;font-family:'Space Mono',monospace;position:relative;z-index:2}
+#d2 .p-body{padding:30px 40px;background:#180308}
+#d2 .section-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#f87171;border-left:3px solid #f87171;padding-left:10px;margin-bottom:12px}
+#d2 .pvs-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+#d2 .pvs-box{border-radius:14px;padding:18px}
+#d2 .pvs-box .pb-head{font-family:'Righteous',cursive;font-size:20px;margin-bottom:10px}
+#d2 .pvs-box .pb-body{font-size:13px;line-height:1.65}
+#d2 .threat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:22px}
+#d2 .threat-card{background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.28);border-radius:14px;padding:16px}
+#d2 .threat-card .tc-icon{font-size:28px;margin-bottom:6px}
+#d2 .threat-card .tc-title{font-family:'Boogaloo',cursive;font-size:17px;color:#fca5a5;margin-bottom:4px}
+#d2 .threat-card .tc-body{font-size:12px;color:#fecaca;line-height:1.6}
+#d2 .do-dont{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+#d2 .dd-box{border-radius:12px;padding:14px 16px}
+#d2 .dd-box .dh{font-family:'Righteous',cursive;font-size:15px;margin-bottom:8px}
+#d2 .dd-box .di{font-size:12px;padding:5px 8px;border-radius:7px;margin-bottom:5px;line-height:1.5}
+#d2 .joke-box{background:rgba(248,113,113,.06);border:2px dashed #b91c1c;border-radius:12px;padding:16px 20px;margin:18px 0;display:flex;gap:12px;align-items:flex-start}
+#d2 .joke-text{font-size:13px;color:#fecaca;line-height:1.7}
+#d2 .joke-text strong{color:#fca5a5}
+#d2 .activity-bar{background:linear-gradient(90deg,#7f1d1d,#b91c1c);border-radius:12px;padding:14px 20px;display:flex;gap:14px;align-items:flex-start}
+#d2 .act-label{font-family:'Righteous',cursive;font-size:18px;color:#fff;white-space:nowrap}
+#d2 .act-body{font-size:13px;color:#fecaca;line-height:1.6}
+#d2 .p-footer{background:#0f0206;border-top:2px solid #f87171;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+#d2 .p-footer-left{font-family:'Space Mono',monospace;font-size:11px;color:#f87171}
+#d2 .p-footer-right{font-size:11px;color:#6b7280}
+
+/* ══════════════ DAY 3 — Violet Storm ══════════════ */
+#d3 .poster{background:#0a0416;color:#fff;font-family:'Poppins',sans-serif}
+#d3 .p-header{background:linear-gradient(135deg,#2e1065 0%,#4c1d95 55%,#6d28d9 100%);padding:44px 40px 36px;position:relative;overflow:hidden;border-bottom:3px solid #a78bfa}
+#d3 .p-header::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 75% 50%,rgba(167,139,250,.3) 0%,transparent 65%)}
+#d3 .day-chip{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:4px;color:#ddd6fe;background:rgba(167,139,250,.15);border:1px solid #a78bfa;padding:6px 16px;border-radius:20px;display:inline-block;margin-bottom:14px;position:relative;z-index:2}
+#d3 .p-title{font-family:'Baloo 2',cursive;font-weight:800;font-size:46px;line-height:1.05;color:#fff;position:relative;z-index:2}
+#d3 .p-title span{color:#ddd6fe}
+#d3 .p-emoji{position:absolute;right:38px;top:50%;transform:translateY(-50%);font-size:90px;opacity:.18;z-index:1}
+#d3 .p-subtitle{font-size:14px;color:#ddd6fe;margin-top:8px;font-weight:700;position:relative;z-index:2}
+#d3 .p-body{padding:28px 40px;background:#0e0520}
+#d3 .section-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#a78bfa;margin-bottom:10px}
+#d3 .type-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-bottom:24px}
+#d3 .type-card{background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.28);border-radius:16px;padding:18px;transition:transform .2s}
+#d3 .type-card:hover{transform:translateY(-4px)}
+#d3 .type-card .tc-icon{font-size:32px;margin-bottom:8px}
+#d3 .type-card .tc-title{font-family:'Boogaloo',cursive;font-size:18px;color:#ddd6fe;margin-bottom:4px}
+#d3 .type-card .tc-body{font-size:13px;color:#c4b5fd;line-height:1.6}
+#d3 .preproc-box{background:rgba(167,139,250,.06);border:1.5px solid rgba(167,139,250,.22);border-radius:14px;padding:18px 20px;margin-bottom:22px}
+#d3 .preproc-box .ppb-title{font-family:'Baloo 2',cursive;font-weight:800;font-size:18px;color:#a78bfa;margin-bottom:12px}
+#d3 .preproc-box .ppb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:10px}
+#d3 .preproc-box .ppb-cell{background:rgba(167,139,250,.07);border-radius:10px;padding:12px}
+#d3 .preproc-box .ppb-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:#a78bfa;margin-bottom:4px}
+#d3 .preproc-box .ppb-body{font-size:12px;color:#ddd6fe;line-height:1.55}
+#d3 .structured-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+#d3 .str-box{border-radius:12px;padding:14px 16px}
+#d3 .str-box .sb-head{font-weight:800;font-size:13px;margin-bottom:7px}
+#d3 .str-box .sb-body{font-size:12px;line-height:1.65}
+#d3 .joke-box{background:rgba(167,139,250,.06);border-left:5px solid #a78bfa;border-radius:0 14px 14px 0;padding:16px 20px;margin:20px 0;display:flex;gap:12px;align-items:flex-start}
+#d3 .joke-text{font-size:14px;color:#e9d5ff;line-height:1.7}
+#d3 .joke-text strong{color:#a78bfa}
+#d3 .activity-bar{background:linear-gradient(90deg,#4c1d95,#6d28d9);border-radius:14px;padding:16px 22px;margin-top:16px;display:flex;gap:14px;align-items:flex-start}
+#d3 .act-label{font-family:'Baloo 2',cursive;font-weight:800;font-size:20px;color:#fff;white-space:nowrap}
+#d3 .act-body{font-size:13px;color:#ddd6fe;line-height:1.6}
+#d3 .p-footer{background:#0a0416;border-top:2px solid #2e1065;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+#d3 .p-footer-left{font-family:'Space Mono',monospace;font-size:11px;color:#a78bfa}
+#d3 .p-footer-right{font-size:11px;color:#6b7280}
+
+/* ══════════════ DAY 4 — Solar Amber ══════════════ */
+#d4 .poster{background:#fefce8;color:#1a1a1a;font-family:'Boogaloo',cursive}
+#d4 .p-header{background:linear-gradient(135deg,#713f12 0%,#92400e 55%,#b45309 100%);padding:40px 40px 32px;position:relative;overflow:hidden;border-bottom:6px solid #1a1a1a}
+#d4 .p-header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(0,0,0,.04) 0px,rgba(0,0,0,.04) 2px,transparent 2px,transparent 10px)}
+#d4 .day-chip{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:4px;color:#fefce8;background:rgba(254,252,232,.15);border:2px solid #fefce8;padding:5px 14px;border-radius:4px;display:inline-block;margin-bottom:12px;position:relative;z-index:2}
+#d4 .p-title{font-family:'Boogaloo',cursive;font-size:52px;line-height:1;color:#fefce8;text-shadow:4px 4px 0 #1a1a1a;-webkit-text-stroke:1px #1a1a1a;position:relative;z-index:2}
+#d4 .p-title span{color:#fde68a;-webkit-text-stroke:1px #1a1a1a}
+#d4 .p-emoji{position:absolute;right:38px;top:50%;transform:translateY(-50%);font-size:90px;opacity:.22;z-index:1}
+#d4 .p-subtitle{font-size:15px;color:#fef3c7;margin-top:8px;font-weight:700;-webkit-text-stroke:.5px rgba(0,0,0,.2);position:relative;z-index:2}
+#d4 .p-body{padding:28px 40px;background:#fefce8}
+#d4 .section-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#92400e;margin-bottom:10px}
+#d4 .chart-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px;margin-bottom:22px}
+#d4 .chart-card{background:#fff;border:3px solid #1a1a1a;border-radius:14px;padding:16px 12px;text-align:center;box-shadow:4px 4px 0 #92400e;transition:transform .2s}
+#d4 .chart-card:hover{transform:translateY(-3px)}
+#d4 .chart-card .cc-icon{font-size:28px;margin-bottom:6px}
+#d4 .chart-card .cc-name{font-family:'Boogaloo',cursive;font-size:16px;color:#92400e;margin-bottom:4px}
+#d4 .chart-card .cc-use{font-size:11px;color:#374151;line-height:1.5;font-family:'Poppins',sans-serif}
+#d4 .decision-box{background:#fff;border:3px solid #1a1a1a;border-radius:14px;padding:18px;margin-bottom:20px;box-shadow:5px 5px 0 #b45309}
+#d4 .decision-box .dbox-title{font-family:'Boogaloo',cursive;font-size:20px;color:#92400e;margin-bottom:12px}
+#d4 .decision-box .dbox-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:10px}
+#d4 .decision-box .dg-cell{background:#fefce8;border:1.5px solid #d97706;border-radius:10px;padding:11px}
+#d4 .decision-box .dg-q{font-family:'Space Mono',monospace;font-size:9px;color:#92400e;letter-spacing:1.5px;margin-bottom:4px;font-weight:700}
+#d4 .decision-box .dg-body{font-size:12px;color:#1a1a1a;line-height:1.5;font-family:'Poppins',sans-serif}
+#d4 .joke-box{background:#92400e;border:3px solid #1a1a1a;border-radius:14px;padding:16px 20px;margin:18px 0;display:flex;gap:12px;align-items:flex-start;box-shadow:5px 5px 0 #1a1a1a}
+#d4 .joke-text{font-size:13px;color:#fef3c7;line-height:1.7;font-family:'Poppins',sans-serif}
+#d4 .joke-text strong{color:#fef08a}
+#d4 .activity-bar{background:#1a1a1a;border-radius:14px;padding:16px 22px;margin-top:16px;display:flex;gap:14px;align-items:flex-start;box-shadow:5px 5px 0 #92400e}
+#d4 .act-label{font-family:'Boogaloo',cursive;font-size:22px;color:#fde68a;white-space:nowrap}
+#d4 .act-body{font-size:13px;color:#f5f5f5;line-height:1.6;font-family:'Poppins',sans-serif}
+#d4 .p-footer{background:#92400e;border-top:4px solid #1a1a1a;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+#d4 .p-footer-left{font-family:'Space Mono',monospace;font-size:11px;color:#fefce8}
+#d4 .p-footer-right{font-size:11px;color:#fef3c7;font-family:'Poppins',sans-serif}
+
+/* ══════════════ DAY 5 — Mint Glow ══════════════ */
+#d5 .poster{background:#f0fdf4;color:#1a1a1a;font-family:'Baloo 2',cursive}
+#d5 .p-header{background:linear-gradient(135deg,#14532d 0%,#15803d 55%,#16a34a 100%);padding:40px 40px 32px;position:relative;overflow:hidden}
+#d5 .p-header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(60deg,rgba(255,255,255,.03) 0px,rgba(255,255,255,.03) 1px,transparent 1px,transparent 12px)}
+#d5 .day-chip{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:4px;color:#bbf7d0;background:rgba(187,247,208,.12);border:1px solid rgba(187,247,208,.5);padding:5px 14px;border-radius:20px;display:inline-block;margin-bottom:12px;position:relative;z-index:2}
+#d5 .p-title{font-family:'Baloo 2',cursive;font-weight:800;font-size:48px;line-height:1.05;color:#fff;text-shadow:0 4px 20px rgba(0,0,0,.3);position:relative;z-index:2}
+#d5 .p-title span{color:#bbf7d0}
+#d5 .p-emoji{position:absolute;right:38px;top:50%;transform:translateY(-50%);font-size:90px;opacity:.2;z-index:1}
+#d5 .p-subtitle{font-size:14px;color:#bbf7d0;margin-top:8px;font-weight:700;position:relative;z-index:2}
+#d5 .p-body{padding:28px 40px;background:#f0fdf4}
+#d5 .section-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#15803d;margin-bottom:10px}
+#d5 .step-list{list-style:none;margin-bottom:24px}
+#d5 .step-list li{display:flex;gap:12px;margin-bottom:12px;padding:13px 16px;border-radius:12px;background:#fff;border:1.5px solid #bbf7d0;box-shadow:0 2px 8px rgba(21,128,61,.1);align-items:flex-start}
+#d5 .step-num{font-family:'Boogaloo',cursive;font-size:26px;color:#16a34a;min-width:32px;line-height:1}
+#d5 .step-content h4{font-weight:800;font-size:14px;color:#14532d;margin-bottom:3px}
+#d5 .step-content p{font-size:13px;color:#374151;line-height:1.55}
+#d5 .review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:20px}
+#d5 .rev-card{background:#fff;border-radius:14px;padding:16px;border:2px solid #bbf7d0;box-shadow:0 3px 10px rgba(21,128,61,.1)}
+#d5 .rev-card .rc-day{font-family:'Space Mono',monospace;font-size:10px;color:#16a34a;font-weight:700;margin-bottom:5px}
+#d5 .rev-card .rc-topic{font-weight:800;font-size:14px;color:#14532d;margin-bottom:5px;line-height:1.3}
+#d5 .rev-card .rc-key{font-size:12px;color:#374151;line-height:1.5}
+#d5 .quiz-box{background:#fff;border:1.5px solid #bbf7d0;border-radius:14px;padding:18px 20px;margin-bottom:18px;box-shadow:0 4px 14px rgba(21,128,61,.08)}
+#d5 .quiz-title{font-family:'Baloo 2',cursive;font-weight:800;font-size:19px;color:#15803d;margin-bottom:12px}
+#d5 .q-row{background:#f0fdf4;border-radius:10px;padding:11px 14px;margin-bottom:8px;border-left:3px solid}
+#d5 .q-text{font-size:13px;color:#374151;line-height:1.6;font-family:'Poppins',sans-serif}
+#d5 .q-hint{font-size:11px;color:#6b7280;margin-top:3px;font-family:'Poppins',sans-serif}
+#d5 .joke-box{background:#ecfdf5;border-left:5px solid #16a34a;border-radius:0 14px 14px 0;padding:16px 20px;margin:20px 0;display:flex;gap:12px;align-items:flex-start}
+#d5 .joke-text{font-size:14px;color:#14532d;line-height:1.7;font-family:'Poppins',sans-serif}
+#d5 .joke-text strong{color:#15803d}
+#d5 .activity-bar{background:linear-gradient(90deg,#15803d,#16a34a);border-radius:14px;padding:16px 22px;margin-top:16px;display:flex;gap:14px;align-items:flex-start}
+#d5 .act-label{font-family:'Baloo 2',cursive;font-weight:800;font-size:20px;color:#fff;white-space:nowrap}
+#d5 .act-body{font-size:13px;color:#dcfce7;line-height:1.6;font-family:'Poppins',sans-serif}
+#d5 .p-footer{background:#ecfdf5;border-top:2px solid #bbf7d0;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+#d5 .p-footer-left{font-family:'Space Mono',monospace;font-size:11px;color:#16a34a}
+#d5 .p-footer-right{font-size:11px;color:#6b7280}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<div class="nav">
+  <span class="nav-logo">AR EduTek 📊</span>
+  <span class="nav-sub">CBSE AI · Class IX · Week 3 · Data Literacy</span>
+  <button class="day-btn active" onclick="show(1)">Day 1 — Data Literacy</button>
+  <button class="day-btn" onclick="show(2)">Day 2 — Privacy &amp; Cyber Safety</button>
+  <button class="day-btn" onclick="show(3)">Day 3 — Data Types &amp; Cleaning</button>
+  <button class="day-btn" onclick="show(4)">Day 4 — Data Visualisation</button>
+  <button class="day-btn" onclick="show(5)">Day 5 — Interactive Dashboard</button>
+</div>
+
+<!-- ═══════════════════════════════════ DAY 1 ═══════════════════════════════════ -->
+<div class="poster-wrap active" id="d1">
+  <button class="print-btn" style="color:#60a5fa;border-color:#1e40af" onclick="window.print()">🖨️ Print / Save Poster</button>
+  <div class="poster">
+    <div class="p-header">
+      <div class="day-chip">WEEK 3 · DAY 1 · PERIOD 1 + 2</div>
+      <div class="p-title">Data <span>Literacy</span><br>Basics</div>
+      <div class="p-subtitle">📖 In a world drowning in data, the literate person WINS!</div>
+      <div class="p-emoji">📖</div>
+    </div>
+    <div class="p-body">
+
+      <div class="section-tag">// WHAT IS DATA LITERACY?</div>
+      <div class="detail-block" style="background:rgba(96,165,250,.07);border:1px solid rgba(96,165,250,.22);">
+        <div class="db-head" style="color:#60a5fa;">📊 Data Literacy — The Most Important New Skill of the AI Age</div>
+        <div class="db-body" style="color:#bfdbfe;">Data Literacy is the ability to read, understand, create, and communicate with data as information. Just as traditional literacy means reading and writing words, data literacy means reading and writing with numbers, graphs, and datasets. In the AI age, data literacy is as essential as being able to read a textbook. Without it, you cannot question AI outputs, spot misinformation, or make informed decisions. Every career in 2030 will require data literacy — from farming to medicine to law!</div>
+      </div>
+
+      <div class="section-tag">// THE 5-STEP DATA LITERACY PROCESS FRAMEWORK</div>
+      <ul class="step-list">
+        <li>
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>ASK — Define a Clear Question</h4>
+            <p>What question are you trying to answer with data? Example: "Is air quality in Hyderabad worsening over the past 5 years?" A clear question drives the entire process. A vague question produces meaningless answers — garbage in, garbage out!</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>OBTAIN — Find Reliable Data Sources</h4>
+            <p>Where will you get your data? Government databases (data.gov.in), research papers, sensors, surveys. Ask: Is this source accurate? Is the data recent? Is the publisher trustworthy? Wikipedia is NOT a primary source for data!</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>ANALYSE — Find Patterns and Trends</h4>
+            <p>Apply statistics and visualisation tools to identify trends, patterns, and outliers. Use mean, median, mode, and graphs. Ask: What is the data telling me? What is it NOT showing me? Missing data is also information!</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>INTERPRET — Understand the Real Meaning</h4>
+            <p>What does the data mean in real life? Do the patterns confirm your hypothesis or contradict it? Are there alternative explanations? Is correlation being confused with causation? "Ice cream sales and drowning deaths both rise in summer" — correlation, NOT causation!</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h4>DECIDE — Take Informed Action</h4>
+            <p>Use your data insights to make a decision or recommendation. The entire point of data analysis is to inform better decisions — in your AI project, in your school, in your career, and in society. Data without decision is wasted effort!</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="section-tag">// WHY DATA LITERACY IS CRITICAL IN THE AI AGE</div>
+      <div class="two-col">
+        <div class="detail-block" style="background:rgba(96,165,250,.07);border:1px solid rgba(96,165,250,.22);">
+          <div class="db-head" style="color:#60a5fa;">🗞️ News Article Impact Activity</div>
+          <div class="db-body" style="color:#bfdbfe;"><strong style="color:#93c5fd;">Headline A:</strong> "Crime drops 20% in Hyderabad this year!"<br><strong style="color:#93c5fd;">Headline B:</strong> "80% of last year's crime still unresolved in Hyderabad."<br><br>BOTH headlines can be TRUE using the SAME dataset. A data-literate person asks: What is the full dataset? Who published it? What was the baseline? This is exactly how misinformation spreads — through selective use of real numbers!</div>
+        </div>
+        <div class="detail-block" style="background:rgba(96,165,250,.07);border:1px solid rgba(96,165,250,.22);">
+          <div class="db-head" style="color:#60a5fa;">🤖 Why AI Makes Data Literacy Non-Negotiable</div>
+          <div class="db-body" style="color:#bfdbfe;">AI produces outputs based on data. Without data literacy you blindly trust them — even when wrong. A data-literate citizen can:<br>• Question a biased AI decision<br>• Spot a misleading statistic in the news<br>• Read and understand a privacy policy<br>• Evaluate an AI-generated claim<br>These skills protect your rights and your democracy!</div>
+        </div>
+      </div>
+
+      <div class="joke-box">
+        <div class="joke-icon">😂</div>
+        <div class="joke-text">
+          <strong>Class 9 Data Literacy Joke:</strong> Teacher: "Studies show 50% of marriages end in divorce." Student: "So if my parents got divorced once, does that mean the next marriage will definitely be fine?" Teacher: "That's... not how statistics work." Student: "But I AM data literate — I read the number!" 😂<br><br>
+          <strong>This is exactly the mistake:</strong> Applying group statistics to individual cases. The 50% applies to ALL marriages — it says nothing about any ONE specific marriage. AI makes this same error constantly when it stereotypes individuals based on group data. A data-literate person spots this immediately!
+        </div>
+      </div>
+
+      <div class="activity-bar">
+        <div class="act-label">📰 Activity</div>
+        <div class="act-body">
+          <strong style="color:#fff">News Article Comparison:</strong> Teacher provides 2 printed newspaper headlines about the SAME dataset but with opposite framing. Students discuss in pairs: What data is each headline using? What data is each hiding? Which headline is more honest? Why do journalists do this?<br>
+          <strong style="color:#bfdbfe">Then watch:</strong> youtube.com/watch?v=yhO_t-c3yJY (3-min data literacy explainer). Write 3 sentences: "Data literacy matters to ME personally because ___." Submit before leaving.
+        </div>
+      </div>
+
+      <div class="tag-row">
+        <span class="tag" style="color:#93c5fd;border-color:#3b82f6;background:rgba(59,130,246,.1)">📌 CBSE Unit 2</span>
+        <span class="tag" style="color:#6ee7b7;border-color:#059669;background:rgba(5,150,105,.1)">📊 Data Literacy</span>
+        <span class="tag" style="color:#fbbf24;border-color:#f59e0b;background:rgba(245,158,11,.1)">📝 3-Sentence Summary</span>
+        <span class="tag" style="color:#f9a8d4;border-color:#ec4899;background:rgba(236,72,153,.1)">🎬 YouTube Video</span>
+      </div>
+    </div>
+    <div class="p-footer">
+      <span class="p-footer-left">AR EduTek · CBSE AI · Code 417 · Class IX · Week 3 Day 1</span>
+      <span class="p-footer-right">Data Literacy · 5-Step Framework · News Analysis</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ DAY 2 ═══════════════════════════════════ -->
+<div class="poster-wrap" id="d2">
+  <button class="print-btn" style="color:#f87171;border-color:#b91c1c" onclick="window.print()">🖨️ Print / Save Poster</button>
+  <div class="poster">
+    <div class="p-header">
+      <div class="day-chip">WEEK 3 · DAY 2 · PERIOD 1 + 2</div>
+      <div class="p-title">Data <span>Privacy</span><br>&amp; Cyber<br><span>Safety</span></div>
+      <div class="p-subtitle">🛡️ Your data is more valuable than you think — protect it like gold!</div>
+      <div class="p-emoji">🔒</div>
+    </div>
+    <div class="p-body">
+
+      <div class="section-tag">// DATA PRIVACY vs DATA SECURITY — THE DIFFERENCE</div>
+      <div class="pvs-grid">
+        <div class="pvs-box" style="background:rgba(248,113,113,.08);border:1.5px solid rgba(248,113,113,.3);">
+          <div class="pb-head" style="color:#fca5a5;">🔐 Data Privacy</div>
+          <div class="pb-body" style="color:#fecaca;">Privacy is about your RIGHT to control who collects your personal information and how it is used. It is a legal and ethical right. Example: You have the right to decide if Instagram can share your location data with advertisers. Under India's Digital Personal Data Protection (DPDP) Act 2023, you can demand companies delete your data. Privacy = permission and control.</div>
+        </div>
+        <div class="pvs-box" style="background:rgba(248,113,113,.08);border:1.5px solid rgba(248,113,113,.3);">
+          <div class="pb-head" style="color:#fca5a5;">🛡️ Data Security</div>
+          <div class="pb-body" style="color:#fecaca;">Security is about PROTECTING data from theft, leaks, and unauthorised access using technical measures. Example: Encrypting your WhatsApp messages so hackers cannot read them even if they intercept the signal. Using strong passwords. Enabling 2-factor authentication. Security = protection and technology. You need BOTH privacy AND security for complete data protection!</div>
+        </div>
+      </div>
+
+      <div class="section-tag">// 4 TYPES OF PERSONAL DATA THAT AI COLLECTS ABOUT YOU</div>
+      <div class="threat-grid">
+        <div class="threat-card">
+          <div class="tc-icon">📍</div>
+          <div class="tc-title">Location Data</div>
+          <div class="tc-body">Every app with location permission records where you go, when, and how often. Google Maps knows your home, school, doctor's clinic and favourite restaurant — even if you never typed them in. This is inferred from patterns!</div>
+        </div>
+        <div class="threat-card">
+          <div class="tc-icon">🖐️</div>
+          <div class="tc-title">Biometric Data</div>
+          <div class="tc-body">Your face geometry, fingerprints, iris patterns, voice profile. Collected by face unlock, Aadhaar biometrics, and banking apps. The most sensitive category — it CANNOT be changed if stolen. Your fingerprint is with you forever!</div>
+        </div>
+        <div class="threat-card">
+          <div class="tc-icon">💬</div>
+          <div class="tc-title">Behavioural Data</div>
+          <div class="tc-body">What you search, click, buy, watch, how long you look at a post, what time you are online. AI analyses this to predict your mood, political views, health status, and future purchases — often more accurately than your own family can!</div>
+        </div>
+        <div class="threat-card">
+          <div class="tc-icon">🏥</div>
+          <div class="tc-title">Health Data</div>
+          <div class="tc-body">Fitness trackers, period-tracking apps, medical history. Some apps sell this data to insurance companies who may increase your premium. In 2022, US health apps were found sharing pregnancy data with advertisers without consent — affecting thousands!</div>
+        </div>
+      </div>
+
+      <div class="section-tag">// DO THIS — STOP DOING THIS</div>
+      <div class="do-dont">
+        <div class="dd-box" style="background:rgba(16,185,129,.08);border:1.5px solid rgba(16,185,129,.3);">
+          <div class="dh" style="color:#6ee7b7;">✅ Start Doing These Today</div>
+          <div class="di" style="background:rgba(16,185,129,.06);color:#a7f3d0;border-radius:7px;padding:6px 9px;margin-bottom:5px;font-size:12px;font-family:'Poppins',sans-serif;">Use passwords of minimum 12 characters with letters, numbers, and symbols</div>
+          <div class="di" style="background:rgba(16,185,129,.06);color:#a7f3d0;border-radius:7px;padding:6px 9px;margin-bottom:5px;font-size:12px;font-family:'Poppins',sans-serif;">Enable 2-Factor Authentication (2FA) on every account</div>
+          <div class="di" style="background:rgba(16,185,129,.06);color:#a7f3d0;border-radius:7px;padding:6px 9px;margin-bottom:5px;font-size:12px;font-family:'Poppins',sans-serif;">Review app permissions monthly — revoke anything unnecessary</div>
+          <div class="di" style="background:rgba(16,185,129,.06);color:#a7f3d0;border-radius:7px;padding:6px 9px;margin-bottom:5px;font-size:12px;font-family:'Poppins',sans-serif;">Check for the padlock (HTTPS) on every website before entering data</div>
+          <div class="di" style="background:rgba(16,185,129,.06);color:#a7f3d0;border-radius:7px;padding:6px 9px;font-size:12px;font-family:'Poppins',sans-serif;">NEVER share OTPs — not with anyone claiming to be a bank, CBSE, or school</div>
+        </div>
+        <div class="dd-box" style="background:rgba(248,113,113,.08);border:1.5px solid rgba(248,113,113,.3);">
+          <div class="dh" style="color:#fca5a5;">❌ Stop Doing These Immediately</div>
+          <div class="di" style="background:rgba(248,113,113,.06);color:#fecaca;border-radius:7px;padding:6px 9px;margin-bottom:5px;font-size:12px;font-family:'Poppins',sans-serif;">Using the same password for multiple accounts</div>
+          <div class="di" style="background:rgba(248,113,113,.06);color:#fecaca;border-radius:7px;padding:6px 9px;margin-bottom:5px;font-size:12px;font-family:'Poppins',sans-serif;">Clicking "Accept All" on cookie popups without reading</div>
+          <div class="di" style="background:rgba(248,113,113,.06);color:#fecaca;border-radius:7px;padding:6px 9px;margin-bottom:5px;font-size:12px;font-family:'Poppins',sans-serif;">Installing apps from outside the official App Store or Play Store</div>
+          <div class="di" style="background:rgba(248,113,113,.06);color:#fecaca;border-radius:7px;padding:6px 9px;margin-bottom:5px;font-size:12px;font-family:'Poppins',sans-serif;">Using public WiFi without a VPN for banking or school logins</div>
+          <div class="di" style="background:rgba(248,113,113,.06);color:#fecaca;border-radius:7px;padding:6px 9px;font-size:12px;font-family:'Poppins',sans-serif;">Granting location access to apps that have no reason to need it</div>
+        </div>
+      </div>
+
+      <div class="joke-box">
+        <div style="font-size:24px;flex-shrink:0">😂</div>
+        <div class="joke-text">
+          <strong>Class 9 Password Joke:</strong> Student's password: "MySuperSecretPassword123" — has uppercase, lowercase AND numbers! Teacher: "It also literally contains the words 'Super Secret Password'." Student: "It's like a helpful clue for myself." Teacher: "It's also a helpful clue for every hacker on the planet." 😅<br><br>
+          <strong>Real fact:</strong> "password", "123456", and "qwerty" are still the top 3 most used passwords globally in 2024. They get cracked in under 0.001 seconds. Instead, use a passphrase: <strong style="color:#fca5a5">"MyCatEats7Mangoes!"</strong> — 20 characters, memorable, would take 200 million years to crack. THAT is data security!
+        </div>
+      </div>
+
+      <div class="activity-bar">
+        <div class="act-label">🃏 Scenario Cards</div>
+        <div class="act-body">
+          <strong style="color:#fff">10 Scenarios — Classify Each as SAFE 🟢 / AT RISK 🟡 / DANGEROUS 🔴</strong><br>
+          Examples: "Sharing your school name on Instagram" / "Using same password for Gmail and CBSE portal" / "Free WiFi at railway station for online exam" / "Flashlight app asking permission to access your contacts" / "Friend asking for your OTP to log into YOUR Netflix from their phone"<br>
+          <strong style="color:#fecaca">Discuss your reasoning aloud. Teacher reveals correct classification with explanation after each round.</strong>
+        </div>
+      </div>
+    </div>
+    <div class="p-footer">
+      <span class="p-footer-left">AR EduTek · CBSE AI · Code 417 · Class IX · Week 3 Day 2</span>
+      <span class="p-footer-right">Data Privacy · Cyber Safety · Do's and Don'ts</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ DAY 3 ═══════════════════════════════════ -->
+<div class="poster-wrap" id="d3">
+  <button class="print-btn" style="color:#a78bfa;border-color:#4c1d95" onclick="window.print()">🖨️ Print / Save Poster</button>
+  <div class="poster">
+    <div class="p-header">
+      <div class="day-chip">WEEK 3 · DAY 3 · PERIOD 1 + 2</div>
+      <div class="p-title">Types of <span>Data</span><br>&amp; Data<br><span>Pre-processing</span></div>
+      <div class="p-subtitle">🧹 Cleaning data is not glamorous — but it IS 80% of all real AI work!</div>
+      <div class="p-emoji">🔬</div>
+    </div>
+    <div class="p-body">
+
+      <div class="section-tag">// THE 4 WAYS TO CLASSIFY DATA</div>
+      <div class="type-grid">
+        <div class="type-card">
+          <div class="tc-icon">🔢</div>
+          <div class="tc-title">Quantitative</div>
+          <div class="tc-body">Expressed as numbers. Can be measured, averaged and graphed. Examples: height (158 cm), test score (78/100), temperature (36.5°C), number of absent days (12).</div>
+        </div>
+        <div class="type-card">
+          <div class="tc-icon">💬</div>
+          <div class="tc-title">Qualitative</div>
+          <div class="tc-body">Expressed as categories or descriptions — cannot be averaged. Examples: favourite subject (Maths), blood type (O+), customer review ("the biryani was excellent"), colour (red).</div>
+        </div>
+        <div class="type-card">
+          <div class="tc-icon">🎯</div>
+          <div class="tc-title">Discrete</div>
+          <div class="tc-body">Whole numbers only — you CANNOT have 2.5 children or 3.7 goals! Examples: students in class (40), goals scored (3), books borrowed (7). Use bar charts for discrete data.</div>
+        </div>
+        <div class="type-card">
+          <div class="tc-icon">🌡️</div>
+          <div class="tc-title">Continuous</div>
+          <div class="tc-body">Can take ANY value within a range — including decimals. Examples: height (158.7 cm), weight (52.3 kg), time taken (12.45 seconds). Use histograms or line charts for continuous data!</div>
+        </div>
+      </div>
+
+      <div class="section-tag">// STRUCTURED vs UNSTRUCTURED DATA</div>
+      <div class="structured-row">
+        <div class="str-box" style="background:rgba(167,139,250,.08);border:1.5px solid rgba(167,139,250,.3);">
+          <div class="sb-head" style="color:#ddd6fe;">📋 Structured Data</div>
+          <div class="sb-body" style="color:#c4b5fd;">Organised in rows and columns — like a spreadsheet. Every record has the same fields. Easy for computers to search and analyse. Examples: Student marks register, hospital admission records, bank transaction history. About 20% of all data generated globally is structured — but most AI has traditionally used this type!</div>
+        </div>
+        <div class="str-box" style="background:rgba(167,139,250,.08);border:1.5px solid rgba(167,139,250,.3);">
+          <div class="sb-head" style="color:#ddd6fe;">📝 Unstructured Data</div>
+          <div class="sb-body" style="color:#c4b5fd;">No fixed format — includes text, images, audio, video, emails, social media posts. Much harder for computers to analyse but contains the richest information. About 80% of all data generated is unstructured. ChatGPT, DALL-E, Gemini, and most modern AI were trained primarily on unstructured data — billions of web pages, images, and videos!</div>
+        </div>
+      </div>
+
+      <div class="section-tag">// DATA PRE-PROCESSING — THE HIDDEN 80% OF AI WORK</div>
+      <div class="preproc-box">
+        <div class="ppb-title">🧹 Why Data Cleaning Matters More Than the Algorithm</div>
+        <div class="ppb-grid">
+          <div class="ppb-cell">
+            <div class="ppb-label">HANDLING MISSING VALUES</div>
+            <div class="ppb-body">When a cell is blank, you have 3 options: (a) remove the entire row — risky, loses data, (b) fill with the column average or median — common approach, (c) fill with a placeholder like "Unknown". Each option changes the AI's behaviour slightly!</div>
+          </div>
+          <div class="ppb-cell">
+            <div class="ppb-label">REMOVING DUPLICATES</div>
+            <div class="ppb-body">Same student entered twice because they changed section mid-term. AI trained on duplicates over-represents those students' scores, giving them disproportionate influence on the model's learning. Always deduplicate before training!</div>
+          </div>
+          <div class="ppb-cell">
+            <div class="ppb-label">FIXING INCONSISTENCIES</div>
+            <div class="ppb-body">"Hyderabad", "hyderabad", "HYD", "Hyd." — all mean the same city, but a computer treats them as 4 DIFFERENT values. Standardise all text entries to one consistent format before any analysis or AI training begins.</div>
+          </div>
+          <div class="ppb-cell">
+            <div class="ppb-label">REMOVING OUTLIERS</div>
+            <div class="ppb-body">A student height recorded as 1580 cm instead of 158.0 cm. That one typo pulls the average up by hundreds of centimetres! Outliers must be detected, investigated (typo or real extreme?), then corrected or removed.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="joke-box">
+        <div style="font-size:24px;flex-shrink:0">😂</div>
+        <div class="joke-text">
+          <strong>Class 9 Data Cleaning Joke:</strong> Real messy dataset entry found: Student Name: "Arjun Kumar". Birthday: "31st February 2010" (February has no 31st!). Height: "1750 cm" (that's 57 feet tall — taller than a 5-storey building!). Marks: "-15/100" (negative marks?!). Address: "Somewhere in Hyderabad, near a biryani shop, left at the signal." 🍛<br><br>
+          <strong>Actual fact:</strong> This level of data quality exists in real hospital, bank, and government records worldwide. IBM estimated that bad data costs the US economy $3.1 TRILLION per year. Data cleaning is not boring IT work — it is preventing trillion-dollar disasters!
+        </div>
+      </div>
+
+      <div class="activity-bar">
+        <div class="act-label">🧹 Clean It!</div>
+        <div class="act-body">
+          <strong style="color:#fff">Messy Dataset Exercise:</strong> Teacher provides a printed or digital spreadsheet with deliberate errors — missing values, duplicates, inconsistent city names, impossible birthdays, extreme outliers, and wrongly formatted numbers. Students:<br>
+          1. Identify ALL errors and list them<br>
+          2. Categorise: missing / duplicate / inconsistent / outlier<br>
+          3. Decide the fix for each error type<br>
+          4. Submit a clean version + one paragraph explaining changes<br>
+          <strong style="color:#ddd6fe">This is the exact pre-processing a data scientist does before every AI model training session!</strong>
+        </div>
+      </div>
+    </div>
+    <div class="p-footer">
+      <span class="p-footer-left">AR EduTek · CBSE AI · Code 417 · Class IX · Week 3 Day 3</span>
+      <span class="p-footer-right">Data Types · Structured vs Unstructured · Pre-processing</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ DAY 4 ═══════════════════════════════════ -->
+<div class="poster-wrap" id="d4">
+  <button class="print-btn" style="color:#fef08a;border-color:#92400e" onclick="window.print()">🖨️ Print / Save Poster</button>
+  <div class="poster">
+    <div class="p-header">
+      <div class="day-chip">WEEK 3 · DAY 4 · PERIOD 1 + 2</div>
+      <div class="p-title">Data<br><span>Visualisation</span><br>Charts &amp; <span>Graphs</span></div>
+      <div class="p-subtitle">📊 A picture is worth a thousand numbers — choose the RIGHT chart!</div>
+      <div class="p-emoji">📈</div>
+    </div>
+    <div class="p-body">
+
+      <div class="section-tag">// WHY VISUALISE DATA?</div>
+      <div class="detail-block" style="background:#fff;border:3px solid #1a1a1a;box-shadow:4px 4px 0 #b45309;">
+        <div class="db-head" style="color:#92400e;">👁️ The Human Brain Processes Visuals 60,000× Faster Than Text</div>
+        <div class="db-body" style="color:#374151;font-family:'Poppins',sans-serif;">A spreadsheet with 500 rows of temperature data tells you almost nothing at a glance. A line graph of the SAME data immediately shows: temperature peaked in May, dipped in July during monsoon, and the overall trend is increasing over 10 years. Visualisation makes patterns visible, communicates insights instantly, and makes complex data accessible to everyone — not just experts with spreadsheet skills. This is why every AI dashboard uses charts, not raw numbers!</div>
+      </div>
+
+      <div class="section-tag">// 6 ESSENTIAL CHART TYPES — WHEN TO USE EACH</div>
+      <div class="chart-grid">
+        <div class="chart-card">
+          <div class="cc-icon">📊</div>
+          <div class="cc-name">Bar Chart</div>
+          <div class="cc-use">Compare quantities across categories. Best for: "Which subject has the highest marks?" Use for discrete, named categories.</div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-icon">📈</div>
+          <div class="cc-name">Line Chart</div>
+          <div class="cc-use">Show trends over time. Best for: "How has temperature changed over 10 years?" Time is always the x-axis.</div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-icon">🥧</div>
+          <div class="cc-name">Pie Chart</div>
+          <div class="cc-use">Show parts of a whole. Best for: "What % chose each subject?" Only use with 2–5 categories. Never for trends!</div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-icon">🔵</div>
+          <div class="cc-name">Scatter Plot</div>
+          <div class="cc-use">Show relationship between two variables. "Is there a link between study hours and marks?" Points cluster if correlated.</div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-icon">📉</div>
+          <div class="cc-name">Histogram</div>
+          <div class="cc-use">Show distribution of continuous data in ranges. "How many students scored 60–70%?" No gaps between bars!</div>
+        </div>
+        <div class="chart-card">
+          <div class="cc-icon">🌡️</div>
+          <div class="cc-name">Heat Map</div>
+          <div class="cc-use">Show intensity using colours. "Which city-month has highest pollution?" Colour = value intensity. Used in AI dashboards.</div>
+        </div>
+      </div>
+
+      <div class="section-tag">// THE 4-QUESTION FRAMEWORK — CHOOSING THE RIGHT CHART</div>
+      <div class="decision-box">
+        <div class="dbox-title">🎯 Ask These Before Making Any Chart</div>
+        <div class="dbox-grid">
+          <div class="dg-cell">
+            <div class="dg-q">Q1 — WHAT RELATIONSHIP?</div>
+            <div class="dg-body">Comparison → Bar/Column. Trend over time → Line. Part of whole → Pie. Correlation → Scatter. Distribution → Histogram. Intensity → Heat Map.</div>
+          </div>
+          <div class="dg-cell">
+            <div class="dg-q">Q2 — HOW MANY CATEGORIES?</div>
+            <div class="dg-body">More than 7 categories? Group small ones into "Other." A pie chart with 15 slices is unreadable — even for the person who made it!</div>
+          </div>
+          <div class="dg-cell">
+            <div class="dg-q">Q3 — WHO IS YOUR AUDIENCE?</div>
+            <div class="dg-body">Class IX students → Keep it simple. A heat map confuses a newcomer. Scientists or engineers → Complex charts are fine. Match chart complexity to audience skill level.</div>
+          </div>
+          <div class="dg-cell">
+            <div class="dg-q">Q4 — WHAT IS YOUR KEY MESSAGE?</div>
+            <div class="dg-body">One chart = one clear insight. If you need 5 minutes to explain your chart, it is too complex. Simplify! A great chart communicates its message in under 5 seconds.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="joke-box">
+        <div style="font-size:24px;flex-shrink:0">😂</div>
+        <div class="joke-text">
+          <strong>Class 9 Chart Joke:</strong> Student uses a 3D exploding pie chart with 17 rainbow-gradient slices, animated transitions, a glitter background, and dramatic orchestral music to show "favourite ice cream flavours in class." Teacher: "I can see 3 of the 17 slices and cannot read any labels. What is the green one?" Student: "That's the 'Other' category." Teacher: "This chart is ITSELF in the 'Other — needs help' category." 😂<br><br>
+          <strong>Data viz legend Edward Tufte calls this "chartjunk."</strong> Every single element in a chart must earn its place by ADDING information. Glitter, 3D effects, and animations add zero information. They subtract clarity. Keep it clean, keep it honest, keep it simple!
+        </div>
+      </div>
+
+      <div class="activity-bar">
+        <div class="act-label">🎨 Activity</div>
+        <div class="act-body">
+          <strong style="color:#fde68a">datavizcatalogue.com exploration:</strong> Open on lab computers. Each student finds 3 chart types they had never seen before. For each: write (a) the name, (b) what it shows, (c) one real example from daily life.<br>
+          Then hand-draw one chart using your Week 2 Car Spotting data (vehicle type frequency).<br>
+          <strong style="color:#f5f5f5">Top 10 Song Challenge:</strong> Collect class votes on favourite songs. Create a bar chart ranking by popularity. Who has the best taste? Data decides! 🎵
+        </div>
+      </div>
+    </div>
+    <div class="p-footer">
+      <span class="p-footer-left">AR EduTek · CBSE AI · Code 417 · Class IX · Week 3 Day 4</span>
+      <span class="p-footer-right">6 Chart Types · Decision Framework · datavizcatalogue.com</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ DAY 5 ═══════════════════════════════════ -->
+<div class="poster-wrap" id="d5">
+  <button class="print-btn" style="color:#16a34a;border-color:#15803d" onclick="window.print()">🖨️ Print / Save Poster</button>
+  <div class="poster">
+    <div class="p-header">
+      <div class="day-chip">WEEK 3 · DAY 5 · PERIOD 1 + 2</div>
+      <div class="p-title">Interactive<br><span>Data</span><br><span>Dashboard</span></div>
+      <div class="p-subtitle">📊 Turn raw numbers into visual stories with Datawrapper &amp; Tableau!</div>
+      <div class="p-emoji">🖥️</div>
+    </div>
+    <div class="p-body">
+
+      <div class="section-tag">// WHAT IS A DATA DASHBOARD?</div>
+      <div class="detail-block" style="background:#fff;border:2px solid #bbf7d0;box-shadow:0 3px 12px rgba(21,128,61,.1);">
+        <div class="db-head" style="color:#15803d;">📊 Dashboard — Your Entire Data Story at One Glance</div>
+        <div class="db-body" style="color:#374151;font-family:'Poppins',sans-serif;">A Data Dashboard combines multiple charts, graphs, and key metrics on a single screen — giving a complete picture of a dataset in seconds. Companies like Swiggy, Uber, ISRO, and hospitals use real-time dashboards to monitor performance. CBSE itself uses dashboards to track school performance data across India. Building one is a core data literacy skill for any career in 2030. You are learning this in Class IX — that is a massive head start!</div>
+      </div>
+
+      <div class="section-tag">// DATAWRAPPER — FREE, BROWSER-BASED, PROFESSIONAL</div>
+      <ul class="step-list">
+        <li>
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Open datawrapper.de — No Account Needed!</h4>
+            <p>This tool is used by The New York Times, BBC, The Hindu, and Reuters for all their data journalism charts. Completely free for basic charts. Click "Start Creating." Works in any browser — no installation.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Collect Class Data — Top 5 Favourite Songs</h4>
+            <p>Ask 30 students their top 3 favourite songs. Record song name, artist, genre (Bollywood / Telugu / English / Other), and vote count in a Google Sheet or MS Excel. This is your dataset — you collected it yourself! Primary data in action.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>Build Chart 1 — Bar Chart (Song Popularity Ranking)</h4>
+            <p>Copy-paste your data into Datawrapper. Select "Bar Chart." Arrange songs by vote count. Customise: add a title ("Class IX Favourite Songs — 2026"), choose a colour scheme, write a brief caption explaining what the chart shows.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>Build Chart 2 — Pie Chart (Genre Breakdown)</h4>
+            <p>Use the same data to create a Pie Chart showing genre split: Bollywood / Telugu / English / Other. Compare: does the Bar Chart or Pie Chart tell the story better? When would you choose one over the other? Discuss with your partner.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h4>Export and Write 2 Observations</h4>
+            <p>Click "Export" → Download as PNG. Submit the image. Write 2 data-driven observations: "The data shows that ___ because ___." NOT just "I see a bar chart." Interpret the insight, not just describe the visual!</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="section-tag">// WEEK 3 COMPLETE — EVERYTHING YOU MASTERED</div>
+      <div class="review-grid">
+        <div class="rev-card">
+          <div class="rc-day">DAY 1</div>
+          <div class="rc-topic">Data Literacy</div>
+          <div class="rc-key">5-Step Framework: Ask → Obtain → Analyse → Interpret → Decide. News framing activity. Data literacy as a life skill in the AI age.</div>
+        </div>
+        <div class="rev-card">
+          <div class="rc-day">DAY 2</div>
+          <div class="rc-topic">Privacy &amp; Safety</div>
+          <div class="rc-key">Privacy vs Security. 4 types of personal data AI collects. Do's and Don'ts for cyber safety. Scenario card classification activity.</div>
+        </div>
+        <div class="rev-card">
+          <div class="rc-day">DAY 3</div>
+          <div class="rc-topic">Data Types</div>
+          <div class="rc-key">Quantitative vs qualitative, discrete vs continuous, structured vs unstructured. 4-type pre-processing: missing, duplicate, inconsistent, outlier.</div>
+        </div>
+        <div class="rev-card">
+          <div class="rc-day">DAY 4</div>
+          <div class="rc-topic">Visualisation</div>
+          <div class="rc-key">6 chart types and when to use each. 4-question decision framework. datavizcatalogue.com explored. Hand-drawn chart from car data.</div>
+        </div>
+        <div class="rev-card">
+          <div class="rc-day">DAY 5</div>
+          <div class="rc-topic">Dashboard</div>
+          <div class="rc-key">Datawrapper tool used. Bar chart + pie chart created. Song data collected, entered, visualised, and interpreted. PNG exported.</div>
+        </div>
+      </div>
+
+      <div class="section-tag">// KAHOOT PRACTICE — 5 QUESTIONS FROM WEEK 3</div>
+      <div class="quiz-box">
+        <div class="quiz-title">🎯 5 Sample Kahoot Questions — Week 3</div>
+        <div class="q-row" style="border-color:#16a34a;">
+          <div class="q-text"><strong>Q1:</strong> The ability to read, understand, create and communicate data is called ___?</div>
+          <div class="q-hint">Hint: It's like regular literacy — but with numbers and graphs! 📊</div>
+        </div>
+        <div class="q-row" style="border-color:#f87171;">
+          <div class="q-text"><strong>Q2:</strong> Privacy is about ___. Security is about ___.</div>
+          <div class="q-hint">Hint: One is permission and control. The other is protection and technology!</div>
+        </div>
+        <div class="q-row" style="border-color:#a78bfa;">
+          <div class="q-text"><strong>Q3:</strong> Number of students in a class is what type of data?</div>
+          <div class="q-hint">Hint: You can't have 29.5 students — so it must be ___!</div>
+        </div>
+        <div class="q-row" style="border-color:#fbbf24;">
+          <div class="q-text"><strong>Q4:</strong> Which chart type is best for showing a TREND over 10 years?</div>
+          <div class="q-hint">Hint: Time is on the x-axis. The line goes up and down as years pass 📈</div>
+        </div>
+        <div class="q-row" style="border-color:#60a5fa;">
+          <div class="q-text"><strong>Q5:</strong> "Hyderabad" and "hyderabad" in the same dataset is an example of ___?</div>
+          <div class="q-hint">Hint: A pre-processing problem where the same value is written in different ways!</div>
+        </div>
+      </div>
+
+      <div class="joke-box">
+        <div style="font-size:24px;flex-shrink:0">😂</div>
+        <div class="joke-text">
+          <strong>Final Week 3 Joke:</strong> Student presents their Datawrapper dashboard to the class. It has 2 charts, clear titles, accurate data, and meaningful observations. Teacher: "This is excellent!" Student: "I spent 40 minutes on the analysis and 5 minutes on the design." Other student: "I spent 5 minutes on the analysis and 40 minutes making it sparkle." Teacher: "The first student understands data. The second student understands decorating." 😂<br><br>
+          <strong>Week 3 Takeaway:</strong> You started Monday not knowing what data literacy meant. You now know how to question data in the news, protect your own privacy, classify and clean dirty data, choose the right chart for any dataset, and build a real data dashboard. You see data like a data scientist now. Week 4: Math for AI — statistics and probability! 🔢
+        </div>
+      </div>
+
+      <div class="activity-bar">
+        <div class="act-label">📊 Build It!</div>
+        <div class="act-body">
+          <strong style="color:#fff">Top 10 Song Dashboard — datawrapper.de</strong><br>
+          Collect class data → Enter into spreadsheet → Create Bar Chart + Pie Chart → Export PNG → Submit with 2 written observations using the format: "The data shows that ___ because ___."<br>
+          <strong style="color:#dcfce7">Advanced challenge:</strong> Add a third chart — do students who travel longer to school prefer different music genres? Collect commute time data. Make a scatter plot. Is there a correlation? That is actual data science!
+        </div>
+      </div>
+
+      <div style="background:linear-gradient(135deg,#14532d,#15803d,#14532d);border-radius:14px;padding:20px;margin-top:20px;text-align:center">
+        <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:22px;color:#bbf7d0;margin-bottom:8px">🚀 Coming Up: Week 4 — Math for AI</div>
+        <div style="font-size:14px;color:#dcfce7;line-height:1.7;font-family:'Poppins',sans-serif;">Next week you tackle the maths that powers every AI decision: Statistics (Mean, Median, Mode) and Probability. You will use YOUR Car Spotting data to apply real statistics. Prepare your calculators — and your curiosity! 🧮🎲</div>
+      </div>
+
+    </div>
+    <div class="p-footer">
+      <span class="p-footer-left">AR EduTek · CBSE AI · Code 417 · Class IX · Week 3 Day 5</span>
+      <span class="p-footer-right">Datawrapper · Dashboard · Week 3 Complete ✅</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const colors = [
+  {btn:'#93c5fd', border:'#1e40af'},
+  {btn:'#fca5a5', border:'#b91c1c'},
+  {btn:'#ddd6fe', border:'#4c1d95'},
+  {btn:'#fde68a', border:'#92400e'},
+  {btn:'#86efac', border:'#15803d'},
+];
+function show(n){
+  document.querySelectorAll('.poster-wrap').forEach(e=>e.classList.remove('active'));
+  document.querySelectorAll('.day-btn').forEach((e,i)=>{
+    e.classList.remove('active');
+    e.style.color=colors[i].btn;
+    e.style.borderColor='transparent';
+    e.style.background='#1a1a2e';
+  });
+  document.getElementById('d'+n).classList.add('active');
+  const btn=document.querySelectorAll('.day-btn')[n-1];
+  btn.classList.add('active');
+  btn.style.background=colors[n-1].border;
+  btn.style.borderColor=colors[n-1].btn;
+  btn.style.color='#fff';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.day-btn').forEach((e,i)=>{
+  e.style.color=colors[i].btn;
+});
+document.querySelectorAll('.day-btn')[0].style.background=colors[0].border;
+document.querySelectorAll('.day-btn')[0].style.borderColor=colors[0].btn;
+document.querySelectorAll('.day-btn')[0].style.color='#fff';
+document.querySelectorAll('.day-btn')[0].classList.add('active');
+</script>
+</body>
+</html>

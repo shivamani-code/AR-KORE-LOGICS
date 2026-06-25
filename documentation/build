@@ -1,0 +1,601 @@
+╔══════════════════════════════════════════════════════════════════╗
+║           SKILLVERSE — MASTER BUILD PROMPT v1.0                 ║
+║           Complete Product Blueprint for AI-Assisted Dev        ║
+╚══════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 0 — WHO YOU ARE + HOW TO APPROACH THIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+You are a senior full-stack engineer and product designer with 15+ years 
+of experience building premium SaaS products. You have deep expertise in:
+
+  → UI/UX Design (Linear, Stripe, Notion-level quality)
+  → Frontend: Next.js 15, TypeScript, Tailwind CSS, ShadCN UI, Framer Motion
+  → Backend: Firebase (Auth, Firestore, Storage, Cloud Functions)
+  → Deployment: Vercel
+  → System Design: Scalable, component-driven, maintainable architecture
+
+You are NOT building:
+  ✗ An LMS or college portal
+  ✗ An admin dashboard
+  ✗ A gamified kids app
+  ✗ A Udemy or Moodle clone
+
+You ARE building:
+  ✓ A Career Workspace Platform
+  ✓ Premium SaaS, editorial, minimal, modern
+  ✓ Inspired by: Linear + Stripe + Notion + Roadmap.sh + Arc Browser
+  ✓ The product is called: SkillVerse
+
+Before writing a single line of code, read this entire prompt.
+Follow it section by section, in order.
+Do not skip, guess, or substitute any design decision.
+Every choice here is intentional.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 1 — PRODUCT IDENTITY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Product Name:     SkillVerse
+Tagline:          "Navigate Your Career. Master Your Skills."
+Category:         Career Workspace Platform
+
+What it does:
+  SkillVerse guides learners from complete beginner to 
+  industry-ready professional through:
+    → Structured, interactive career roadmaps
+    → Curated learning resources per module
+    → Hands-on projects and assignments
+    → 1-on-1 mentorship with industry professionals
+    → Peer community and study groups
+    → Progress tracking and achievements
+
+Target Users:
+  → College students needing industry-ready skills
+  → Beginners needing guidance and structure
+  → Career switchers needing a complete roadmap
+  → Self-learners needing accountability and curation
+
+Available Career Paths (8):
+  1. Full Stack Development
+  2. Cybersecurity
+  3. AI & Machine Learning
+  4. Data Science
+  5. DevOps & Cloud
+  6. UI/UX Design
+  7. Mobile Development
+  8. Cloud Computing
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 2 — TECH STACK (DO NOT DEVIATE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Frontend:
+  Framework:        Next.js 15 (App Router)
+  Language:         TypeScript (strict mode)
+  Styling:          Tailwind CSS (utility-first)
+  Components:       ShadCN UI (base components only, always customize)
+  Icons:            Lucide React (stroke 1.5px, size 20px default)
+  Animation:        Framer Motion
+  Forms:            React Hook Form + Zod validation
+  State:            Zustand (global), React state (local)
+  Fonts:            Inter (Google Fonts, variable font)
+
+Backend:
+  Platform:         Firebase
+  Auth:             Firebase Authentication (Email/Password + Google OAuth)
+  Database:         Cloud Firestore
+  Storage:          Firebase Storage
+  Functions:        Cloud Functions (for server-side logic)
+  Analytics:        Firebase Analytics
+
+Deployment:
+  Hosting:          Vercel
+  CI/CD:            GitHub → Vercel auto-deploy
+  Environments:     development / staging / production
+
+Project Structure:
+  /app                    → Next.js App Router pages
+    /(public)             → Landing, About, Pricing
+    /(auth)               → Login, Signup
+    /(dashboard)          → Protected routes
+      /workspace          → My Course
+      /roadmap            → Interactive Roadmap
+      /module/[id]        → Module Learning Page
+      /community          → Community
+      /mentorship         → Mentorship
+      /settings           → Settings
+  /components
+    /ui                   → Base ShadCN components
+    /shared               → Navbar, Sidebar, Footer
+    /landing              → Landing page sections
+    /roadmap              → Roadmap-specific components
+    /module               → Module page components
+    /community            → Community components
+    /mentorship           → Mentorship components
+  /features               → Business logic per domain
+  /lib
+    /firebase             → Firebase config + helpers
+    /utils                → Utility functions
+    /constants            → App constants
+    /types                → TypeScript types + interfaces
+  /hooks                  → Custom React hooks
+  /store                  → Zustand stores
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 3 — DESIGN SYSTEM (APPLY EVERYWHERE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+COLORS (configure in tailwind.config.ts):
+  --brand-primary:       #6D4AFF   (Electric Violet)
+  --brand-secondary:     #8B5CF6   (Soft Purple)
+  --accent-green:        #22C55E   (Emerald)
+  --warning:             #F59E0B
+  --error:               #EF4444
+
+  --bg-page:             #F8FAFC   (Page background)
+  --bg-surface:          #FFFFFF   (Cards, panels)
+  --bg-muted:            #F1F5F9   (Subtle surfaces)
+
+  --text-primary:        #0F172A
+  --text-secondary:      #475569
+  --text-muted:          #94A3B8
+  --text-inverse:        #FFFFFF
+
+  --border:              #E2E8F0
+  --border-focus:        #6D4AFF
+
+TYPOGRAPHY (Inter font throughout):
+  Display:  64px / 700 weight / -0.03em tracking / 1.1 line-height
+  H1:       56px / 700 / -0.025em / 1.15
+  H2:       40px / 700 / -0.02em / 1.2
+  H3:       32px / 600 / -0.015em / 1.3
+  H4:       24px / 600 / -0.01em / 1.4
+  H5:       20px / 600 / 0 / 1.4
+  Body LG:  18px / 400 / 0 / 1.7
+  Body:     16px / 400 / 0 / 1.6
+  Small:    14px / 400 / 0 / 1.5
+  Caption:  12px / 500 / 0.02em / 1.4
+  Label:    11px / 600 / 0.08em / 1.0 / UPPERCASE
+
+SPACING: Use Tailwind default scale. Section padding: py-24 desktop, py-16 tablet, py-12 mobile.
+GRID: 12-column, max-w-[1280px] centered, px-20 desktop margin.
+
+COMPONENT SPECS:
+  Card:           rounded-[20px], p-8, bg-white, border border-[#E2E8F0]
+                  shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(109,74,255,0.04)
+                  hover: shadow 0 4px 24px rgba(109,74,255,0.12), translateY(-2px)
+                  transition: all 200ms ease
+
+  Button Primary: h-12, px-6, rounded-[14px], bg-[#6D4AFF], text-white, text-[15px] font-semibold
+                  hover: bg-[#5B3AEF], translateY(-1px), shadow 0 8px 24px rgba(109,74,255,0.35)
+
+  Button Secondary: Same dimensions, bg-transparent, border-[1.5px] border-[#E2E8F0]
+                    hover: border-[#6D4AFF], text-[#6D4AFF]
+
+  Input:          h-12, rounded-[12px], border-[1.5px] border-[#E2E8F0], text-[15px]
+                  focus: border-[#6D4AFF], ring-2 ring-[#6D4AFF]/10
+
+  Badge:          rounded-full, px-3 py-1, text-[12px] font-semibold
+  Sidebar nav:    h-11, px-4, rounded-[12px], gap-3
+
+SHADOWS:
+  Card:     0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(109,74,255,0.04)
+  Popover:  0 4px 24px rgba(0,0,0,0.08), 0 8px 48px rgba(109,74,255,0.08)
+  Active:   0 0 0 3px rgba(109,74,255,0.20), 0 8px 32px rgba(109,74,255,0.25)
+
+MOTION (Framer Motion):
+  Default easing:  [0.16, 1, 0.3, 1]
+  Duration fast:   0.15s
+  Duration medium: 0.25s
+  Duration slow:   0.4s
+  
+  Card entrance:   { opacity: 0→1, y: 20→0 }, stagger 0.08s
+  Page entrance:   { opacity: 0→1, y: 32→0 }, duration 0.4s
+  Roadmap nodes:   { opacity: 0→1, scale: 0.96→1 }, sequential 0.12s delay
+
+  RULE: No bounce. No elastic. No gaming effects. All motion = purposeful.
+
+GLOBAL RULES:
+  → No border-radius below 8px anywhere
+  → No drop shadows that feel "heavy" — use subtle, purple-tinted shadows
+  → Never use gray as primary color for icons — use purple at varying opacities
+  → All interactive states: hover + focus + active + disabled
+  → Focus ring: 2px solid #6D4AFF, offset 2px (never remove focus styles)
+  → All images: Next.js <Image /> with lazy loading
+  → Responsive breakpoints: 375 / 768 / 1024 / 1280 / 1440px
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 4 — USER FLOWS (build in this exact order)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GUEST FLOW:
+  / (Landing) → /login or /signup → /career-selection → /workspace
+
+STUDENT FLOW (post-login):
+  /workspace → /roadmap → /module/[id] → complete → unlock next
+  /workspace → /mentorship → book session
+  /workspace → /community → post/reply
+
+BUILD ORDER (follow strictly):
+  Phase 1:  Design System + Component Library
+  Phase 2:  Landing Page (/)
+  Phase 3:  Auth Pages (/login, /signup)
+  Phase 4:  Career Selection (/career-selection)
+  Phase 5:  My Course Workspace (/workspace)
+  Phase 6:  Interactive Roadmap (/roadmap)  ← HIGHEST PRIORITY
+  Phase 7:  Module Learning Page (/module/[id])
+  Phase 8:  Community (/community)
+  Phase 9:  Mentorship (/mentorship)
+  Phase 10: Settings (/settings)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 5 — PAGE SPECIFICATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+▸ PAGE: LANDING (/)
+  Layout: Full-width vertical scroll, 7 sections
+  Nav: Fixed, blur backdrop, logo + links + CTA
+  
+  Sections in order:
+  1. HERO
+     → Eyebrow pill badge: "🚀 Your Career Journey Starts Here"
+     → Headline: "Navigate Your Career. Master Your Skills."
+        "Career" = gradient text (#6D4AFF → #8B5CF6)
+     → Sub: 2-line value prop, 18px, #475569
+     → 2 CTAs: "Start Your Journey →" + "Explore Roadmaps"
+     → Right: Floating dashboard mockup card (roadmap + progress)
+     → Below: "Free to start. No credit card required."
+  
+  2. BENEFITS (3 cards: Roadmaps / Resources / Mentorship)
+  3. CAREER PATHS (8 cards, each color-coded per domain)
+  4. HOW IT WORKS (5-step horizontal timeline)
+  5. TESTIMONIALS (3 quote cards)
+  6. FAQ (accordion, 8 questions)
+  7. FINAL CTA (full-width gradient banner)
+  + FOOTER (dark, 4-column)
+
+▸ PAGE: LOGIN + SIGNUP
+  Layout: 50/50 split screen
+  Left: Dark purple panel, brand visual, roadmap preview widget
+  Right: Clean white form
+  
+  Login form: Email + Password + Google button + Forgot password
+  Signup form: Name + Email + Password + Confirm + Career Interest
+  
+  Mobile: Left panel = compact banner at top, form below
+
+▸ PAGE: CAREER SELECTION
+  Purpose: User picks their career path immediately after signup
+  Layout: Centered, max-w-[1080px]
+  → Headline: "What do you want to become?"
+  → 4×2 grid of career cards (8 paths)
+  → Each card: icon + name + duration + 3 skill chips
+  → Selected state: colored border + checkmark
+  → Selected preview: slides up from bottom with full details
+  → CTA: "Start My Journey →" (activates after selection)
+
+▸ PAGE: MY COURSE WORKSPACE (/workspace)
+  Layout: Sidebar (240px fixed) + scrollable main content
+  
+  Sidebar nav items: My Course / Roadmap / Community / Mentorship / Settings / Logout
+  User info at sidebar bottom: avatar + name + career path
+  
+  Main content sections:
+  1. Greeting bar + notification icon
+  2. Course Hero Card (gradient, shows path name + progress circle + CTA)
+  3. 3-column stats row (Modules / Resources / Streak)
+  4. Learning Outcomes checklist (2-col)
+  5. Current Module card (purple left border, progress bar, CTA)
+  6. Skills chips row
+  7. Roadmap preview (horizontal scroll, 5-6 nodes)
+  8. Recent Achievements
+  9. Career Outcomes (job title cards with salary ranges)
+
+▸ PAGE: INTERACTIVE ROADMAP (/roadmap)  ← FLAGSHIP, HIGHEST PRIORITY
+  Layout: Sidebar + centered vertical canvas (720px wide)
+  Top: Thin progress bar (4px) showing overall % complete
+  
+  Node Types:
+    COMPLETED:    56px circle, green (#22C55E), check icon, solid connector
+    CURRENT:      72px circle, purple (#6D4AFF), pulse animation, glowing ring,
+                  auto-expanded panel below showing module details + CTA
+    LOCKED:       48px circle, #F1F5F9, lock icon, dashed connector, hover tooltip
+    FUTURE:       48px circle, white, dashed border, clock icon
+  
+  Connectors: SVG curved paths (cubic-bezier), NOT straight lines
+    Completed → Completed: solid green
+    Current → Next: gradient #6D4AFF → #CBD5E1
+    Locked: dashed #E2E8F0
+  
+  Expanded Current Node panel:
+    Module name, description, duration, resources count, projects count
+    Difficulty badge, progress bar, "Continue Learning →" button
+  
+  Final milestone: Special "Career Ready" node
+    Unique shape (octagon or trophy), gradient fill, golden ring
+    "X modules remaining" countdown
+  
+  Animations:
+    Nodes enter sequentially (scroll-triggered)
+    Current node has continuous subtle pulse glow
+    Click on completed node = expands details inline
+    Click on locked node = tooltip "Complete [X] to unlock"
+
+▸ PAGE: MODULE LEARNING PAGE (/module/[id])
+  Layout: Sidebar + main with tab navigation
+  
+  Top: Breadcrumb (My Course → Roadmap → Module Name)
+  Hero: White card, purple left border (6px), module name + description
+        Duration / Difficulty / Resources / Projects metadata
+        "Mark as Complete" button (green, right-aligned)
+  
+  Tabs: Overview / Resources / Practice / Assignments / Projects / Notes
+  
+  Overview tab:  Topics checklist + learning objectives + prereqs + time breakdown
+  Resources tab: Search bar + filter chips + resource cards (type icon + title + source + bookmark)
+  Practice tab:  Exercise cards (name + time + difficulty + Start button)
+  Projects tab:  Project cards (name + description + tech stack + GitHub + Mark Complete)
+  Notes tab:     Mentor note cards + user's own editable notes
+  
+  Sticky bottom bar: ← Previous | Progress dots | Next Module →
+
+▸ PAGE: COMMUNITY (/community)
+  Layout: 3-column (filters / feed / sidebar)
+  
+  Left: Category filter + tags + study groups
+  Center: "Post Question" button + discussion feed (post cards)
+  Right: Active members + trending topics + upcoming events
+  
+  Post card: Avatar + name + role badge + title + preview + tags + upvotes/comments/bookmark
+
+▸ PAGE: MENTORSHIP (/mentorship)
+  Layout: Full-width, section-based
+  
+  Top: Headline + filter bar (expertise / availability / rating)
+  Mentor grid (3-col): Photo + name + company + expertise chips + rating + availability + Book button
+  Booking modal: Session type + calendar + time slot + note field + confirm
+
+▸ PAGE: SETTINGS (/settings)
+  Layout: Left settings nav + right content panel
+  Sections: Profile / Security / Notifications / Appearance / Account
+  Danger zone: Delete account with confirmation modal
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 6 — FIREBASE DATA ARCHITECTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Firestore Collections:
+
+users/{userId}
+  → name, email, role (student/mentor/admin), profileImage,
+    careerPath, joinedAt, settings{}
+
+courses/{courseId}
+  → title, description, slug, duration, difficulty,
+    thumbnail, status, pathId
+
+roadmaps/{roadmapId}
+  → courseId, title, description, order
+
+modules/{moduleId}
+  → roadmapId, title, description, duration, difficulty,
+    resourcesCount, projectsCount, status, prerequisites[]
+
+resources/{resourceId}
+  → moduleId, title, type (video/article/doc/book/tool),
+    url, difficulty, tags[], estimatedTime
+
+projects/{projectId}
+  → moduleId, title, description, difficulty,
+    estimatedTime, techStack[], githubUrl
+
+progress/{userId}
+  → courseId, completedModules[], currentModule,
+    completionPercentage, lastUpdated, streakDays
+
+mentors/{mentorId}
+  → name, title, company, expertise[], experience,
+    bio, availability, rating, sessionCount
+
+sessions/{sessionId}
+  → studentId, mentorId, type, date, status, notes, feedback
+
+community_posts/{postId}
+  → authorId, title, content, tags[], upvotes,
+    commentCount, createdAt, isPinned
+
+notifications/{notificationId}
+  → userId, title, message, type, read, createdAt
+
+ROADMAP ENGINE LOGIC:
+  → Module N+1 state = "locked" until Module N completionPercentage = 100
+  → Module complete = all resources viewed + assignments submitted + projects marked
+  → On complete: update progress doc → unlock next module → trigger notification
+  → Always query modules ordered by 'order' field ascending
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 7 — COMPONENT BUILD CHECKLIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Build these components first before any page:
+
+Core UI:
+  □ Button (primary / secondary / ghost / danger / loading state)
+  □ Input (default / focused / error / disabled)
+  □ Textarea
+  □ Select / Dropdown
+  □ Modal (shell + overlay + animation)
+  □ Toast (success / error / info — slide from top-right)
+  □ Tooltip (dark, auto-position)
+  □ Badge / Chip (5 color variants)
+  □ Skeleton loader (shimmer, matches content shape)
+  □ Progress Bar (linear, 6px, purple fill)
+  □ Progress Ring (SVG, circular)
+  □ Tabs (underline style, not boxed)
+  □ Accordion
+  □ Avatar (circle, with fallback initials)
+  □ Breadcrumb
+
+Layout:
+  □ Sidebar (with collapse, with user info bottom)
+  □ Top Navigation (public, with blur)
+  □ Authenticated top bar
+  □ Section wrapper (consistent padding)
+
+Feature:
+  □ Roadmap Node (4 states: completed/current/locked/future)
+  □ Roadmap Connector (SVG curved path, 3 styles)
+  □ Career Path Card (with selected state)
+  □ Course Hero Card (gradient)
+  □ Module Card (with left accent border)
+  □ Resource Card (with type icon, bookmark)
+  □ Mentor Card (with booking CTA)
+  □ Stat Card (metric + label)
+  □ Post Card (community)
+  □ Achievement Badge
+  □ Career Outcome Card
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 8 — QUALITY STANDARDS (NON-NEGOTIABLE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Performance:
+  → Lighthouse score: 90+ on all pages
+  → Page load: < 2 seconds
+  → All images: Next.js <Image />, WebP, lazy loaded
+  → Fonts: next/font/google, preloaded
+  → No layout shift (CLS = 0)
+
+Accessibility:
+  → WCAG AA minimum
+  → All inputs have visible labels (not just placeholders)
+  → Focus states on every interactive element
+  → Color contrast: 4.5:1 minimum for text
+  → All icons have aria-label or are aria-hidden with adjacent text
+  → Keyboard navigation fully functional
+
+Responsiveness:
+  → Every page works perfectly at: 375px / 768px / 1024px / 1280px / 1440px
+  → Sidebar: full on desktop, icon-only on tablet, drawer on mobile
+  → Roadmap: full vertical scroll on desktop, simplified on mobile
+
+States (every component needs all of these):
+  → Default / Hover / Focus / Active / Disabled / Loading / Empty / Error / Success
+
+Empty states (every data-driven page needs):
+  → Illustration (SVG, purple-toned, simple)
+  → Headline explaining the state
+  → CTA to resolve it
+  Example: "No modules started yet. Begin your roadmap."
+
+Loading states:
+  → Use skeleton loaders, NOT spinners on content areas
+  → Skeleton shapes must match exact layout of loaded content
+
+Error handling:
+  → Inline field errors (red border + helper text below)
+  → Page-level errors (centered card, message, retry button)
+  → Network errors: toast notification
+
+Copy tone:
+  → Professional but human
+  → Active voice ("Start Learning" not "Learning can be started")
+  → Specific ("8 resources" not "some resources")
+  → Motivating and career-focused
+  → Never: jargon, filler, excessive "please"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 9 — WHAT NOT TO BUILD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+EXCLUDE from MVP:
+  ✗ AI Mentor or AI chat features
+  ✗ Certificates or credential system
+  ✗ Job board or internship matching
+  ✗ Resume builder
+  ✗ Interview simulator
+  ✗ Advanced analytics dashboard
+  ✗ Admin panel (Phase 3, not MVP)
+  ✗ Dark mode (planned for V2)
+  ✗ Mobile app (web responsive only for now)
+
+AVOID in design:
+  ✗ Neon colors or dark gaming aesthetics
+  ✗ Heavy gradients everywhere (use sparingly)
+  ✗ Cartoon illustrations or playful characters
+  ✗ Dense tables or spreadsheet-like layouts
+  ✗ Excessive animations or particle effects
+  ✗ Auto-playing videos or distracting media
+  ✗ Purple on purple text (contrast must pass AA)
+  ✗ Rounded corners below 8px
+  ✗ Spinner loaders on content areas
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 10 — HOW TO USE THIS PROMPT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1 — SETUP
+  Read this entire prompt before writing any code.
+  Set up the Next.js 15 project with TypeScript + Tailwind + ShadCN.
+  Configure tailwind.config.ts with all color tokens from Section 3.
+  Set up Firebase project and add config to /lib/firebase/config.ts.
+
+STEP 2 — COMPONENTS FIRST
+  Build every component in Section 7 before building any page.
+  Test each component in isolation with all states.
+  Use Storybook or a /components/test page.
+
+STEP 3 — PAGES IN ORDER
+  Follow the Phase order in Section 4 exactly.
+  Each page must be fully responsive before moving to the next.
+  Each page must have all states (loading, empty, error, success).
+
+STEP 4 — CONNECT FIREBASE
+  Implement Authentication first.
+  Then connect Firestore reads/writes per page.
+  Use React Query or SWR for data fetching with loading/error states.
+  All Firestore queries must have error boundaries.
+
+STEP 5 — INTERACTIVE ROADMAP (special attention)
+  This is the product's flagship feature.
+  Use SVG for curved connector lines between nodes.
+  Use Framer Motion for node entrance animations.
+  Implement all 4 node states with correct visual treatments.
+  The current node must have a pulse glow animation.
+  Click interactions must feel smooth and responsive.
+  Build this to the highest quality of all pages.
+
+STEP 6 — REVIEW CHECKLIST
+  Before considering any page done, verify:
+  □ Responsive at all 5 breakpoints
+  □ All interactive states implemented
+  □ Empty state exists
+  □ Loading state exists  
+  □ Error state exists
+  □ Keyboard navigable
+  □ Focus states visible
+  □ Copy matches tone guidelines
+  □ All colors from design tokens (no hardcoded one-offs)
+  □ Animations smooth and purposeful (not distracting)
+  □ Lighthouse score 90+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FINAL REMINDER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SkillVerse is not a course platform.
+SkillVerse is not an LMS.
+SkillVerse is a Career Workspace — a guided journey system.
+
+Every design decision, every component, every interaction
+should communicate: "You are on your way to becoming
+a professional. Here is exactly where you are. Here is
+exactly what to do next."
+
+The user should never feel lost.
+The user should always feel progress.
+The user should always feel that their goal is reachable.
+
+Build with that intention.

@@ -1,0 +1,538 @@
+# SKILLVERSE
+
+## Product Requirements Document (PRD)
+
+### Version 1.0
+
+---
+
+# 1. Product Vision
+
+SkillVerse is a career navigation and learning platform that helps students become industry-ready through structured learning paths, curated resources, mentorship, projects, and community support.
+
+Unlike traditional LMS platforms, SkillVerse focuses on guiding users from beginner to professional using roadmap-based learning journeys.
+
+Positioning:
+
+Roadmap.sh
++
+Scaler
++
+Notion
++
+Duolingo Progression
++
+Career Workspace
+
+---
+
+# 2. Product Goals
+
+Primary Goals:
+
+* Help students choose a career path
+* Provide structured learning roadmaps
+* Centralize learning resources
+* Enable mentorship
+* Build career readiness
+* Track learning progress
+* Create a learning community
+
+Success Criteria:
+
+* User completes roadmap milestones
+* User consumes resources
+* User participates in mentorship
+* User becomes career-ready
+
+---
+
+# 3. Target Users
+
+### Beginner Learner
+
+Needs guidance and structure.
+
+### College Student
+
+Needs industry-ready skills.
+
+### Career Switcher
+
+Needs a complete roadmap.
+
+### Self-Learner
+
+Needs curated resources and accountability.
+
+---
+
+# 4. User Journey
+
+Landing Page
+
+↓
+
+Login / Signup
+
+↓
+
+Career Path Selection
+
+↓
+
+My Course Workspace
+
+↓
+
+Interactive Roadmap
+
+↓
+
+Module Learning Page
+
+↓
+
+Projects
+
+↓
+
+Mentorship
+
+↓
+
+Community
+
+↓
+
+Career Ready
+
+---
+
+# 5. Core Product Modules
+
+## Module 1 — Public Website
+
+### Landing Page
+
+Purpose:
+Convert visitors into users.
+
+Sections:
+
+* Hero
+* Benefits
+* Career Paths
+* How It Works
+* Testimonials
+* FAQ
+* CTA
+
+Actions:
+
+* Explore Careers
+* Get Started
+* Login
+
+---
+
+## Module 2 — Authentication
+
+### Login
+
+Features:
+
+* Email Login
+* Password Login
+* Google Login
+* Forgot Password
+
+### Signup
+
+Features:
+
+* Name
+* Email
+* Password
+* Career Interest
+
+---
+
+## Module 3 — Career Path Selection
+
+Purpose:
+
+Allow users to choose their desired career.
+
+Examples:
+
+* Cybersecurity
+* Full Stack Development
+* AI & Machine Learning
+* Data Science
+* DevOps
+* Cloud Computing
+* UI/UX Design
+* Mobile Development
+
+Each card contains:
+
+* Description
+* Duration
+* Key Skills
+* Career Outcomes
+
+---
+
+## Module 4 — My Course Workspace
+
+Default page after login.
+
+Sidebar:
+
+* My Course
+* Community
+* Mentorship
+* Settings
+* Logout
+
+Purpose:
+
+Provide a personalized career workspace.
+
+Sections:
+
+### Course Hero
+
+* Course Name
+* Description
+* Duration
+* Completion Percentage
+* Current Level
+
+### What You'll Learn
+
+Learning outcomes.
+
+### Career Outcomes
+
+Future job roles.
+
+### Skills You'll Gain
+
+Skill chips.
+
+### Course Timeline
+
+* Duration
+* Modules
+* Resources
+* Projects
+
+### Current Module
+
+Continue Learning CTA.
+
+### Achievements
+
+Recent achievements.
+
+---
+
+## Module 5 — Interactive Roadmap
+
+Flagship Feature.
+
+Purpose:
+
+Visualize the complete learning journey.
+
+Roadmap Structure:
+
+Networking
+
+↓
+
+Linux
+
+↓
+
+Python
+
+↓
+
+Web Security
+
+↓
+
+OWASP
+
+↓
+
+Bug Bounty
+
+↓
+
+Penetration Testing
+
+↓
+
+Advanced Security
+
+↓
+
+Career Ready
+
+Milestone States:
+
+* Completed
+* Current
+* Locked
+* Future
+
+Each Milestone Includes:
+
+* Module Name
+* Description
+* Duration
+* Resources
+* Projects
+* Progress
+
+Actions:
+
+* Open Module
+* Continue Learning
+
+---
+
+## Module 6 — Module Learning Page
+
+Opened from roadmap milestones.
+
+Tabs:
+
+### Overview
+
+Topics and summary.
+
+### Resources
+
+Curated learning resources.
+
+### Practice
+
+Hands-on exercises.
+
+### Assignments
+
+Tasks and challenges.
+
+### Projects
+
+Real-world projects.
+
+### Notes
+
+Mentor notes and tips.
+
+Features:
+
+* Mark Complete
+* Progress Tracking
+* Resource Access
+
+---
+
+## Module 7 — Resource Hub
+
+Resource Types:
+
+* Articles
+* Videos
+* Documentation
+* Cheat Sheets
+* Tools
+* Books
+
+Features:
+
+* Search
+* Filters
+* Favorites
+* Save for Later
+
+---
+
+## Module 8 — Mentorship
+
+Purpose:
+
+Career acceleration.
+
+Features:
+
+* Mentor Directory
+* Book Session
+* Resume Review
+* Mock Interview
+* Career Guidance
+
+Mentor Profile:
+
+* Name
+* Expertise
+* Experience
+* Availability
+
+---
+
+## Module 9 — Community
+
+Purpose:
+
+Peer learning and collaboration.
+
+Features:
+
+* Discussions
+* Study Groups
+* Resource Sharing
+* Events
+* Leaderboards
+
+Actions:
+
+* Post Question
+* Reply
+* Upvote
+* Join Group
+
+---
+
+## Module 10 — Settings
+
+Features:
+
+* Profile Management
+* Change Password
+* Notification Preferences
+* Theme Settings
+* Account Deletion
+
+---
+
+# 6. Design System
+
+Theme:
+
+Light Theme
+
+Primary:
+#6D4AFF
+
+Secondary:
+#8B5CF6
+
+Success:
+#22C55E
+
+Background:
+#F8FAFC
+
+Cards:
+#FFFFFF
+
+Text:
+#0F172A
+
+Typography:
+
+Inter
+
+Design Principles:
+
+* Clean
+* Minimal
+* Premium
+* Professional
+* Editorial
+* Modern SaaS
+
+Avoid:
+
+* LMS styling
+* Admin dashboards
+* Excessive gamification
+* Cluttered layouts
+
+---
+
+# 7. Technical Requirements
+
+Frontend:
+
+* Next.js
+* TypeScript
+* TailwindCSS
+* ShadCN UI
+
+Backend:
+
+* Firebase
+
+Services:
+
+* Authentication
+* Firestore
+* Storage
+* Analytics
+
+Deployment:
+
+* Vercel
+
+---
+
+# 8. Future Features
+
+V2:
+
+* AI Mentor
+* Personalized Recommendations
+* Adaptive Learning
+
+V3:
+
+* Certificates
+* Internship Matching
+* Job Recommendations
+
+V4:
+
+* Skill Assessment Engine
+* Learning Analytics
+* Enterprise Partnerships
+
+---
+
+# 9. Success Metrics
+
+* User Retention
+* Roadmap Completion Rate
+* Resource Consumption
+* Mentor Session Bookings
+* Community Engagement
+* Career Placement Outcomes
+
+---
+
+# Final Product Identity
+
+SkillVerse is a Career Workspace Platform.
+
+It is not a course platform.
+
+It is not an LMS.
+
+It is a guided career journey system that helps learners move from beginner to industry-ready professional through structured roadmaps, curated resources, mentorship, projects, and community.

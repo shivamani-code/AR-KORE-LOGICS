@@ -2,73 +2,91 @@
 
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Logo } from '@/components/logo'
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <nav className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200" role="navigation" aria-label="Main navigation">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center gap-2 flex-shrink-0" aria-label="AR LOGICS home">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm" aria-hidden="true">AR</span>
-            </div>
-            <span className="hidden sm:inline text-xl font-bold text-slate-900">AR LOGICS</span>
+    <nav 
+      className={`fixed w-full top-0 z-50 transition-all duration-200 ${
+        scrolled 
+          ? "bg-[#09090b]/80 backdrop-blur-md border-b border-white/[0.06] py-3" 
+          : "bg-transparent border-b border-transparent py-4"
+      }`} 
+      role="navigation" 
+      aria-label="Main navigation"
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex justify-between items-center h-10">
+          <Link href="/" className="flex items-center gap-2.5 flex-shrink-0" aria-label="AR KORE LOGICS home">
+            <Logo className="w-6 h-6 text-white transition-transform hover:scale-105" />
+            <span className="text-[15px] font-semibold tracking-tight text-white">AR KORE LOGICS</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-slate-600 hover:text-slate-900 transition font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1">
+            <Link href="/" className="text-zinc-400 hover:text-white transition-colors text-xs font-medium">
               Home
             </Link>
-            <Link href="#how-it-works" className="text-slate-600 hover:text-slate-900 transition font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1">
+            <Link href="#how-it-works" className="text-zinc-400 hover:text-white transition-colors text-xs font-medium">
               Process
             </Link>
-            <Link href="#testimonials" className="text-slate-600 hover:text-slate-900 transition font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1">
+            <Link href="#testimonials" className="text-zinc-400 hover:text-white transition-colors text-xs font-medium">
               Reviews
             </Link>
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <Link href="/login" className="text-slate-600 hover:text-slate-900 transition font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1">
+            <Link href="/login" className="text-zinc-400 hover:text-white transition-colors text-xs font-medium px-2.5 py-1.5">
               Login
             </Link>
-            <Link href="/signup" className="px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-blue-300/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 hover:scale-105 hover:-translate-y-0.5 active:scale-95">
+            <Link href="/signup" className="px-3.5 py-1.5 bg-white text-black hover:bg-zinc-200 rounded-lg text-xs font-semibold transition-colors focus:outline-none focus:ring-1 focus:ring-white">
               Get Started
             </Link>
           </div>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-slate-900 p-2 hover:bg-slate-100 rounded-lg transition"
+            className="md:hidden text-white p-2 hover:bg-white/5 rounded-lg transition"
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isOpen}
           >
-            {isOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+            {isOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
           </button>
         </div>
+      </div>
 
-        {isOpen && (
-          <div className="md:hidden pb-4 border-t border-slate-200 pt-4 space-y-3">
-            <Link href="/" className="block text-slate-600 hover:text-slate-900 py-2 font-medium px-2 rounded hover:bg-slate-50">
-              Home
-            </Link>
-            <Link href="#how-it-works" className="block text-slate-600 hover:text-slate-900 py-2 font-medium px-2 rounded hover:bg-slate-50">
-              Process
-            </Link>
-            <Link href="#testimonials" className="block text-slate-600 hover:text-slate-900 py-2 font-medium px-2 rounded hover:bg-slate-50">
-              Reviews
-            </Link>
-            <Link href="/login" className="block text-slate-600 hover:text-slate-900 py-2 font-medium px-2 rounded hover:bg-slate-50">
+      {isOpen && (
+        <div className="md:hidden px-6 pb-6 border-b border-white/[0.06] bg-[#09090b] pt-3 space-y-2">
+          <Link href="/" onClick={() => setIsOpen(false)} className="block text-zinc-400 hover:text-white py-2 text-xs font-medium transition-colors">
+            Home
+          </Link>
+          <Link href="#how-it-works" onClick={() => setIsOpen(false)} className="block text-zinc-400 hover:text-white py-2 text-xs font-medium transition-colors">
+            Process
+          </Link>
+          <Link href="#testimonials" onClick={() => setIsOpen(false)} className="block text-zinc-400 hover:text-white py-2 text-xs font-medium transition-colors">
+            Reviews
+          </Link>
+          <div className="pt-4 flex flex-col gap-2">
+            <Link href="/login" onClick={() => setIsOpen(false)} className="block text-center text-zinc-400 hover:text-white py-2 text-xs font-medium transition-colors">
               Login
             </Link>
-            <Link href="/signup" className="block w-full text-center px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-xl font-semibold mt-4 hover:shadow-lg hover:shadow-blue-300/50 transition-all duration-300 hover:scale-105 active:scale-95">
+            <Link href="/signup" onClick={() => setIsOpen(false)} className="block w-full text-center px-4 py-2 bg-white text-black rounded-lg text-xs font-semibold hover:bg-zinc-200 transition-colors">
               Get Started
             </Link>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </nav>
   )
 }

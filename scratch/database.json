@@ -1,0 +1,141 @@
+{
+  "users": [
+    {
+      "name": "mani",
+      "email": "mop91838@gmail.com",
+      "passwordHash": "123456",
+      "role": "student",
+      "careerPath": "Artificial Intelligence",
+      "id": "k9a4ixhaq",
+      "joinedAt": "2026-06-22T15:01:48.254Z"
+    },
+    {
+      "name": "nc",
+      "email": "jaan@anu.com",
+      "passwordHash": "21345d",
+      "role": "student",
+      "careerPath": "Artificial Intelligence",
+      "id": "9ode88u3w",
+      "joinedAt": "2026-06-24T17:13:17.675Z"
+    }
+  ],
+  "mentors": [
+    {
+      "id": "m_ananya",
+      "name": "Dr. Ananya Sharma",
+      "title": "AI Research Scientist",
+      "company": "Google DeepMind",
+      "expertise": [
+        "Python",
+        "Machine Learning",
+        "Neural Networks",
+        "AI Ethics"
+      ],
+      "experience": "8+ Years",
+      "bio": "CBSE curriculum advisor. Specializes in making complex AI/ML concepts easy to grasp for school and college beginners.",
+      "availability": "Mon, Wed, Fri at 4:00 PM",
+      "rating": 4.9,
+      "sessionCount": 142
+    },
+    {
+      "id": "m_rohan",
+      "name": "Rohan Varma",
+      "title": "Senior Data Scientist",
+      "company": "AR Kore Logics",
+      "expertise": [
+        "Data Science",
+        "Python",
+        "Gen AI",
+        "Prompt Engineering"
+      ],
+      "experience": "6 Years",
+      "bio": "Passionate about teaching Python programming, data analytics, and generative AI systems.",
+      "availability": "Tue, Thu at 3:00 PM",
+      "rating": 4.8,
+      "sessionCount": 98
+    }
+  ],
+  "sessions": [],
+  "posts": [
+    {
+      "id": "p_cbse_prep",
+      "authorId": "m_ananya",
+      "authorName": "Dr. Ananya Sharma",
+      "authorRole": "Mentor",
+      "title": "CBSE Class 9 AI Study Guide & Exam Blueprint",
+      "content": "Hello students! I have compiled the official CBSE Class 9 AI syllabus study guide. Focus heavily on the 5 stages of the AI Project Cycle (especially the 4Ws canvas) and Python programming basics (lists, variables, and loops). Make sure to practice the sample questions posted in the resources section. Good luck with your preparation!",
+      "tags": [
+        "Study Group",
+        "Resources"
+      ],
+      "upvotes": 18,
+      "commentCount": 2,
+      "createdAt": "2026-06-24T10:00:00.000Z",
+      "upvotedBy": [],
+      "comments": [
+        {
+          "id": "c_c1",
+          "postId": "p_cbse_prep",
+          "authorId": "k9a4ixhaq",
+          "authorName": "mani",
+          "content": "Thank you Dr. Ananya! The Python loop exercises were really helpful. Will we get questions from matrices too?",
+          "createdAt": "2026-06-24T10:30:00.000Z"
+        },
+        {
+          "id": "c_c2",
+          "postId": "p_cbse_prep",
+          "authorId": "m_ananya",
+          "authorName": "Dr. Ananya Sharma (Mentor)",
+          "content": "Yes, basic matrix representation is part of the Math for AI week. Just focus on visual grids and dimensions, no complex math calculations needed!",
+          "createdAt": "2026-06-24T11:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "p_python_tips",
+      "authorId": "m_rohan",
+      "authorName": "Rohan Varma",
+      "authorRole": "Mentor",
+      "title": "Mastering Python Loops & Lists for Class 9 AI",
+      "content": "Python list syntax and nested loops can be tricky at first. Remember that Python uses 0-based indexing. For loops are perfect for iterating over list items, and while loops work best when you don't know the exact count beforehand. Let me know if you want to run a mock coding session!",
+      "tags": [
+        "Project Showcase",
+        "Questions"
+      ],
+      "upvotes": 12,
+      "commentCount": 0,
+      "createdAt": "2026-06-24T09:00:00.000Z",
+      "upvotedBy": [],
+      "comments": []
+    }
+  ],
+  "progress": {
+    "k9a4ixhaq": {
+      "userId": "k9a4ixhaq",
+      "careerPath": "Artificial Intelligence",
+      "completedModules": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "currentModuleId": 8,
+      "completionPercentage": 100,
+      "streakDays": 3,
+      "lastUpdated": "2026-06-25T15:50:06.259Z"
+    },
+    "9ode88u3w": {
+      "userId": "9ode88u3w",
+      "careerPath": "Artificial Intelligence",
+      "completedModules": [],
+      "currentModuleId": 1,
+      "completionPercentage": 0,
+      "streakDays": 3,
+      "lastUpdated": "2026-06-24T17:13:17.675Z"
+    }
+  }
+}

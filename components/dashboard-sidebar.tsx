@@ -1,23 +1,60 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { useState } from 'react'
-import { LayoutGrid, BookOpen, Map, Library, Users, Zap, MessageSquare, Trophy, Settings, LogOut, Menu, X } from 'lucide-react'
+import { usePathname, useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import {
+  LayoutGrid,
+  BookOpen,
+  Map,
+  Users,
+  MessageSquare,
+  Trophy,
+  Settings,
+  LogOut,
+  Menu,
+  X,
+} from 'lucide-react'
+import { Logo } from '@/components/logo'
+import { useUser } from '@/components/user-context'
 
-const menuItems = [
-  { icon: LayoutGrid, label: 'Overview', href: '/dashboard', exact: true },
-  { icon: BookOpen, label: 'My Learning', href: '/dashboard/learning' },
-  { icon: Map, label: 'Roadmaps', href: '/dashboard/roadmaps' },
-  { icon: Library, label: 'Resources', href: '/dashboard/resources' },
-  { icon: Users, label: 'Mentorship', href: '/dashboard/mentorship' },
-  { icon: MessageSquare, label: 'Community', href: '/dashboard/community' },
-  { icon: Zap, label: 'Opportunities', href: '/dashboard/opportunities' },
-  { icon: Trophy, label: 'Achievements', href: '/dashboard/achievements' },
-]
+interface MenuItem {
+  icon: React.ElementType
+  label: string
+  href: string
+  exact?: boolean
+  sublabel?: string
+}
+
+const careerLabelMap: Record<string, string> = {
+  fullstack: 'Full Stack Dev',
+  'ai-ml': 'AI & ML',
+  cybersecurity: 'Cybersecurity',
+  'data-science': 'Data Science',
+  cloud: 'Cloud Architect',
+  devops: 'DevOps',
+  uiux: 'UI/UX Design',
+  mobile: 'Mobile Dev',
+}
 
 export function DashboardSidebar({ isOpen = true, onToggle = () => {} }) {
   const pathname = usePathname()
+  const router = useRouter()
+  const { selectedCareer } = useUser()
+  const roadmapLabel = selectedCareer ? (careerLabelMap[selectedCareer] || selectedCareer) : 'My Roadmap'
+
+  const menuItems: MenuItem[] = [
+    { icon: LayoutGrid, label: 'Overview', href: '/dashboard', exact: true },
+    { icon: BookOpen, label: 'Courses', href: '/dashboard/courses' },
+    {
+      icon: Map,
+      label: 'My Roadmap',
+      href: '/dashboard/roadmaps',
+      sublabel: roadmapLabel,
+    },
+    { icon: Users, label: 'Mentorship', href: '/dashboard/mentorship' },
+    { icon: MessageSquare, label: 'Community', href: '/dashboard/community' },
+  ]
 
   const handleLinkClick = () => {
     if (typeof window !== 'undefined' && window.innerWidth < 768) {
@@ -25,80 +62,129 @@ export function DashboardSidebar({ isOpen = true, onToggle = () => {} }) {
     }
   }
 
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/auth/logout', { method: 'POST' })
+    } catch (err) {
+      console.error('Logout failed:', err)
+    }
+    router.push('/login')
+  }
+
+  const isActive = (item: MenuItem) =>
+    item.exact ? pathname === item.href : pathname.startsWith(item.href)
+
   return (
     <>
-      {/* Mobile menu button - appears above navbar on mobile */}
+      {/* Mobile FAB toggle */}
       <button
         onClick={onToggle}
-        className="fixed bottom-6 right-6 z-50 md:hidden bg-blue-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition hover:scale-110 active:scale-95"
+        className="fixed bottom-6 right-6 z-50 md:hidden bg-white text-black p-3 rounded-full shadow-lg hover:bg-zinc-200 transition-all active:scale-95"
         aria-label="Toggle navigation menu"
       >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
+        {isOpen ? <X size={18} /> : <Menu size={18} />}
       </button>
 
       {/* Mobile overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-30 md:hidden"
+          className="fixed inset-0 bg-black/60 z-30 md:hidden backdrop-blur-sm"
           onClick={onToggle}
           aria-hidden="true"
         />
       )}
 
-      <aside className={`bg-white h-screen fixed left-0 top-0 flex flex-col overflow-y-auto z-40 transition-all duration-300 md:relative md:z-auto ${
-        isOpen 
-          ? 'w-64 border-r border-slate-200 translate-x-0' 
-          : 'w-0 border-r-0 -translate-x-full md:w-0 md:border-r-0 md:-translate-x-full overflow-hidden'
-      }`}>
-        <div className="w-64 flex flex-col h-full flex-shrink-0">
-          <div className="p-6 border-b border-slate-200">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">AR</span>
-              </div>
-              <span className="text-xl font-bold text-slate-900">AR LOGICS</span>
+      {/* Sidebar */}
+      <aside
+        className={`bg-[#070709] h-screen fixed left-0 top-0 flex flex-col z-40 transition-all duration-200 md:relative md:z-auto border-r border-white/[0.04] ${
+          isOpen
+            ? 'w-60 translate-x-0'
+            : 'w-0 -translate-x-full md:w-0 md:-translate-x-full overflow-hidden border-r-0'
+        }`}
+      >
+        <div className="w-60 flex flex-col h-full flex-shrink-0">
+          {/* Logo Header */}
+          <div className="p-4 border-b border-white/[0.04]">
+            <Link
+              href="/"
+              className="flex items-center gap-2 group"
+              aria-label="AR KORE LOGICS home"
+            >
+              <Logo className="w-5 h-5 text-white" />
+              <span className="text-xs font-semibold tracking-tight text-white">
+                AR KORE LOGICS
+              </span>
             </Link>
           </div>
 
-          <nav className="flex-1 p-4 space-y-2">
+          {/* Navigation */}
+          <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
             {menuItems.map((item, idx) => {
               const IconComponent = item.icon
-              const isActive = item.exact ? pathname === item.href : pathname.startsWith(item.href)
-              
+              const active = isActive(item)
+
               return (
                 <Link
                   key={idx}
                   href={item.href}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition ${
-                    isActive
-                      ? 'bg-blue-100 text-blue-600 border border-blue-200'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                  }`}
                   onClick={handleLinkClick}
+                  className={`flex items-center gap-2.5 px-3 py-2 rounded-lg transition-all duration-150 group relative text-xs font-medium ${
+                    active
+                      ? 'bg-white/[0.04] text-white border border-white/[0.06]'
+                      : 'text-zinc-400 hover:text-white hover:bg-white/[0.02] border border-transparent'
+                  }`}
                 >
-                  <IconComponent size={20} aria-hidden="true" />
-                  <span className="font-medium">{item.label}</span>
+                  <IconComponent
+                    size={14}
+                    aria-hidden="true"
+                    className={`flex-shrink-0 ${active ? 'text-white' : 'text-zinc-500 group-hover:text-zinc-300'}`}
+                  />
+
+                  <div className="flex-1 min-w-0">
+                    <span className="block leading-none">
+                      {item.label}
+                    </span>
+                    {item.sublabel && (
+                      <span className="text-[9px] text-zinc-500 block mt-0.5 truncate">
+                        {item.sublabel}
+                      </span>
+                    )}
+                  </div>
                 </Link>
               )
             })}
           </nav>
 
-          <div className="p-4 border-t border-slate-200 space-y-2">
+          {/* Bottom: Settings & Logout */}
+          <div className="p-3 border-t border-white/[0.04] space-y-1">
             <Link
               href="/dashboard/settings"
-              className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition"
               onClick={handleLinkClick}
+              className={`flex items-center gap-2.5 px-3 py-2 rounded-lg transition-all duration-150 text-xs font-medium border ${
+                pathname === '/dashboard/settings'
+                  ? 'bg-white/[0.04] text-white border-white/[0.06]'
+                  : 'text-zinc-400 hover:text-white hover:bg-white/[0.02] border-transparent'
+              }`}
             >
-              <Settings size={20} aria-hidden="true" />
-              <span className="font-medium">Settings</span>
+              <Settings
+                size={14}
+                aria-hidden="true"
+                className={`${pathname === '/dashboard/settings' ? 'text-white' : 'text-zinc-500 group-hover:text-zinc-300'}`}
+              />
+              <span>Settings</span>
             </Link>
+
             <button
-              className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition"
-              onClick={handleLinkClick}
+              onClick={handleLogout}
+              className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-zinc-400 hover:text-rose-400 hover:bg-rose-500/[0.04] transition-all border border-transparent"
               aria-label="Logout"
             >
-              <LogOut size={20} aria-hidden="true" />
-              <span className="font-medium">Logout</span>
+              <LogOut
+                size={14}
+                aria-hidden="true"
+                className="text-zinc-500 group-hover:text-rose-400 transition-colors"
+              />
+              <span>Logout</span>
             </button>
           </div>
         </div>
@@ -106,3 +192,4 @@ export function DashboardSidebar({ isOpen = true, onToggle = () => {} }) {
     </>
   )
 }
+

@@ -1,6 +1,7 @@
 'use client'
 
 import { Check } from 'lucide-react'
+import Link from 'next/link'
 
 const plans = [
   {
@@ -9,13 +10,14 @@ const plans = [
     period: '/month',
     description: 'Get started with the basics',
     features: [
-      'Access to all roadmaps',
-      '30+ career paths',
-      'Community resources',
-      'Progress tracking',
-      'Basic achievements',
+      'Access to all standard roadmaps',
+      '30+ career pathways',
+      'Community study resources',
+      'Personal progress tracking',
+      'Milestone tracking',
     ],
     cta: 'Get Started',
+    href: '/signup',
     highlighted: false,
   },
   {
@@ -25,84 +27,104 @@ const plans = [
     description: 'Everything you need to succeed',
     features: [
       'Everything in Free',
-      'AI Mentor sessions',
-      'Unlimited mentor bookings',
-      'Premium roadmaps',
-      'Resume builder',
-      'Career guidance',
-      'Priority support',
+      'AI Mentor mock interview sessions',
+      'Unlimited mentor consultations',
+      'High-fidelity system design paths',
+      'Interactive portfolio builder',
+      'Dedicated placement coordinators',
+      'Priority ticketing support',
     ],
     cta: 'Start Free Trial',
+    href: '/signup',
     highlighted: true,
   },
 ]
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 text-balance">
+    <section id="pricing" className="py-32 px-6 sm:px-8 lg:px-12 bg-[#09090b] relative border-b border-white/[0.04]">
+      {/* Background patterns & Ambient Glows */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none z-0" />
+      <div className="absolute top-[30%] left-[-20%] w-[500px] h-[500px] bg-indigo-500/[0.015] blur-[150px] pointer-events-none rounded-full z-0" />
+      <div className="absolute bottom-[20%] right-[-20%] w-[600px] h-[600px] bg-purple-500/[0.01] blur-[180px] pointer-events-none rounded-full z-0" />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        
+        {/* Section Header */}
+        <div className="text-center mb-16 max-w-xl mx-auto space-y-3">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-indigo-400">
+            Pricing
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto text-pretty">
-            Choose the plan that works for you. Upgrade or downgrade anytime.
+          <p className="text-sm text-zinc-400 leading-relaxed">
+            Choose the plan that matches your learning pace. Upgrade or downgrade at any time.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {plans.map((plan, idx) => (
             <div
               key={idx}
-              className={`relative rounded-xl p-6 sm:p-8 border transition ${
+              className={`relative rounded-xl p-8 border flex flex-col justify-between transition-all duration-300 overflow-hidden ${
                 plan.highlighted
-                  ? 'bg-gradient-to-br from-blue-50 to-cyan-50 border-blue-300 shadow-2xl shadow-blue-300/20 lg:scale-105'
-                  : 'bg-white border-slate-200 hover:border-blue-200 hover:shadow-lg'
+                  ? 'bg-[#0c0c0f] border-indigo-500/35 shadow-2xl'
+                  : 'bg-[#0b0b0e] border-white/[0.04] hover:border-indigo-500/20'
               }`}
             >
+              {/* Subtle internal glows */}
+              {plan.highlighted ? (
+                <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.04)_0%,transparent_60%)]" />
+              ) : (
+                <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.02)_0%,transparent_70%)]" />
+              )}
+
               {plan.highlighted && (
-                <div className="absolute -top-4 right-4 sm:right-8 bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-bold">
+                <div className="absolute -top-3 right-6 bg-indigo-500/10 border border-indigo-500/35 text-indigo-300 px-2.5 py-0.5 rounded-full text-[9px] font-semibold tracking-wider uppercase relative z-10">
                   Popular
                 </div>
               )}
 
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">
-                {plan.name}
-              </h3>
-              <p className="text-slate-600 text-sm mb-6">
-                {plan.description}
-              </p>
+              <div className="relative z-10">
+                <h3 className="text-sm font-semibold text-white mb-1.5">
+                  {plan.name}
+                </h3>
+                <p className="text-zinc-500 text-xs mb-6">
+                  {plan.description}
+                </p>
 
-              <div className="mb-8">
-                <span className="text-4xl sm:text-5xl font-bold text-slate-900">
-                  {plan.price}
-                </span>
-                <span className="text-slate-600 ml-2 text-sm sm:text-base">
-                  {plan.period}
-                </span>
+                <div className="mb-6">
+                  <span className="text-3xl font-semibold text-white">
+                    {plan.price}
+                  </span>
+                  <span className="text-zinc-500 ml-1 text-xs font-mono">
+                    {plan.period}
+                  </span>
+                </div>
+
+                <div className="space-y-3.5 mb-8">
+                  {plan.features.map((feature, fidx) => (
+                    <div key={fidx} className="flex items-start gap-2.5">
+                      <Check className="text-indigo-400 flex-shrink-0 mt-0.5" size={13} aria-hidden="true" />
+                      <span className="text-zinc-400 text-xs leading-relaxed">
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <button
-                className={`w-full py-3 px-4 rounded-lg font-semibold transition mb-8 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+              <Link
+                href={plan.href}
+                className={`w-full h-10 rounded-lg font-semibold text-xs flex items-center justify-center transition-all duration-300 focus:outline-none relative z-10 ${
                   plan.highlighted
-                    ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:shadow-lg hover:shadow-blue-300/50'
-                    : 'bg-blue-100 text-blue-600 hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-500 hover:text-white'
+                    ? 'bg-white text-black hover:bg-zinc-200'
+                    : 'bg-[#121216] border border-white/[0.06] hover:border-white/[0.12] text-zinc-300 hover:text-white'
                 }`}
-                aria-label={`${plan.cta} for ${plan.name} plan`}
               >
                 {plan.cta}
-              </button>
-
-              <div className="space-y-4">
-                {plan.features.map((feature, fidx) => (
-                  <div key={fidx} className="flex items-start gap-3">
-                    <Check className="text-green-500 flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
-                    <span className="text-slate-700 text-sm sm:text-base">
-                      {feature}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              </Link>
             </div>
           ))}
         </div>
@@ -110,3 +132,4 @@ export function Pricing() {
     </section>
   )
 }
+

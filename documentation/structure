@@ -1,0 +1,511 @@
+SKILLVERSE MASTER BLUEPRINT
+Product Positioning
+SkillVerse
+
+Career Workspace Platform
+
+Not:
+
+Course Platform
+Learning Management System
+College Portal
+
+Instead:
+
+Roadmap.sh
++
+Scaler
++
+Notion
++
+Linear
++
+Career OS
+Complete User Flow
+Guest User
+Landing Page
+
+↓
+
+Explore Career Paths
+
+↓
+
+View Roadmap Preview
+
+↓
+
+View Features
+
+↓
+
+Login / Signup
+
+↓
+
+Career Selection
+Student Flow
+Login
+
+↓
+
+Career Selection
+
+↓
+
+My Course Workspace
+
+↓
+
+Continue Learning
+
+↓
+
+Interactive Roadmap
+
+↓
+
+Module
+
+↓
+
+Resources
+
+↓
+
+Assignments
+
+↓
+
+Projects
+
+↓
+
+Mark Complete
+
+↓
+
+Unlock Next Module
+
+↓
+
+Mentorship
+
+↓
+
+Community
+
+↓
+
+Career Ready
+Mentor Flow
+Login
+
+↓
+
+Mentor Dashboard
+
+↓
+
+Student Requests
+
+↓
+
+Book Session
+
+↓
+
+Provide Feedback
+
+↓
+
+Review Progress
+
+↓
+
+Session Notes
+Admin Flow
+Admin Login
+
+↓
+
+Manage Courses
+
+↓
+
+Manage Resources
+
+↓
+
+Manage Roadmaps
+
+↓
+
+Manage Mentors
+
+↓
+
+Manage Community
+
+↓
+
+Analytics
+Final Sitemap
+/
+
+├── Landing
+├── About
+├── Pricing
+├── Login
+├── Signup
+
+/dashboard
+
+├── My Course
+├── Community
+├── Mentorship
+├── Settings
+
+/course
+
+├── Overview
+├── Roadmap
+├── Module
+├── Resources
+├── Projects
+Theme Direction
+Visual Identity
+Professional
+
+Modern
+
+Premium
+
+Educational
+
+Minimal
+
+Editorial
+Inspiration
+Linear
+
+Notion
+
+Stripe
+
+Arc Browser
+
+Roadmap.sh
+
+Apple
+Avoid
+Moodle
+
+Udemy
+
+College Portals
+
+Admin Dashboards
+
+Heavy Gaming UI
+Color Palette
+Primary
+#6D4AFF
+Secondary
+#8B5CF6
+Accent
+#22C55E
+Background
+#F8FAFC
+Surface
+#FFFFFF
+Text
+#0F172A
+Typography
+Inter
+
+Hierarchy:
+
+H1 56px
+H2 40px
+H3 32px
+Body 16px
+Caption 14px
+Product Structure
+Layer 1
+
+Landing Experience
+
+Purpose:
+
+Convert visitors.
+
+Layer 2
+
+Career Selection
+
+Purpose:
+
+Choose future career.
+
+Layer 3
+
+Career Workspace
+
+Purpose:
+
+Student home.
+
+Layer 4
+
+Roadmap Experience
+
+Purpose:
+
+Visual learning journey.
+
+Layer 5
+
+Learning System
+
+Purpose:
+
+Consume content.
+
+Layer 6
+
+Career Growth
+
+Purpose:
+
+Mentorship.
+
+Community.
+
+Projects.
+
+Core Product Pages
+Page 1
+
+Landing
+
+Status:
+
+Finalized
+
+Page 2
+
+Login
+
+Status:
+
+Finalized
+
+Page 3
+
+Signup
+
+Status:
+
+Finalized
+
+Page 4
+
+Career Selection
+
+Status:
+
+Needs Refinement
+
+Page 5
+
+My Course Workspace
+
+Status:
+
+Designed
+
+Needs Development
+
+Page 6
+
+Interactive Roadmap
+
+Status:
+
+Needs Redesign
+
+Flagship Feature
+
+Highest Priority
+
+Page 7
+
+Module Learning Page
+
+Status:
+
+Designed
+
+Needs Refinement
+
+Page 8
+
+Community
+
+Status:
+
+Designed
+
+Needs Refinement
+
+Page 9
+
+Mentorship
+
+Status:
+
+Designed
+
+Needs Refinement
+
+Firebase Architecture
+Collections
+users
+
+courses
+
+roadmaps
+
+modules
+
+resources
+
+projects
+
+progress
+
+achievements
+
+community
+
+posts
+
+comments
+
+mentors
+
+sessions
+
+notifications
+Roadmap Engine
+
+Each roadmap:
+
+Course
+
+Modules
+
+Dependencies
+
+Unlock Logic
+
+Completion Logic
+
+Example:
+
+Networking
+
+↓
+
+Linux
+
+↓
+
+Python
+
+↓
+
+Web Security
+
+↓
+
+OWASP
+
+↓
+
+Bug Bounty
+
+↓
+
+Pentesting
+
+↓
+
+Advanced Security
+Future Years Roadmap
+Version 1
+
+Current Goal
+
+Landing
+
+Auth
+
+Career Selection
+
+Workspace
+
+Roadmap
+
+Module Learning
+
+Resources
+Version 2
+AI Mentor
+
+Progress Analytics
+
+Skill Assessment
+
+Personalized Recommendations
+Version 3
+Certificates
+
+Internship Matching
+
+Job Opportunities
+
+Resume Builder
+Version 4
+Company Partnerships
+
+Hiring Portal
+
+Mock Interview AI
+
+Industry Challenges
+Development Priority
+Priority 1
+
+Finish:
+
+Career Workspace
+
+Roadmap
+
+Module Page
+Priority 2
+
+Finish:
+
+Community
+
+Mentorship
+Priority 3
+
+Finish:
+
+Admin Panel
+
+Analytics

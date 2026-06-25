@@ -1,0 +1,820 @@
+# SKILLVERSE
+
+# Design Requirements Document (DRD)
+
+## Version 1.0
+
+---
+
+# 1. Purpose
+
+This document defines the complete visual design, user experience, interaction principles, layout structure, design system, and UI behavior for SkillVerse.
+
+The DRD serves as the source of truth for:
+
+* UI Design
+* UX Design
+* Frontend Development
+* Product Consistency
+* Future Feature Expansion
+
+This document should be followed before implementation.
+
+---
+
+# 2. Design Vision
+
+SkillVerse is not a Learning Management System.
+
+SkillVerse is a Career Workspace.
+
+The platform should feel like:
+
+* Linear
+* Notion
+* Stripe
+* Roadmap.sh
+* Arc Browser
+
+The platform should NOT feel like:
+
+* Moodle
+* Blackboard
+* College Portals
+* Traditional LMS Platforms
+* Admin Dashboards
+
+---
+
+# 3. Design Philosophy
+
+Every screen should answer:
+
+1. What is my goal?
+2. Where am I currently?
+3. What should I do next?
+
+Design Principles:
+
+* Clarity First
+* Minimal Interface
+* Maximum Focus
+* Career-Oriented
+* Content-Centered
+* Progressive Disclosure
+* Mobile Friendly
+* Accessibility First
+
+---
+
+# 4. Brand Personality
+
+SkillVerse should feel:
+
+Professional
+
+Confident
+
+Modern
+
+Premium
+
+Helpful
+
+Motivating
+
+Trustworthy
+
+Focused
+
+Avoid:
+
+Playful
+
+Cartoonish
+
+Overly Corporate
+
+Gaming-Oriented
+
+Childish
+
+---
+
+# 5. Visual Identity
+
+## Theme
+
+Light Theme Only
+
+Primary Experience:
+
+Clean
+
+Bright
+
+Minimal
+
+Professional
+
+---
+
+## Color System
+
+Primary
+
+#6D4AFF
+
+Secondary
+
+#8B5CF6
+
+Accent
+
+#22C55E
+
+Success
+
+#16A34A
+
+Warning
+
+#F59E0B
+
+Error
+
+#EF4444
+
+---
+
+Background Colors
+
+Page Background
+
+#F8FAFC
+
+Section Background
+
+#FFFFFF
+
+Muted Surface
+
+#F1F5F9
+
+---
+
+Text Colors
+
+Primary
+
+#0F172A
+
+Secondary
+
+#475569
+
+Muted
+
+#94A3B8
+
+---
+
+# 6. Typography
+
+Font Family
+
+Inter
+
+Fallback
+
+System Sans
+
+---
+
+Heading Scale
+
+H1
+
+56px
+
+H2
+
+40px
+
+H3
+
+32px
+
+H4
+
+24px
+
+H5
+
+20px
+
+Body
+
+16px
+
+Caption
+
+14px
+
+Small
+
+12px
+
+---
+
+Font Weight
+
+Regular
+
+400
+
+Medium
+
+500
+
+Semibold
+
+600
+
+Bold
+
+700
+
+---
+
+# 7. Layout System
+
+Desktop Width
+
+1440px
+
+Content Width
+
+1280px
+
+Grid
+
+12 Columns
+
+Gutter
+
+24px
+
+Margin
+
+80px
+
+---
+
+Spacing Scale
+
+4
+
+8
+
+12
+
+16
+
+24
+
+32
+
+48
+
+64
+
+80
+
+96
+
+---
+
+# 8. Navigation Structure
+
+Public Navigation
+
+Home
+
+Roadmaps
+
+Resources
+
+Mentors
+
+Community
+
+Login
+
+Get Started
+
+---
+
+Authenticated Navigation
+
+Sidebar Only
+
+My Course
+
+Community
+
+Mentorship
+
+Settings
+
+Logout
+
+---
+
+No Additional Navigation Items
+
+No Dashboard
+
+No Analytics
+
+No Reports
+
+---
+
+# 9. Landing Page Requirements
+
+Hero Section
+
+Purpose
+
+Conversion
+
+Components
+
+Headline
+
+Subheadline
+
+CTA
+
+Secondary CTA
+
+Trust Indicators
+
+Illustration
+
+---
+
+Followed By
+
+Benefits
+
+Career Paths
+
+How It Works
+
+Success Stories
+
+FAQ
+
+CTA
+
+Footer
+
+---
+
+# 10. Login & Signup
+
+Layout
+
+Split Screen
+
+Modern Card Layout
+
+Centered Form
+
+Large White Space
+
+Simple UX
+
+---
+
+Fields
+
+Name
+
+Email
+
+Password
+
+Confirm Password
+
+Career Interest
+
+---
+
+Buttons
+
+Primary
+
+Google Login
+
+---
+
+# 11. Career Path Selection
+
+Purpose
+
+User chooses future career.
+
+---
+
+Card Design
+
+Large
+
+Modern
+
+Minimal
+
+Includes
+
+Career Name
+
+Description
+
+Duration
+
+Skills
+
+Career Outcomes
+
+---
+
+# 12. My Course Workspace
+
+Primary Screen After Login
+
+---
+
+Page Structure
+
+Course Hero
+
+What You'll Learn
+
+Career Outcomes
+
+Skills
+
+Timeline
+
+Current Module
+
+Achievements
+
+Roadmap Entry Point
+
+---
+
+Hero Section
+
+Course Name
+
+Description
+
+Progress
+
+Level
+
+Continue Learning
+
+---
+
+# 13. Interactive Roadmap
+
+Flagship Product Experience
+
+---
+
+Purpose
+
+Visualize Career Progress
+
+---
+
+Requirements
+
+Large Scrollable Experience
+
+Editorial Layout
+
+Premium Visuals
+
+Curved Connections
+
+Milestones
+
+Clear Progress States
+
+---
+
+States
+
+Completed
+
+Current
+
+Locked
+
+Future
+
+---
+
+Milestone Contents
+
+Title
+
+Description
+
+Duration
+
+Projects
+
+Resources
+
+Difficulty
+
+---
+
+Current Milestone
+
+Largest
+
+Most Visible
+
+Highlighted
+
+Glowing Border
+
+---
+
+# 14. Module Learning Page
+
+Purpose
+
+Actual Learning Happens Here
+
+---
+
+Layout
+
+Overview
+
+Resources
+
+Practice
+
+Assignments
+
+Projects
+
+Notes
+
+Discussion
+
+---
+
+Resource Cards
+
+Clean
+
+Minimal
+
+Searchable
+
+Bookmarkable
+
+---
+
+# 15. Community
+
+Purpose
+
+Peer Learning
+
+---
+
+Features
+
+Discussions
+
+Study Groups
+
+Questions
+
+Resource Sharing
+
+Events
+
+Leaderboards
+
+---
+
+# 16. Mentorship
+
+Purpose
+
+Career Acceleration
+
+---
+
+Features
+
+Mentor Directory
+
+Book Session
+
+Resume Review
+
+Mock Interviews
+
+Career Guidance
+
+---
+
+# 17. Component Design Standards
+
+Cards
+
+Radius
+
+20px
+
+Shadow
+
+Soft
+
+Padding
+
+24px
+
+---
+
+Buttons
+
+Radius
+
+14px
+
+Height
+
+48px
+
+Primary
+
+Purple
+
+Secondary
+
+Outlined
+
+---
+
+Inputs
+
+Height
+
+48px
+
+Radius
+
+12px
+
+Border
+
+1px
+
+---
+
+# 18. Motion Design
+
+Animations Must Be Subtle
+
+---
+
+Allowed
+
+Fade
+
+Slide
+
+Scale
+
+Hover Elevation
+
+Progress Fill
+
+---
+
+Avoid
+
+Excessive Motion
+
+Bounce
+
+Gaming Effects
+
+Overuse of Particles
+
+---
+
+# 19. Accessibility
+
+WCAG AA
+
+Keyboard Navigation
+
+Screen Reader Support
+
+Focus States
+
+Contrast Compliance
+
+---
+
+# 20. Responsive Requirements
+
+Desktop
+
+1440+
+
+Laptop
+
+1024+
+
+Tablet
+
+768+
+
+Mobile
+
+375+
+
+---
+
+All Screens Must Work On
+
+Desktop
+
+Tablet
+
+Mobile
+
+---
+
+# 21. Empty States
+
+Every page must include:
+
+No Data State
+
+Loading State
+
+Error State
+
+Success State
+
+---
+
+# 22. Design Success Criteria
+
+The product should immediately communicate:
+
+Career Progress
+
+Learning Path
+
+Professional Growth
+
+Industry Readiness
+
+Next Steps
+
+The user should never feel lost.
+
+Every screen should clearly indicate:
+
+Where they are.
+
+What they have completed.
+
+What they should do next.
+
+---
+
+# Final Design Statement
+
+SkillVerse is a Career Workspace Platform designed to guide learners from beginner to industry-ready professional through structured roadmaps, curated resources, mentorship, projects, and community support.
+
+The experience should feel premium, focused, professional, and motivating while remaining clean, minimal, and highly usable.

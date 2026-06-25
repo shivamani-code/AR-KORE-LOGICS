@@ -1,0 +1,876 @@
+SKILLVERSE — UPGRADED MASTER DESIGN PROMPTS
+Premium Dark-Ambient Edition
+
+╔══════════════════════════════════════════════════════════╗
+║     SKILLVERSE — PREMIUM VISUAL IDENTITY UPGRADE         ║
+║     Archetype: Sage+Star | Magician+Moon                 ║
+║     Direction: Dark Atmospheric Premium SaaS             ║
+╚══════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+THE VISUAL SHIFT — WHY THE OLD DESIGN FAILED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The previous design was too flat, too white, too safe.
+It looked like a starter template, not a premium product.
+
+The references you shared communicate:
+→ Deep dark backgrounds with ambient light sources
+→ Purple/violet glows that feel like energy, not decoration
+→ 3D depth through layered elements and glass morphism
+→ Motion that makes the UI feel alive
+→ Editorial boldness — large type, confident spacing
+→ Floating elements with real depth and shadow
+
+SkillVerse is about transformation — going from beginner
+to professional. That journey should feel significant.
+The visual language should carry that weight.
+
+NEW VISUAL DIRECTION:
+  Background system: Deep dark, not flat white
+  Atmosphere:        Ambient light, glows, depth
+  Motion:            Purposeful, alive, not decorative
+  Typography:        Large, confident, editorial
+  Cards:             Glass morphism with real depth
+  Accent:            Purple light, not just purple color
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+UPGRADED DESIGN TOKENS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+BACKGROUND SYSTEM (layered depth):
+  bg-void:        #070711   → Deepest background (page base)
+  bg-deep:        #0C0C1E   → Primary dark surface
+  bg-surface:     #111128   → Elevated surfaces
+  bg-card:        #161630   → Card backgrounds
+  bg-glass:       rgba(255,255,255,0.04) → Glass surfaces
+  bg-glass-hover: rgba(255,255,255,0.07)
+
+COLOR SYSTEM:
+  brand-primary:    #7C3AED   → Deep violet (electric)
+  brand-glow:       #8B5CF6   → Glow violet
+  brand-bright:     #A78BFA   → Light violet (highlights)
+  accent-green:     #10B981   → Emerald (success, completed)
+  accent-cyan:      #06B6D4   → Cyan (information, links)
+  accent-amber:     #F59E0B   → Amber (warnings, streak)
+  
+TEXT SYSTEM:
+  text-primary:     #F8FAFC   → Pure near-white
+  text-secondary:   #CBD5E1   → Soft blue-grey
+  text-muted:       #64748B   → Muted slate
+  text-ghost:       #334155   → Very muted
+
+BORDER SYSTEM:
+  border-subtle:    rgba(255,255,255,0.06)
+  border-default:   rgba(255,255,255,0.10)
+  border-accent:    rgba(124,58,237,0.40)
+  border-glow:      rgba(124,58,237,0.60)
+
+GLOW SYSTEM (the signature):
+  glow-primary:     0 0 60px rgba(124,58,237,0.20)
+  glow-strong:      0 0 120px rgba(124,58,237,0.35)
+  glow-card:        0 0 40px rgba(124,58,237,0.15)
+  glow-green:       0 0 30px rgba(16,185,129,0.25)
+  glow-cyan:        0 0 30px rgba(6,182,212,0.20)
+  
+GRADIENT SYSTEM:
+  grad-hero:    radial-gradient(ellipse 80% 50% at 50% -20%, 
+                rgba(124,58,237,0.3) 0%, transparent 60%)
+  grad-card:    linear-gradient(135deg, 
+                rgba(124,58,237,0.12) 0%, rgba(6,182,212,0.06) 100%)
+  grad-text:    linear-gradient(135deg, #A78BFA 0%, #60A5FA 100%)
+  grad-green:   linear-gradient(135deg, #10B981 0%, #059669 100%)
+  grad-surface: linear-gradient(180deg, 
+                rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)
+
+TYPOGRAPHY (upgraded):
+  Font Primary:    "Inter" variable — weight 100–900
+  Font Display:    "Cal Sans" or "Space Grotesk" for large display text
+  
+  Display:  72px / 800 weight / -0.04em tracking / 1.05 line-height
+  H1:       56px / 700 / -0.03em / 1.1
+  H2:       40px / 700 / -0.025em / 1.2
+  H3:       28px / 600 / -0.02em / 1.3
+  H4:       22px / 600 / -0.01em / 1.4
+  Body LG:  18px / 400 / 0 / 1.7
+  Body:     16px / 400 / 0 / 1.6
+  Small:    14px / 400 / 0.01em / 1.5
+  Label:    11px / 700 / 0.12em / 1 / UPPERCASE
+
+GLASS MORPHISM (card treatment):
+  background:   rgba(255,255,255,0.04)
+  backdrop-filter: blur(20px) saturate(180%)
+  border:       1px solid rgba(255,255,255,0.08)
+  border-radius: 20px
+  box-shadow:   0 8px 32px rgba(0,0,0,0.4), 
+                inset 0 1px 0 rgba(255,255,255,0.08),
+                0 0 40px rgba(124,58,237,0.08)
+
+MOTION SYSTEM:
+  Easing:         cubic-bezier(0.16, 1, 0.3, 1)
+  
+  Entrance:       fade-in + translateY(24→0) + scale(0.97→1)
+  Hover card:     translateY(-4px) + border-glow increase
+  Pulse glow:     opacity 0.6→1→0.6 / 2s infinite
+  Gradient shift: background-position 0%→100% / 4s infinite
+  Float:          translateY(0→-8px→0) / 5s ease-in-out infinite
+  Shimmer:        gradient sweep across surface / 2s loop
+  Stagger:        0.08s delay per child
+  
+  Page enter:     Sections reveal on scroll with 
+                  IntersectionObserver, each delayed 0.1s
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PAGE 1 — LANDING PAGE (PREMIUM DARK)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ATMOSPHERE: Dark void background (#070711) with a large
+radial purple glow emanating from top-center, like a
+light source in space. This creates immediate depth and 
+premium feel without requiring 3D objects.
+
+═══ NAVIGATION ═══
+Position:     Fixed, full width, z-50
+Background:   rgba(7,7,17,0.80) + backdrop-blur(20px)
+Height:       72px
+Border-bottom: 1px solid rgba(255,255,255,0.06) on scroll
+
+Logo: "SkillVerse" 
+  → Inter 700, 22px
+  → Color: gradient text (#A78BFA → #60A5FA)
+  → Left of center
+
+Nav links: 15px / weight 450 / color rgba(203,213,225,0.7)
+  → Hover: color #F8FAFC + underline fade-in
+  → Active: color #A78BFA
+
+Right CTAs:
+  "Login" → ghost button, text #CBD5E1
+  "Get Started →" → primary button with glow
+    background: linear-gradient(135deg, #7C3AED, #6D28D9)
+    box-shadow: 0 0 20px rgba(124,58,237,0.4)
+    hover: box-shadow increase to 0 0 40px rgba(124,58,237,0.6)
+
+═══ HERO SECTION ═══
+Background: #070711
+Ambient effect: 
+  Large radial glow top-center:
+  background: radial-gradient(ellipse 100% 60% at 50% 0%, 
+              rgba(124,58,237,0.25) 0%, transparent 70%)
+  
+  Subtle grid overlay (optional):
+  SVG grid pattern at 3% opacity for depth texture
+
+Layout: Two-column, 55% left content / 45% right visual
+Vertical center aligned, min-height 100vh
+
+LEFT SIDE:
+
+  EYEBROW BADGE:
+    "🚀 Your Career Journey Starts Here"
+    Background: rgba(124,58,237,0.15)
+    Border: 1px solid rgba(124,58,237,0.35)
+    Backdrop-filter: blur(10px)
+    Border-radius: 100px (pill)
+    Text: 12px / 600 / #A78BFA / uppercase / tracking 0.06em
+    Entrance: fade-in + slide-right 0.6s
+
+  HEADLINE:
+    Line 1: "Navigate Your Career."
+      → 72px / 800 weight / #F8FAFC / -0.04em tracking
+    Line 2: "Master Your Skills."
+      → Same size
+      → "Master Your Skills" = gradient text
+        background: linear-gradient(135deg, #A78BFA 0%, #60A5FA 50%, #34D399 100%)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+        background-size: 200% auto
+        animation: gradient-shift 4s linear infinite
+    
+    Entrance: staggered lines, each translateY(20→0) + fade
+
+  SUBHEADLINE:
+    "SkillVerse gives you a structured roadmap, curated 
+     resources, real projects, and expert mentorship — 
+     everything you need to go from beginner to industry-ready."
+    18px / 400 / rgba(203,213,225,0.75) / line-height 1.7
+    Max-width: 520px
+    Entrance: 0.3s delay after headline
+
+  CTA ROW:
+    Button 1: "Start Your Journey →"
+      height: 52px / px-8 / rounded-2xl
+      background: linear-gradient(135deg, #7C3AED, #5B21B6)
+      color: white / font 600 15px
+      box-shadow: 0 0 0 1px rgba(124,58,237,0.4), 
+                  0 8px 32px rgba(124,58,237,0.35)
+      hover: box-shadow: 0 0 0 1px rgba(124,58,237,0.6),
+                         0 12px 48px rgba(124,58,237,0.5)
+             translateY(-1px)
+    
+    Button 2: "Explore Roadmaps"
+      Same height
+      background: rgba(255,255,255,0.06)
+      border: 1px solid rgba(255,255,255,0.12)
+      color: #CBD5E1
+      backdrop-filter: blur(10px)
+      hover: background rgba(255,255,255,0.10), 
+             border rgba(124,58,237,0.4)
+
+  TRUST LINE:
+    "Free to start. No credit card required."
+    13px / rgba(100,116,139,0.8)
+
+RIGHT SIDE — HERO VISUAL (THE SIGNATURE ELEMENT):
+
+  FLOATING DASHBOARD CARD:
+    Size: 460px × 320px
+    Transform: rotate(-4deg) + floating animation
+    
+    Card style:
+      background: rgba(255,255,255,0.04)
+      backdrop-filter: blur(30px)
+      border: 1px solid rgba(255,255,255,0.10)
+      border-radius: 24px
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6),
+                  inset 0 1px 0 rgba(255,255,255,0.10),
+                  0 0 80px rgba(124,58,237,0.20)
+    
+    Card content:
+      Top bar:
+        Label: "CURRENT PATH" → 10px / 600 / #A78BFA / uppercase / tracking 0.1em
+        Title: "Cybersecurity Professional" → 20px / 700 / #F8FAFC
+        Subtitle: "Master ethical hacking & security" → 13px / #94A3B8
+      
+      Progress section:
+        Label row: "Progress" left, "34%" right (#A78BFA)
+        Progress bar:
+          Background: rgba(255,255,255,0.08)
+          Height: 6px / radius 100px
+          Fill: linear-gradient(90deg, #7C3AED, #A78BFA)
+          fill-width: 34% animated from 0 on mount
+          glow: box-shadow 0 0 12px rgba(124,58,237,0.6)
+      
+      Stats row:
+        Modules Done: "12/35" (large number, small label below)
+        Streak: "8 days 🔥"
+        Each in mini card: rgba(255,255,255,0.04), border subtle
+      
+      Achievement badges row (bottom):
+        3 badge icons floating in small circles
+        Each: rgba(255,255,255,0.06) bg, colored icon
+        Hover: scale 1.1 + glow
+
+  BACKGROUND GLOW behind card:
+    position: absolute, behind card
+    width: 400px / height: 400px
+    background: radial-gradient(circle, rgba(124,58,237,0.3), transparent 70%)
+    filter: blur(60px)
+    animation: pulse 4s ease-in-out infinite
+
+  FLOATING MICRO-ELEMENTS around card:
+    3-4 small floating badges orbiting the card:
+      "✓ Python" / "✓ Networking" / "🔒 Security"
+      Style: small pill, glass morphism, colored dot
+      Each has slow floating animation, different timing
+
+TRUST ROW (below hero, above fold line):
+  "TRUSTED BY LEARNERS FROM"
+  11px / uppercase / tracking 0.1em / rgba(100,116,139,0.6)
+  
+  University names in a row:
+    IIT Delhi · NIT Bangalore · SRM University · VIT Chennai · IIM Ahmedabad
+    15px / 500 / rgba(203,213,225,0.4)
+    Hover: rgba(203,213,225,0.9)
+  
+  Separator: thin horizontal line rgba(255,255,255,0.06)
+
+═══ BENEFITS SECTION ═══
+Background: #070711 → slight transition to #0C0C1E
+Label: "WHY SKILLVERSE" → purple uppercase label
+Headline: "Everything you need to become industry-ready"
+  → 48px / 700 / white / -0.025em
+  → "industry-ready" = gradient text
+
+Layout: 3×2 grid (6 benefit cards), or 3×1 on first pass
+
+Each card:
+  Glass morphism base
+  Top: Icon in small square — rounded-xl, gradient bg (purple/emerald/cyan)
+  Title: 18px / 600 / white
+  Body: 14px / rgba(203,213,225,0.7)
+  Bottom border on hover: colored by card accent
+  Hover: translateY(-4px) + glow increase + border brightens
+  Stagger entrance: 0.08s per card
+
+Card accents (unique per benefit):
+  Roadmaps:     Purple gradient icon bg
+  Resources:    Cyan gradient icon bg
+  Mentorship:   Green gradient icon bg
+  Projects:     Amber gradient icon bg
+  Progress:     Blue gradient icon bg
+  Community:    Pink gradient icon bg
+
+═══ CAREER PATHS SECTION ═══
+Background: #0C0C1E
+Large section — full visual impact
+
+Label: "EXPLORE PATHS"
+Headline: "Choose your career direction"
+Sub: "8 in-demand paths. Each with a complete roadmap."
+
+Grid: 4 columns × 2 rows
+
+Each card:
+  Dimensions: 280px × 200px min
+  Background: rgba(255,255,255,0.03)
+  Border: 1px solid rgba(255,255,255,0.07)
+  Border-radius: 20px
+  backdrop-filter: blur(10px)
+  
+  Top-left: Large icon (64px) in square with path-color gradient bg
+  Top-right: Small pill badge showing duration
+  Middle: Career name H5 white / 1-line description muted
+  Bottom: 3 skill chips as small pills
+  
+  HOVER STATE:
+    Border-color: path accent color at 60% opacity
+    Box-shadow: 0 0 40px rgba(pathColor, 0.20)
+    Background: rgba(pathColor, 0.06)
+    Icon scale: 1.05
+    Transition: all 0.3s ease
+  
+  SELECTED STATE (on hover linger):
+    Top-right checkmark badge appears
+    Border: path color full opacity
+    "View Roadmap →" link appears sliding up from bottom
+
+Path colors remain unique per domain (as defined previously)
+
+═══ HOW IT WORKS ═══
+Background: #070711
+Vertical layout — NOT horizontal timeline on dark bg
+(Horizontal timelines get lost on dark backgrounds)
+
+Instead: VERTICAL STEP-BY-STEP
+Each step is a card:
+  Left: Large number (01-05) → 80px / 100 weight / rgba(124,58,237,0.3)
+  Center line: Dashed vertical line connecting steps (purple, 2px)
+  Right: Step content card (glass morphism)
+    Title: 20px / 600 / white
+    Description: 14px / muted
+    Icon: colored per step
+
+Steps animate in sequentially on scroll (stagger 0.15s each)
+Active/highlighted step: glow intensifies
+
+═══ TESTIMONIALS ═══
+Background: #0C0C1E
+Horizontal scroll carousel (not grid on dark)
+3 visible cards, previous/next faded on edges
+
+Each testimonial card:
+  Glass morphism
+  Quote text: 16px italic / rgba(248,250,252,0.85)
+  Stars: amber, glowing slightly
+  User: Avatar (gradient bg, initials) + name + company
+  Bottom accent: gradient line matching their path color
+
+═══ FAQ ═══
+Background: #070711
+Accordion style
+
+Each question:
+  Closed: border-bottom rgba(255,255,255,0.06)
+  Open: background rgba(124,58,237,0.08), 
+        border-left 2px solid #7C3AED
+  Chevron: rotates 180deg on open (transition 0.3s)
+  Answer: rgba(203,213,225,0.75), 15px
+
+═══ FINAL CTA ═══
+Full-width section
+Background: NOT gradient banner (too flat on dark theme)
+Instead: Dark surface with large ambient glow center
+  background: #0C0C1E
+  Center glow: radial-gradient(ellipse 60% 100%, 
+               rgba(124,58,237,0.25), transparent 70%)
+
+Headline: "Your career path starts today."
+  64px / 800 / white / -0.03em
+  "today" = gradient text
+
+Sub: 18px / rgba(203,213,225,0.7)
+CTA Button: Large, full glow treatment, centered
+
+═══ FOOTER ═══
+Background: #050510 (darkest)
+Border-top: 1px solid rgba(255,255,255,0.06)
+4-column layout: Logo+tagline / Product / Company / Legal
+Text: rgba(100,116,139,0.8) / hover #CBD5E1
+Logo in footer: white + gradient dot accent
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PAGE 2 — AUTH PAGES (DARK PREMIUM)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+LAYOUT: Full-page split, 45% left / 55% right
+
+LEFT PANEL (Visual brand):
+  Background: #0C0C1E with large radial purple glow center-right
+  
+  Ambient glow:
+    position: absolute, right: -100px, center: 50%
+    radial-gradient(circle 400px, rgba(124,58,237,0.3), transparent)
+  
+  Content (vertically centered):
+    Logo: "SkillVerse" gradient text + icon
+    
+    Headline: "Your roadmap to becoming industry-ready."
+      40px / 700 / white / -0.02em / max-width 360px
+    
+    Sub: "Structured paths. Real skills. Real mentors."
+      16px / rgba(203,213,225,0.7)
+    
+    MINI ROADMAP PREVIEW WIDGET:
+      Glass card, 300px wide
+      Shows 4 roadmap nodes connected:
+        ✓ Networking (green, completed)
+        ✓ Linux (green, completed)
+        ● Python (purple, active, glowing)
+        ○ Web Security (locked, muted)
+      Each node: 32px circle + label + connector line
+      Active node: purple glow pulse animation
+    
+    Trust line: "Join 12,000+ learners on their journey"
+    Social proof: 3 university logos in a row (muted)
+
+RIGHT PANEL (Form):
+  Background: #111128 (slightly lighter than left)
+  Border-left: 1px solid rgba(255,255,255,0.06)
+  Padding: 64px
+  
+  "Welcome back" → 32px / 700 / white
+  "Continue your career journey" → 16px / muted
+  
+  Google button:
+    Background: rgba(255,255,255,0.06)
+    Border: 1px solid rgba(255,255,255,0.12)
+    Color: white
+    Icon: Google SVG
+    Hover: background rgba(255,255,255,0.10)
+  
+  Divider: "or continue with email"
+    Line: rgba(255,255,255,0.08)
+    Text: rgba(100,116,139,0.8) / 13px
+  
+  Input fields:
+    Background: rgba(255,255,255,0.04)
+    Border: 1px solid rgba(255,255,255,0.08)
+    Border-radius: 12px
+    Height: 52px
+    Color: white / placeholder rgba(100,116,139,0.6)
+    Focus: 
+      border-color rgba(124,58,237,0.6)
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.12),
+                  0 0 20px rgba(124,58,237,0.08)
+    Label: 13px / 500 / rgba(203,213,225,0.8) / above input
+  
+  Primary CTA:
+    Full width / 52px height / border-radius 14px
+    Background: linear-gradient(135deg, #7C3AED, #5B21B6)
+    box-shadow: 0 0 30px rgba(124,58,237,0.35)
+    hover: box-shadow increase, translateY(-1px)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PAGE 3 — CAREER SELECTION (FOCUSED DARK)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Background: #070711
+Top: Radial glow (same as landing) for continuity
+
+Progress indicator: Simple step counter top-right
+
+Headline: "What do you want to become?"
+  56px / 700 / white / centered / gradient "become"
+
+Sub: "Pick a career path. You can always switch later."
+  Muted, centered
+
+GRID (4×2):
+  Each card: glass morphism + path color glow on hover
+  
+  SELECTED card interaction:
+    1. Card: border → path color / background → path color 6%
+    2. Checkmark badge slides in top-right
+    3. BELOW the grid: detail panel slides up (300ms ease)
+       Panel: full-width glass card
+       Content: path name / duration / key skills / job outcomes
+    4. CTA button activates: glows, scale-up micro
+  
+  Cards enter: staggered fade+scale, 0.08s per card
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PAGE 4 — COURSE WORKSPACE (DARK DASHBOARD)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SIDEBAR:
+  Background: #0C0C1E
+  Border-right: 1px solid rgba(255,255,255,0.06)
+  Width: 240px / fixed
+  
+  Logo top: gradient text, with subtle glow
+  
+  Nav items:
+    Height: 44px / padding 0 16px / gap 12px / border-radius 12px
+    Default: rgba(203,213,225,0.6) text / transparent bg
+    Hover: rgba(255,255,255,0.06) bg / rgba(203,213,225,0.9) text
+    Active:
+      background: rgba(124,58,237,0.15)
+      border-left: 2px solid #7C3AED
+      text: #A78BFA
+      box-shadow: inset 0 0 20px rgba(124,58,237,0.05)
+  
+  User section bottom:
+    Avatar: gradient bg circle, initials or photo
+    Name: white 14px 500
+    Career path: rgba(167,139,250,0.8) 12px
+    Online indicator: green dot (pulsing animation)
+
+MAIN CONTENT:
+  Background: #070711
+  Padding: 32px
+  
+  GREETING:
+    "Good morning, Arjun 👋"
+    28px / 600 / white
+    Sub: "You're 34% through your Cybersecurity path."
+    Purple accent on "34%"
+  
+  COURSE HERO CARD (full-width):
+    Background: linear-gradient(135deg, 
+                rgba(124,58,237,0.20) 0%, rgba(6,182,212,0.10) 100%)
+    Border: 1px solid rgba(124,58,237,0.25)
+    Box-shadow: 0 0 60px rgba(124,58,237,0.12)
+    Border-radius: 24px
+    Padding: 40px
+    
+    Left content:
+      "CURRENT PATH" label (purple uppercase small)
+      Title: 32px / 700 / white
+      Description: 2-line muted
+      Badges: Duration / Level / Modules (glass pills)
+      CTA: "Continue Learning →" (primary glow button)
+    
+    Right: PROGRESS RING
+      Large SVG circle (140px)
+      Track: rgba(255,255,255,0.06) stroke, 8px wide
+      Fill: #7C3AED stroke with gradient endpoint
+      Animated: stroke-dashoffset from full to 34% on mount
+      Center: "34%" large text + "Complete" small below
+      Ring has subtle glow: filter drop-shadow purple
+  
+  STATS ROW (3 glass cards):
+    Each: glass morphism, subtle border, 20px radius
+    Number: 32px / 700 / colored (purple/green/amber)
+    Label: 13px / muted / uppercase
+    Micro trend arrow: +2 since yesterday
+  
+  CURRENT MODULE CARD:
+    Extra glass card with left border:
+      border-left: 3px solid #7C3AED
+      box-shadow: -4px 0 20px rgba(124,58,237,0.15)
+    Label: "UP NEXT" → purple pill
+    Module name: H4 white
+    Meta: Duration / Resources / Projects in icon+text pairs
+    Progress bar: purple glow fill
+    CTA: "Continue Learning →"
+  
+  SKILLS GRID:
+    Skill chips: glass morphism, each with small icon
+    Earned skills: purple border + glow
+    Unearned: very muted
+  
+  ROADMAP PREVIEW (mini horizontal):
+    5-6 nodes in a row, connected by gradient line
+    Current node: larger + purple glow
+    Completed: green with check
+    Locked: muted, lock icon
+    "View Full Roadmap →" at end (cyan link)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PAGE 5 — INTERACTIVE ROADMAP (FLAGSHIP)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This page must feel like a premium experience.
+Think: space map, career constellation, journey visualization.
+
+ATMOSPHERE:
+  Background: #070711
+  Subtle ambient glow drifts slowly (CSS animation):
+    Two large blobs at 20% opacity, slow movement
+    One purple (#7C3AED), one cyan (#06B6D4)
+    filter: blur(120px) / slow translate animation 20s infinite
+
+LAYOUT:
+  Sidebar: same as workspace
+  Main: centered 680px column, full height scroll
+
+PROGRESS BAR TOP:
+  Thin 4px bar, full width
+  Background: rgba(255,255,255,0.06)
+  Fill: gradient #7C3AED → #10B981
+  Shows overall % with glow at tip
+
+NODE DESIGN:
+
+  COMPLETED NODE:
+    Outer ring: 68px circle
+    Fill: rgba(16,185,129,0.15)
+    Border: 2px solid #10B981
+    Box-shadow: 0 0 30px rgba(16,185,129,0.25)
+    Inner: 52px circle, bg #10B981, check icon white
+    Label: 14px 600 rgba(248,250,252,0.9)
+    Side badge: "✓ Completed" green pill glass
+
+  CURRENT NODE (ACTIVE):
+    Outer glow ring: 100px animated
+      background: radial-gradient(circle, 
+                  rgba(124,58,237,0.2) 0%, transparent 70%)
+      animation: pulse-scale 2s ease-in-out infinite
+    
+    Outer ring: 80px
+    Fill: rgba(124,58,237,0.20)
+    Border: 2px solid #7C3AED
+    Box-shadow: 0 0 0 8px rgba(124,58,237,0.10),
+                0 0 60px rgba(124,58,237,0.35)
+    Inner: 60px circle, gradient bg (#7C3AED→#5B21B6)
+    Icon: relevant SVG icon (shield for security, etc.) white
+    Label: 16px / 700 / white
+    
+    Animation: 
+      Outer glow pulses 2s ease-in-out infinite
+      Inner circle has very subtle scale 0.98→1.02 4s infinite
+    
+    AUTO-EXPANDED PANEL below current node:
+      Glass card, 520px wide, centered below node
+      Connected by dotted line to node
+      Border: 1px solid rgba(124,58,237,0.30)
+      Box-shadow: 0 0 40px rgba(124,58,237,0.12)
+      
+      Content:
+        "ACTIVE MODULE" label → purple pill
+        Title: 20px / 700 / white
+        Description: 15px / rgba(203,213,225,0.75)
+        Meta row: Duration / Resources / Projects / Difficulty
+        Progress bar (if partially complete)
+        
+        2 buttons:
+          "Continue Learning →" primary glow
+          "View Resources" ghost
+
+  LOCKED NODE:
+    Outer ring: 56px
+    Fill: rgba(255,255,255,0.02)
+    Border: 1px solid rgba(255,255,255,0.08) dashed
+    Inner: 44px, rgba(255,255,255,0.04), lock icon rgba(100,116,139,0.6)
+    Label: 13px / rgba(100,116,139,0.6)
+    
+    Hover tooltip (glass, absolute positioned):
+      "Complete [module name] to unlock this"
+      Arrow pointing to node
+
+  FUTURE NODE:
+    Outer ring: 52px
+    Fill: none
+    Border: 1px solid rgba(255,255,255,0.06) dashed
+    Inner: clock icon rgba(100,116,139,0.4)
+    Label: very muted
+
+CONNECTORS (SVG paths):
+  All connectors: SVG cubic bezier curves (NOT straight lines)
+  
+  Completed → Completed:
+    Stroke: #10B981 / stroke-width: 2 / opacity 0.6
+    Has flowing dots animation along path
+  
+  Completed → Current:
+    Stroke: gradient from #10B981 to #7C3AED
+    Animated gradient flow (stroke-dashoffset animation)
+  
+  Current → Locked:
+    Stroke: gradient #7C3AED to rgba(255,255,255,0.10)
+    Dashed (stroke-dasharray: 6 4)
+  
+  Locked → Locked:
+    Stroke: rgba(255,255,255,0.06)
+    Dashed (stroke-dasharray: 4 6)
+
+SCROLL ENTRANCE:
+  Each node: as it enters viewport, 
+  it scales from 0.8→1 + fade in, 
+  then connector draws from parent to child
+
+FINAL MILESTONE — "CAREER READY":
+  Special node, larger (120px)
+  Shape: Not circle — use hexagonal shape (CSS clip-path)
+  Fill: linear-gradient(135deg, #F59E0B, #F97316)
+  Border: 2px solid #F59E0B, glowing amber
+  Box-shadow: 0 0 80px rgba(245,158,11,0.40)
+  Trophy icon inside
+  
+  Below: "You are X modules away from Career Ready"
+  Countdown badges: X modules remaining (colored pills)
+  Animation: Gentle golden glow pulse
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PAGE 6 — MODULE LEARNING PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Sidebar same as workspace.
+Main: dark bg, content max-width 860px centered.
+
+MODULE HERO:
+  Glass card, full width
+  Left accent: 4px border, gradient purple → cyan
+  Background glow behind: rgba(124,58,237,0.06)
+  
+  Module name: 28px / 600 / white
+  Description: 15px / muted
+  Meta row: icons + labels for duration/difficulty/resources
+  Right: "Mark as Complete" green glow button
+  Progress bar below
+
+TAB BAR:
+  Background: rgba(255,255,255,0.02)
+  Border-bottom: 1px solid rgba(255,255,255,0.06)
+  Tabs: 14px / 500 / rgba(203,213,225,0.6)
+  Active tab: white text + 2px bottom border #7C3AED
+  Hover: rgba(203,213,225,0.9)
+
+RESOURCE CARDS:
+  Glass morphism
+  Left: Type icon in colored square (16px rounded)
+    Video: red (#EF4444) bg
+    Article: cyan (#06B6D4) bg
+    Docs: amber bg
+    Tools: green bg
+  Middle: Title + source + time
+  Right: Bookmark icon (amber on saved) + "Open →" arrow
+  Hover: border glow in type color
+  "Viewed" state: green dot + faded opacity
+
+STICKY BOTTOM BAR:
+  Background: rgba(12,12,30,0.95) + blur
+  Border-top: rgba(255,255,255,0.06)
+  Previous / breadcrumb dots / Next
+  "Next: [Module Name] →" preview in the bar
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ANIMATION SPECIFICATION (IMPLEMENT ALL)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CSS ANIMATIONS TO DEFINE:
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 30px rgba(124,58,237,0.3); }
+  50%       { box-shadow: 0 0 60px rgba(124,58,237,0.6); }
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes draw-line {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes node-enter {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes ambient-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(30px, -20px) scale(1.05); }
+  66%       { transform: translate(-20px, 10px) scale(0.98); }
+}
+
+SCROLL ANIMATIONS (IntersectionObserver):
+  All sections: data-animate="fade-up"
+    Initial: opacity 0, translateY 32px
+    Triggered: opacity 1, translateY 0
+    Duration: 0.6s ease, stagger children 0.08s
+  
+  Cards: data-animate="scale-in"
+    Initial: opacity 0, scale 0.94
+    Triggered: opacity 1, scale 1
+    Duration: 0.5s ease
+  
+  Roadmap nodes: triggered as each enters viewport
+  SVG connectors: stroke-dashoffset animation on trigger
+
+HOVER MICRO-INTERACTIONS:
+  All cards:        translateY(-4px) duration 200ms
+  All buttons:      translateY(-2px) + shadow increase 200ms
+  Nav links:        underline grows left→right 200ms
+  Icons in cards:   scale(1.08) 200ms
+  Badge pills:      scale(1.04) + slight glow 150ms
+  Sidebar nav items: left-slide bg reveal 200ms
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMPLEMENTATION NOTES FOR BUILDERS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CRITICAL: These make or break the premium feel:
+
+1. NEVER use pure white backgrounds (#FFFFFF) on any page
+   → Use #070711 or #0C0C1E as page backgrounds
+
+2. ALWAYS add purple-tinted shadows to cards
+   → Generic black shadows look cheap on dark themes
+
+3. The ambient background glows MUST be implemented
+   → They create depth and atmosphere that makes it feel alive
+   → Large radial-gradient divs, position:fixed or absolute,
+     pointer-events:none, z-index:0
+
+4. Glass morphism needs real backdrop-filter: blur(20px)
+   → Test on multiple backgrounds to ensure it reads
+   → Fallback for browsers without support: solid dark bg
+
+5. Gradient text (webkit-background-clip) on key headlines
+   → "Master Your Skills" / "Career Ready" / key CTAs
+   → Background-size 200% + animation for living gradients
+
+6. SVG connector lines MUST be curved cubic bezier
+   → Straight lines look like MS Paint diagrams
+   → Use: M x1,y1 C cx1,cy1 cx2,cy2 x2,y2
+
+7. Loading skeleton must match dark theme
+   → Use rgba(255,255,255,0.04) → rgba(255,255,255,0.08) shimmer
+   → NOT gray shimmer (looks wrong on dark)
+
+8. Focus states on dark theme:
+   → 2px solid #7C3AED, offset 3px
+   → OR: box-shadow 0 0 0 3px rgba(124,58,237,0.4)
+
+9. Scrollbar styling (webkit):
+   → scrollbar-width: thin / color: rgba(124,58,237,0.3) transparent
+
+10. Font smoothing:
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    (Critical for white text on dark — makes it crisp)
