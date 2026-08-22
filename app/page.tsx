@@ -1,9 +1,6 @@
 import { Navbar } from '@/components/navbar'
 import { Hero } from '@/components/hero'
-import { ProductDemo } from '@/components/product-demo'
-import { HowItWorks } from '@/components/how-it-works'
-import { SocialProof } from '@/components/social-proof'
-import { Testimonials } from '@/components/testimonials'
+import { DashboardFeatures } from '@/components/dashboard-features'
 import { FAQ } from '@/components/faq'
 import { FinalCTA } from '@/components/final-cta'
 import { Footer } from '@/components/footer'
@@ -22,13 +19,7 @@ export default function Page() {
       <Navbar />
       <Hero />
       <SeamlessDivider />
-      <ProductDemo />
-      <SeamlessDivider />
-      <HowItWorks />
-      <SeamlessDivider />
-      <SocialProof />
-      <SeamlessDivider />
-      <Testimonials />
+      <DashboardFeatures />
       <SeamlessDivider />
       <FAQ />
       <SeamlessDivider />

@@ -115,80 +115,87 @@ export default function MentorshipPage() {
       ) : (
         <>
           {/* Mentor Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {mentors.map((mentor) => (
-              <div
-                key={mentor.id}
-                className="bg-[#0b0b0e] border border-white/[0.06] rounded-2xl p-6 sm:p-8 hover:border-indigo-500/30 transition-all duration-300 group shadow-lg flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-white mb-1.5">{mentor.name}</h3>
-                      <p className="text-xs sm:text-sm text-indigo-400 font-medium">
-                        {mentor.title} at <span className="text-white font-semibold">{mentor.company}</span>
-                      </p>
+          {mentors.length === 0 ? (
+            <div className="py-16 text-center text-text-secondary border border-white/[0.06] rounded-2xl bg-white/[0.01]">
+              <p className="text-base font-semibold text-white mb-1">No Mentors Available</p>
+              <p className="text-xs text-text-muted">There are currently no active mentors listed. Please check back later!</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {mentors.map((mentor) => (
+                <div
+                  key={mentor.id}
+                  className="bg-[#0b0b0e] border border-white/[0.06] rounded-2xl p-6 sm:p-8 hover:border-indigo-500/30 transition-all duration-300 group shadow-lg flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-start justify-between mb-4">
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-bold text-white mb-1.5">{mentor.name}</h3>
+                        <p className="text-xs sm:text-sm text-indigo-400 font-medium">
+                          {mentor.title} at <span className="text-white font-semibold">{mentor.company}</span>
+                        </p>
+                      </div>
+                      <div className="w-11 h-11 bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 rounded-full flex items-center justify-center font-bold text-base sm:text-lg">
+                        {mentor.name.charAt(0)}
+                      </div>
                     </div>
-                    <div className="w-11 h-11 bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 rounded-full flex items-center justify-center font-bold text-base sm:text-lg">
-                      {mentor.name.charAt(0)}
-                    </div>
-                  </div>
 
-                  <p className="text-xs sm:text-sm text-text-secondary mb-5 leading-relaxed">{mentor.bio}</p>
+                    <p className="text-xs sm:text-sm text-text-secondary mb-5 leading-relaxed">{mentor.bio}</p>
 
-                  <div className="flex items-center gap-1.5 mb-5">
-                    <Star size={14} className="text-amber-400 fill-amber-400" />
-                    <span className="text-xs sm:text-sm font-bold text-white">{mentor.rating}</span>
-                    <span className="text-xs sm:text-sm text-text-muted font-medium">
-                      ({mentor.sessionCount} sessions)
-                    </span>
-                  </div>
-
-                  <div className="flex flex-wrap gap-1.5 mb-6">
-                    {mentor.expertise.map((skill, sidx) => (
-                      <span
-                        key={sidx}
-                        className="px-2.5 py-0.5 bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-[10px] sm:text-xs rounded-md font-semibold"
-                      >
-                        {skill}
+                    <div className="flex items-center gap-1.5 mb-5">
+                      <Star size={14} className="text-amber-400 fill-amber-400" />
+                      <span className="text-xs sm:text-sm font-bold text-white">{mentor.rating}</span>
+                      <span className="text-xs sm:text-sm text-text-muted font-medium">
+                        ({mentor.sessionCount} sessions)
                       </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <div className="grid grid-cols-2 gap-4 mb-6 p-4 bg-white/[0.01] border border-white/[0.06] rounded-xl">
-                    <div>
-                      <p className="text-[10px] text-text-muted mb-1 font-semibold uppercase tracking-wider">
-                        Availability
-                      </p>
-                      <p className="text-xs text-white font-bold truncate">{mentor.availability}</p>
                     </div>
-                    <div>
-                      <p className="text-[10px] text-text-muted mb-1 font-semibold uppercase tracking-wider">
-                        Experience
-                      </p>
-                      <p className="text-xs text-white font-bold">{mentor.experience}</p>
+
+                    <div className="flex flex-wrap gap-1.5 mb-6">
+                      {mentor.expertise.map((skill, sidx) => (
+                        <span
+                          key={sidx}
+                          className="px-2.5 py-0.5 bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-[10px] sm:text-xs rounded-md font-semibold"
+                        >
+                          {skill}
+                        </span>
+                      ))}
                     </div>
                   </div>
 
-                  <div className="flex gap-3">
-                    <button
-                      onClick={() => setBookingMentor(mentor)}
-                      className="flex-1 py-2.5 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 inline-flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/20 active:scale-[0.98] border border-indigo-500/30"
-                    >
-                      <Calendar size={14} />
-                      Book Session
-                    </button>
-                    <button className="px-4 py-2.5 bg-white/[0.02] hover:bg-white/[0.05] border border-white/[0.08] hover:border-white/[0.15] text-white rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 inline-flex items-center justify-center gap-2">
-                      <MessageCircle size={14} />
-                      Message
-                    </button>
+                  <div>
+                    <div className="grid grid-cols-2 gap-4 mb-6 p-4 bg-white/[0.01] border border-white/[0.06] rounded-xl">
+                      <div>
+                        <p className="text-[10px] text-text-muted mb-1 font-semibold uppercase tracking-wider">
+                          Availability
+                        </p>
+                        <p className="text-xs text-white font-bold truncate">{mentor.availability}</p>
+                      </div>
+                      <div>
+                        <p className="text-[10px] text-text-muted mb-1 font-semibold uppercase tracking-wider">
+                          Experience
+                        </p>
+                        <p className="text-xs text-white font-bold">{mentor.experience}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-3">
+                      <button
+                        onClick={() => setBookingMentor(mentor)}
+                        className="flex-1 py-2.5 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 inline-flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/20 active:scale-[0.98] border border-indigo-500/30"
+                      >
+                        <Calendar size={14} />
+                        Book Session
+                      </button>
+                      <button className="px-4 py-2.5 bg-white/[0.02] hover:bg-white/[0.05] border border-white/[0.08] hover:border-white/[0.15] text-white rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 inline-flex items-center justify-center gap-2">
+                        <MessageCircle size={14} />
+                        Message
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
           {/* My Sessions Section */}
           <div className="bg-[#0b0b0e] border border-white/[0.06] rounded-2xl p-6 sm:p-8 shadow-md">

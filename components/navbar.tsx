@@ -38,11 +38,8 @@ export function Navbar() {
             <Link href="/" className="text-zinc-400 hover:text-white transition-colors text-xs font-medium">
               Home
             </Link>
-            <Link href="#how-it-works" className="text-zinc-400 hover:text-white transition-colors text-xs font-medium">
-              Process
-            </Link>
-            <Link href="#testimonials" className="text-zinc-400 hover:text-white transition-colors text-xs font-medium">
-              Reviews
+            <Link href="#features" className="text-zinc-400 hover:text-white transition-colors text-xs font-medium">
+              Features
             </Link>
           </div>
 
@@ -71,11 +68,8 @@ export function Navbar() {
           <Link href="/" onClick={() => setIsOpen(false)} className="block text-zinc-400 hover:text-white py-2 text-xs font-medium transition-colors">
             Home
           </Link>
-          <Link href="#how-it-works" onClick={() => setIsOpen(false)} className="block text-zinc-400 hover:text-white py-2 text-xs font-medium transition-colors">
-            Process
-          </Link>
-          <Link href="#testimonials" onClick={() => setIsOpen(false)} className="block text-zinc-400 hover:text-white py-2 text-xs font-medium transition-colors">
-            Reviews
+          <Link href="#features" onClick={() => setIsOpen(false)} className="block text-zinc-400 hover:text-white py-2 text-xs font-medium transition-colors">
+            Features
           </Link>
           <div className="pt-4 flex flex-col gap-2">
             <Link href="/login" onClick={() => setIsOpen(false)} className="block text-center text-zinc-400 hover:text-white py-2 text-xs font-medium transition-colors">

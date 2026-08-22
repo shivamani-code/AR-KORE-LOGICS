@@ -31,7 +31,7 @@ export function FinalCTA() {
               id="cta-heading"
               className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white leading-tight"
             >
-              Ready to start your journey to becoming an AI Engineer?
+              Ready to start your journey
             </motion.h2>
             
             <motion.p
@@ -53,7 +53,7 @@ export function FinalCTA() {
             className="relative z-10 flex flex-col sm:flex-row gap-3 justify-center items-center pt-8"
           >
             <Link
-              href="/dashboard"
+              href="/login"
               className="px-6 h-10 bg-white hover:bg-zinc-200 text-black rounded-lg text-xs font-semibold transition-colors inline-flex items-center gap-1.5"
             >
               Start Learning for Free

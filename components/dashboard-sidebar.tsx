@@ -9,7 +9,11 @@ import {
   Map,
   Users,
   MessageSquare,
-  Trophy,
+  FolderOpen,
+  Compass,
+  Bot,
+  Wrench,
+  ExternalLink,
   Settings,
   LogOut,
   Menu,
@@ -24,6 +28,7 @@ interface MenuItem {
   href: string
   exact?: boolean
   sublabel?: string
+  external?: boolean
 }
 
 const careerLabelMap: Record<string, string> = {
@@ -52,8 +57,12 @@ export function DashboardSidebar({ isOpen = true, onToggle = () => {} }) {
       href: '/dashboard/roadmaps',
       sublabel: roadmapLabel,
     },
+    { icon: Compass, label: 'Roadmap Planner', href: 'https://engineering-roadmaps.vercel.app/', external: true },
+    { icon: Bot, label: 'AI Mentor Studio', href: 'https://ai-mentor-studio-v2-1.onrender.com/', external: true },
+    { icon: Wrench, label: 'Toolz Studio', href: 'https://toolz-studio-nine.vercel.app/', external: true },
     { icon: Users, label: 'Mentorship', href: '/dashboard/mentorship' },
     { icon: MessageSquare, label: 'Community', href: '/dashboard/community' },
+    { icon: FolderOpen, label: 'Resources', href: '/dashboard/resources' },
   ]
 
   const handleLinkClick = () => {
@@ -121,7 +130,30 @@ export function DashboardSidebar({ isOpen = true, onToggle = () => {} }) {
           <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
             {menuItems.map((item, idx) => {
               const IconComponent = item.icon
-              const active = isActive(item)
+              const active = !item.external && isActive(item)
+
+              if (item.external) {
+                return (
+                  <a
+                    key={idx}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={handleLinkClick}
+                    className="flex items-center gap-2.5 px-3 py-2 rounded-lg transition-all duration-150 group relative text-xs font-medium text-zinc-400 hover:text-white hover:bg-white/[0.02] border border-transparent"
+                  >
+                    <IconComponent
+                      size={14}
+                      aria-hidden="true"
+                      className="flex-shrink-0 text-zinc-500 group-hover:text-zinc-300"
+                    />
+                    <div className="flex-1 min-w-0 flex items-center justify-between">
+                      <span className="block leading-none">{item.label}</span>
+                      <ExternalLink size={11} className="text-zinc-500 group-hover:text-zinc-300 ml-1" />
+                    </div>
+                  </a>
+                )
+              }
 
               return (
                 <Link
@@ -192,4 +224,3 @@ export function DashboardSidebar({ isOpen = true, onToggle = () => {} }) {
     </>
   )
 }
-

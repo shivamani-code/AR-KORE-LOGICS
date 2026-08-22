@@ -172,23 +172,5 @@ create or replace trigger on_auth_user_created
   after insert on auth.users
   for each row execute procedure public.handle_new_user();
 
--- Seed initial mentors
-insert into public.mentors (id, name, title, company, expertise, experience, bio, availability, rating, session_count)
-values 
-('m_ananya', 'Dr. Ananya Sharma', 'AI Research Scientist', 'Google DeepMind', array['Python', 'Machine Learning', 'Neural Networks', 'AI Ethics'], '8+ Years', 'CBSE curriculum advisor. Specializes in making complex AI/ML concepts easy to grasp for school and college beginners.', 'Mon, Wed, Fri at 4:00 PM', 4.9, 142),
-('m_rohan', 'Rohan Varma', 'Senior Data Scientist', 'AR Kore Logics', array['Data Science', 'Python', 'Gen AI', 'Prompt Engineering'], '6 Years', 'Passionate about teaching Python programming, data analytics, and generative AI systems.', 'Tue, Thu at 3:00 PM', 4.8, 98)
-on conflict (id) do nothing;
+-- Mentors, Posts, and Comments tables are created empty by default.
 
--- Seed initial posts
-insert into public.posts (id, author_id, author_name, author_role, title, content, tags, upvotes, comment_count, created_at, upvoted_by)
-values
-('p_cbse_prep', 'm_ananya', 'Dr. Ananya Sharma', 'Mentor', 'CBSE Class 9 AI Study Guide & Exam Blueprint', 'Hello students! I have compiled the official CBSE Class 9 AI syllabus study guide. Focus heavily on the 5 stages of the AI Project Cycle (especially the 4Ws canvas) and Python programming basics (lists, variables, and loops). Make sure to practice the sample questions posted in the resources section. Good luck with your preparation!', array['Study Group', 'Resources'], 18, 2, timezone('utc'::text, '2026-06-24T10:00:00.000Z'::timestamp), array[]::text[]),
-('p_python_tips', 'm_rohan', 'Rohan Varma', 'Mentor', 'Mastering Python Loops & Lists for Class 9 AI', 'Python list syntax and nested loops can be tricky at first. Remember that Python uses 0-based indexing. For loops are perfect for iterating over list items, and while loops work best when you don''t know the exact count beforehand. Let me know if you want to run a mock coding session!', array['Project Showcase', 'Questions'], 12, 0, timezone('utc'::text, '2026-06-24T09:00:00.000Z'::timestamp), array[]::text[])
-on conflict (id) do nothing;
-
--- Seed initial comments
-insert into public.comments (id, post_id, author_id, author_name, content, created_at)
-values
-('c_c1', 'p_cbse_prep', 'system', 'mani', 'Thank you Dr. Ananya! The Python loop exercises were really helpful. Will we get questions from matrices too?', timezone('utc'::text, '2026-06-24T10:30:00.000Z'::timestamp)),
-('c_c2', 'p_cbse_prep', 'm_ananya', 'Dr. Ananya Sharma (Mentor)', 'Yes, basic matrix representation is part of the Math for AI week. Just focus on visual grids and dimensions, no complex math calculations needed!', timezone('utc'::text, '2026-06-24T11:00:00.000Z'::timestamp))
-on conflict (id) do nothing;

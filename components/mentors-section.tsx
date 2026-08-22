@@ -2,44 +2,17 @@
 
 import { Star, Calendar } from 'lucide-react'
 
-const mentors = [
-  {
-    name: 'Sarah Chen',
-    role: 'Senior Full Stack Engineer',
-    company: 'Google',
-    experience: '8 years',
-    rating: 4.9,
-    reviews: 245,
-    expertise: ['React', 'Node.js', 'PostgreSQL'],
-  },
-  {
-    name: 'Raj Patel',
-    role: 'ML Engineer',
-    company: 'Meta',
-    experience: '6 years',
-    rating: 4.8,
-    reviews: 198,
-    expertise: ['Python', 'TensorFlow', 'NLP'],
-  },
-  {
-    name: 'Emma Rodriguez',
-    role: 'Senior DevOps Engineer',
-    company: 'Amazon',
-    experience: '9 years',
-    rating: 4.9,
-    reviews: 312,
-    expertise: ['Kubernetes', 'AWS', 'Docker'],
-  },
-  {
-    name: 'Akshay Singh',
-    role: 'Cybersecurity Specialist',
-    company: 'Microsoft',
-    experience: '7 years',
-    rating: 4.7,
-    reviews: 156,
-    expertise: ['Network Security', 'Penetration Testing', 'Cryptography'],
-  },
-]
+interface Mentor {
+  name: string
+  role: string
+  company: string
+  experience: string
+  rating: number
+  reviews: number
+  expertise: string[]
+}
+
+const mentors: Mentor[] = []
 
 export function MentorsSection() {
   return (
@@ -50,12 +23,17 @@ export function MentorsSection() {
             Learn From Industry Mentors
           </h2>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-            Connect with 200+ experienced mentors from top tech companies
+            Connect with experienced mentors from top tech companies
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {mentors.map((mentor, idx) => (
+        {mentors.length === 0 ? (
+          <div className="text-center py-12 text-slate-500 border border-dashed border-slate-200 rounded-xl">
+            No mentors available at this time.
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {mentors.map((mentor, idx) => (
             <div
               key={idx}
               className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg hover:border-blue-200 transition group"
@@ -100,6 +78,7 @@ export function MentorsSection() {
             </div>
           ))}
         </div>
+        )}
       </div>
     </section>
   )

@@ -317,18 +317,21 @@ export const db = {
     const supabase = await createClient()
     const { data, error } = await supabase.from('mentors').select('*')
     if (error) throw error
-    return (data || []).map(m => ({
-      id: m.id,
-      name: m.name,
-      title: m.title,
-      company: m.company,
-      expertise: m.expertise || [],
-      experience: m.experience,
-      bio: m.bio,
-      availability: m.availability,
-      rating: Number(m.rating),
-      sessionCount: m.session_count,
-    }))
+    const demoMentorIds = ['m_ananya', 'm_rohan']
+    return (data || [])
+      .filter(m => !demoMentorIds.includes(m.id))
+      .map(m => ({
+        id: m.id,
+        name: m.name,
+        title: m.title,
+        company: m.company,
+        expertise: m.expertise || [],
+        experience: m.experience,
+        bio: m.bio,
+        availability: m.availability,
+        rating: Number(m.rating),
+        sessionCount: m.session_count,
+      }))
   },
 
   async getSessions(userId: string): Promise<DBSession[]> {
@@ -410,33 +413,37 @@ export const db = {
 
     if (commentsError) throw commentsError
 
-    return (posts || []).map(p => {
-      const postComments = (comments || [])
-        .filter(c => c.post_id === p.id)
-        .map(c => ({
-          id: c.id,
-          postId: c.post_id,
-          authorId: c.author_id,
-          authorName: c.author_name,
-          content: c.content,
-          createdAt: c.created_at,
-        }))
+    const demoPostIds = ['p_cbse_prep', 'p_python_tips']
 
-      return {
-        id: p.id,
-        authorId: p.author_id,
-        authorName: p.author_name,
-        authorRole: p.author_role,
-        title: p.title,
-        content: p.content,
-        tags: p.tags || [],
-        upvotes: p.upvotes,
-        commentCount: postComments.length,
-        createdAt: p.created_at,
-        comments: postComments,
-        upvotedBy: p.upvoted_by || [],
-      }
-    })
+    return (posts || [])
+      .filter(p => !demoPostIds.includes(p.id))
+      .map(p => {
+        const postComments = (comments || [])
+          .filter(c => c.post_id === p.id)
+          .map(c => ({
+            id: c.id,
+            postId: c.post_id,
+            authorId: c.author_id,
+            authorName: c.author_name,
+            content: c.content,
+            createdAt: c.created_at,
+          }))
+
+        return {
+          id: p.id,
+          authorId: p.author_id,
+          authorName: p.author_name,
+          authorRole: p.author_role,
+          title: p.title,
+          content: p.content,
+          tags: p.tags || [],
+          upvotes: p.upvotes,
+          commentCount: postComments.length,
+          createdAt: p.created_at,
+          comments: postComments,
+          upvotedBy: p.upvoted_by || [],
+        }
+      })
   },
 
   async createPost(post: Omit<DBPost, 'id' | 'upvotes' | 'commentCount' | 'createdAt' | 'comments' | 'upvotedBy'>): Promise<DBPost> {
