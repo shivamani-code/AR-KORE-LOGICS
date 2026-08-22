@@ -15,9 +15,7 @@ node_modules
 .DS_Store
 
 # Large files & media
-*.docx
 *.mp4
-public/resources/
 scratch/
 skills/
 *.tsbuildinfo

@@ -727,10 +727,10 @@ export default function ResourcesPage() {
                         </div>
                       ) : (
                         <div
-                          className="w-full h-full flex items-center justify-center transition-transform duration-200 origin-center"
+                          className="w-full h-full flex flex-col items-center justify-start overflow-y-auto p-6 transition-transform duration-200 origin-center text-zinc-200 [&_h1]:text-2xl [&_h1]:font-bold [&_h1]:text-white [&_h1]:mb-4 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-indigo-300 [&_h2]:mt-6 [&_h2]:mb-3 [&_h3]:text-lg [&_h3]:font-medium [&_h3]:text-sky-300 [&_h3]:mt-4 [&_h3]:mb-2 [&_p]:text-zinc-300 [&_p]:leading-relaxed [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_li]:mb-1.5 [&_table]:w-full [&_table]:border-collapse [&_table]:my-4 [&_th]:border [&_th]:border-white/20 [&_th]:bg-white/5 [&_th]:p-2.5 [&_th]:text-left [&_th]:text-white [&_td]:border [&_td]:border-white/10 [&_td]:p-2.5 [&_img]:max-h-[65vh] [&_img]:w-auto [&_img]:mx-auto [&_img]:rounded-xl [&_img]:shadow-2xl [&_img]:border [&_img]:border-white/10"
                           style={{ transform: `scale(${zoomLevel / 100})` }}
                           dangerouslySetInnerHTML={{
-                            __html: docPagesHtml[currentPage - 1] || '<p className="text-zinc-500">End of preview images.</p>',
+                            __html: docPagesHtml[currentPage - 1] || '<p className="text-zinc-500">End of preview content.</p>',
                           }}
                         />
                       )}
