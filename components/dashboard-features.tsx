@@ -76,7 +76,7 @@ const dashboardFeatures: Feature[] = [
     category: 'core',
     description: 'Customize engineering skill paths, set personal learning goals, and adapt roadmaps to your own pace.',
     details: ['Dynamic goal tracking', 'Skill gap analysis', 'Adaptive pacing'],
-    href: 'https://engineering-roadmaps.vercel.app/',
+    href: 'https://roadmap-nine-zeta.vercel.app/careers',
     external: true,
     accent: 'indigo',
   },

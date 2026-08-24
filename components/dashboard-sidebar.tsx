@@ -57,7 +57,7 @@ export function DashboardSidebar({ isOpen = true, onToggle = () => {} }) {
       href: '/dashboard/roadmaps',
       sublabel: roadmapLabel,
     },
-    { icon: Compass, label: 'Roadmap Planner', href: 'https://engineering-roadmaps.vercel.app/', external: true },
+    { icon: Compass, label: 'Roadmap Planner', href: 'https://roadmap-nine-zeta.vercel.app/careers', external: true },
     { icon: Bot, label: 'AI Mentor Studio', href: 'https://ai-mentor-studio-v2-1.onrender.com/', external: true },
     { icon: Wrench, label: 'Toolz Studio', href: 'https://toolz-studio-nine.vercel.app/', external: true },
     { icon: Users, label: 'Mentorship', href: '/dashboard/mentorship' },
