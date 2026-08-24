@@ -53,7 +53,7 @@ const dashboardFeatures: Feature[] = [
     category: 'ai',
     description: 'Instant coding assistance, automated code reviews, step-by-step problem debugging, and interview prep.',
     details: ['Real-time code feedback', 'Interactive mock interviews', 'Instant query resolution'],
-    href: 'https://ai-mentor-studio-v2-1.onrender.com/',
+    href: 'https://ai-mentor-studio-v3.vercel.app/',
     external: true,
     accent: 'purple',
   },
