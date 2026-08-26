@@ -93,6 +93,18 @@ const dashboardFeatures: Feature[] = [
     accent: 'purple',
   },
   {
+    id: 'aidex',
+    icon: Sparkles,
+    title: 'AIDex Studio',
+    badge: 'Skills & Commands',
+    category: 'ai',
+    description: 'Global directory of AI skills, slash commands, agents, workflows, and MCP servers.',
+    details: ['AI skills & workflows', 'Slash commands & prompts', 'MCP server directory'],
+    href: 'https://aidex-mauve.vercel.app/',
+    external: true,
+    accent: 'purple',
+  },
+  {
     id: 'mentorship',
     icon: Users,
     title: '1-on-1 Mentorship',
