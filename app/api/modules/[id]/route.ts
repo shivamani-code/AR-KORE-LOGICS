@@ -11,15 +11,16 @@ export async function GET(request: Request, context: any) {
 
     const { id } = await context.params
     const progress = await db.getProgress(user.id)
+    const isHpmani = user.email?.toLowerCase() === 'hpmani91@gmail.com' || user.role === 'admin'
 
     // Check completion status
     const isCompleted = progress.completedModules.includes(parseInt(id))
     const isCurrent = progress.currentModuleId === parseInt(id)
-    const isLocked = !isCompleted && !isCurrent && parseInt(id) > progress.currentModuleId
+    const isLocked = !isHpmani && !isCompleted && !isCurrent && parseInt(id) > progress.currentModuleId
 
     return NextResponse.json({
       success: true,
-      status: isCompleted ? 'completed' : isCurrent ? 'current' : isLocked ? 'locked' : 'future',
+      status: isCompleted ? 'completed' : isCurrent ? 'current' : isLocked ? 'locked' : (isHpmani ? 'current' : 'future'),
       completed: isCompleted,
     })
   } catch (error) {

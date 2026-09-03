@@ -15,6 +15,9 @@ export async function POST(request: Request) {
     const json = await request.json()
     const payload = signupSchema.parse(json)
 
+    const isHpmani = payload.email.toLowerCase() === 'hpmani91@gmail.com'
+    const initialRole = isHpmani ? 'admin' : 'student'
+
     const supabase = await createClient()
     const { data: authData, error: authError } = await supabase.auth.signUp({
       email: payload.email,
@@ -22,7 +25,7 @@ export async function POST(request: Request) {
       options: {
         data: {
           name: payload.name,
-          role: 'student',
+          role: initialRole,
           careerPath: payload.careerInterest,
         },
       },
@@ -43,10 +46,10 @@ export async function POST(request: Request) {
         id: authData.user.id,
         name: payload.name,
         email: payload.email,
-        role: 'student',
+        role: initialRole,
         careerPath: payload.careerInterest,
         joinedAt: new Date().toISOString(),
-        enrolledCourses: [],
+        enrolledCourses: isHpmani ? ['ai-cbse9', 'ai-ml'] : [],
       }
     }
 
@@ -56,8 +59,10 @@ export async function POST(request: Request) {
         id: userProfile.id,
         name: userProfile.name,
         email: userProfile.email,
-        role: userProfile.role,
+        role: isHpmani ? 'admin' : userProfile.role,
         careerPath: userProfile.careerPath,
+        enrolledCourses: isHpmani ? ['ai-cbse9', 'ai-ml'] : userProfile.enrolledCourses,
+        isUnlocked: isHpmani || userProfile.role === 'admin',
       },
     })
   } catch (error) {

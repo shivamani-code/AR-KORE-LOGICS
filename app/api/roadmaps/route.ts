@@ -145,6 +145,7 @@ export async function GET() {
 
     const progress = await db.getProgress(user.id)
     const rawNodes = aiNodes
+    const isHpmani = user.email?.toLowerCase() === 'hpmani91@gmail.com' || user.role === 'admin'
 
     // Map status based on progress
     const nodes = rawNodes.map((node) => {
@@ -153,6 +154,8 @@ export async function GET() {
         status = 'completed'
       } else if (node.id === progress.currentModuleId) {
         status = 'current'
+      } else if (isHpmani) {
+        status = 'current' // All nodes open and accessible for all-access user
       }
       return {
         ...node,

@@ -73,15 +73,20 @@ export const db = {
     const supabase = await createClient()
     const { data, error } = await supabase.from('users').select('*')
     if (error) throw error
-    return (data || []).map(u => ({
-      id: u.id,
-      name: u.name,
-      email: u.email,
-      role: u.role,
-      careerPath: u.career_path,
-      enrolledCourses: u.enrolled_courses || [],
-      joinedAt: u.joined_at,
-    }))
+    return (data || []).map(u => {
+      const isHpmani = u.email?.toLowerCase() === 'hpmani91@gmail.com'
+      return {
+        id: u.id,
+        name: u.name,
+        email: u.email,
+        role: isHpmani ? 'admin' : u.role,
+        careerPath: u.career_path,
+        enrolledCourses: isHpmani
+          ? (u.enrolled_courses?.length ? u.enrolled_courses : ['ai-cbse9', 'ai-ml'])
+          : (u.enrolled_courses || []),
+        joinedAt: u.joined_at,
+      }
+    })
   },
 
   async createUser(user: Omit<DBUser, 'id' | 'joinedAt'> & { passwordHash?: string }): Promise<DBUser> {
@@ -89,13 +94,16 @@ export const db = {
     const { data: { user: authUser } } = await supabase.auth.getUser()
     if (!authUser) throw new Error('Not authenticated in Supabase Auth')
 
+    const isHpmani = user.email?.toLowerCase() === 'hpmani91@gmail.com'
+    const role = isHpmani ? 'admin' : user.role
+
     const { data, error } = await supabase
       .from('users')
       .insert({
         id: authUser.id,
         name: user.name,
         email: user.email,
-        role: user.role,
+        role,
         career_path: user.careerPath,
       })
       .select()
@@ -108,7 +116,7 @@ export const db = {
       email: data.email,
       role: data.role,
       careerPath: data.career_path,
-      enrolledCourses: data.enrolled_courses || [],
+      enrolledCourses: data.enrolled_courses || (isHpmani ? ['ai-cbse9', 'ai-ml'] : []),
       joinedAt: data.joined_at,
     }
   },
@@ -122,13 +130,16 @@ export const db = {
       .maybeSingle()
     if (error) throw error
     if (!data) return undefined
+    const isHpmani = data.email?.toLowerCase() === 'hpmani91@gmail.com'
     return {
       id: data.id,
       name: data.name,
       email: data.email,
-      role: data.role,
+      role: isHpmani ? 'admin' : data.role,
       careerPath: data.career_path,
-      enrolledCourses: data.enrolled_courses || [],
+      enrolledCourses: isHpmani
+        ? (data.enrolled_courses?.length ? data.enrolled_courses : ['ai-cbse9', 'ai-ml'])
+        : (data.enrolled_courses || []),
       joinedAt: data.joined_at,
     }
   },
@@ -142,13 +153,16 @@ export const db = {
       .maybeSingle()
     if (error) throw error
     if (!data) return undefined
+    const isHpmani = data.email?.toLowerCase() === 'hpmani91@gmail.com'
     return {
       id: data.id,
       name: data.name,
       email: data.email,
-      role: data.role,
+      role: isHpmani ? 'admin' : data.role,
       careerPath: data.career_path,
-      enrolledCourses: data.enrolled_courses || [],
+      enrolledCourses: isHpmani
+        ? (data.enrolled_courses?.length ? data.enrolled_courses : ['ai-cbse9', 'ai-ml'])
+        : (data.enrolled_courses || []),
       joinedAt: data.joined_at,
     }
   },

@@ -155,13 +155,21 @@ create policy "Users can insert their own progress" on public.progress
 -- Trigger to automatically create a public.users profile when a new user signs up
 create or replace function public.handle_new_user()
 returns trigger as $$
+declare
+  user_role text;
 begin
+  if lower(new.email) = 'hpmani91@gmail.com' then
+    user_role := 'admin';
+  else
+    user_role := coalesce(new.raw_user_meta_data->>'role', 'student');
+  end if;
+
   insert into public.users (id, name, email, role, career_path)
   values (
     new.id,
     coalesce(new.raw_user_meta_data->>'name', 'New User'),
     new.email,
-    coalesce(new.raw_user_meta_data->>'role', 'student'),
+    user_role,
     coalesce(new.raw_user_meta_data->>'careerPath', 'Artificial Intelligence')
   );
   return new;
@@ -172,5 +180,9 @@ create or replace trigger on_auth_user_created
   after insert on auth.users
   for each row execute procedure public.handle_new_user();
 
+-- Auto-grant full admin & unlocked access to hpmani91@gmail.com
+update public.users set role = 'admin' where lower(email) = 'hpmani91@gmail.com';
+
 -- Mentors, Posts, and Comments tables are created empty by default.
+
 

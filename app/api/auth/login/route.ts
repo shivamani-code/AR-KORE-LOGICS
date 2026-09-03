@@ -34,14 +34,19 @@ export async function POST(request: Request) {
       )
     }
 
+    const isHpmani = userProfile.email?.toLowerCase() === 'hpmani91@gmail.com'
+    const role = isHpmani ? 'admin' : userProfile.role
+
     return NextResponse.json({
       success: true,
       user: {
         id: userProfile.id,
         name: userProfile.name,
         email: userProfile.email,
-        role: userProfile.role,
+        role,
         careerPath: userProfile.careerPath,
+        enrolledCourses: userProfile.enrolledCourses,
+        isUnlocked: isHpmani || role === 'admin',
       },
     })
   } catch (error) {

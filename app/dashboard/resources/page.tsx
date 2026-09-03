@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
+import { useUser } from '@/components/user-context'
 import {
   FileText,
   Eye,
@@ -332,6 +333,9 @@ function getFallbackSubjectHtml(res: ResourceItem): string {
 }
 
 export default function ResourcesPage() {
+  const { userEmail, userRole, isUnlocked: contextIsUnlocked } = useUser()
+  const isAllAccessUnlocked = contextIsUnlocked || userEmail?.toLowerCase() === 'hpmani91@gmail.com' || userRole === 'admin'
+
   const [searchQuery, setSearchQuery] = useState('')
   const [previewResource, setPreviewResource] = useState<ResourceItem | null>(null)
   const [docHtml, setDocHtml] = useState<string>('')
@@ -341,7 +345,7 @@ export default function ResourcesPage() {
   const [bookmarkedIds, setBookmarkedIds] = useState<string[]>([])
   const [showUnlockModal, setShowUnlockModal] = useState<boolean>(false)
 
-  // Reader state: Strictly 3 images/pages & zoom (50% - 300%)
+  // Reader state
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [zoomLevel, setZoomLevel] = useState<number>(100)
   const [isLocked, setIsLocked] = useState<boolean>(false)
@@ -390,8 +394,11 @@ export default function ResourcesPage() {
   }
 
   const handleNextPage = () => {
-    if (currentPage >= 3) {
-      setIsLocked(true)
+    const totalPages = docPagesHtml.length || 1
+    if (currentPage >= totalPages) {
+      if (!isAllAccessUnlocked) {
+        setIsLocked(true)
+      }
     } else {
       setCurrentPage((prev) => prev + 1)
       setZoomLevel(100)
@@ -417,7 +424,7 @@ export default function ResourcesPage() {
     setZoomLevel(100)
   }
 
-  // Parse DOCX HTML into EXACTLY 3 page views (1 image or 1 clean chunk per page)
+  // Parse DOCX HTML into page views
   const docPagesHtml = useMemo(() => {
     if (!docHtml) return []
     const parser = new DOMParser()
@@ -425,8 +432,16 @@ export default function ResourcesPage() {
 
     const imgs = Array.from(doc.querySelectorAll('img'))
 
-    // If the document contains images, extract exactly 1 image per page for the 3 preview pages
+    // If the document contains images:
     if (imgs.length > 0) {
+      if (isAllAccessUnlocked) {
+        return imgs.map(
+          (img, idx) =>
+            `<div class="flex flex-col items-center justify-center min-h-[50vh]"><img src="${img.src}" class="max-h-[68vh] max-w-full object-contain rounded-xl shadow-2xl border border-white/10" /><p class="text-[11px] text-zinc-400 mt-3 font-mono">Page / Diagram ${idx + 1} of ${imgs.length}</p></div>`
+        )
+      }
+
+      // If free preview, extract exactly 1 image per page for the 3 preview pages
       const page1Img = imgs[0] ? `<div class="flex justify-center items-center h-full"><img src="${imgs[0].src}" class="max-h-[68vh] max-w-full object-contain rounded-xl shadow-2xl border border-white/10" /></div>` : ''
       const page2Img = imgs[1] ? `<div class="flex justify-center items-center h-full"><img src="${imgs[1].src}" class="max-h-[68vh] max-w-full object-contain rounded-xl shadow-2xl border border-white/10" /></div>` : page1Img
       const page3Img = imgs[2] ? `<div class="flex justify-center items-center h-full"><img src="${imgs[2].src}" class="max-h-[68vh] max-w-full object-contain rounded-xl shadow-2xl border border-white/10" /></div>` : page2Img
@@ -434,15 +449,18 @@ export default function ResourcesPage() {
       return [page1Img, page2Img, page3Img]
     }
 
-    // Otherwise, slice HTML into 3 clean content chunks
+    // Otherwise, slice HTML into clean content chunks
     const elements = Array.from(doc.body.children)
     if (elements.length === 0) {
-      return [`<div class="p-6 text-white">${docHtml}</div>`, '', '']
+      return [`<div class="p-6 text-white">${docHtml}</div>`]
     }
 
     // If top-level container has 3 main page divs (e.g. fallback notes)
     if (elements.length === 1 && elements[0].children.length >= 3) {
       const childElements = Array.from(elements[0].children)
+      if (isAllAccessUnlocked) {
+        return childElements.map((c) => c.outerHTML)
+      }
       return [
         childElements[0]?.outerHTML || docHtml,
         childElements[1]?.outerHTML || childElements[0]?.outerHTML || docHtml,
@@ -450,12 +468,21 @@ export default function ResourcesPage() {
       ]
     }
 
+    if (isAllAccessUnlocked) {
+      const chunkSize = 3
+      const chunks: string[] = []
+      for (let i = 0; i < elements.length; i += chunkSize) {
+        chunks.push(elements.slice(i, i + chunkSize).map((e) => e.outerHTML).join(''))
+      }
+      return chunks.length > 0 ? chunks : [docHtml]
+    }
+
     const p1 = elements.slice(0, Math.ceil(elements.length / 3)).map((e) => e.outerHTML).join('')
     const p2 = elements.slice(Math.ceil(elements.length / 3), Math.ceil((elements.length * 2) / 3)).map((e) => e.outerHTML).join('')
     const p3 = elements.slice(Math.ceil((elements.length * 2) / 3)).map((e) => e.outerHTML).join('')
 
     return [p1 || docHtml, p2 || p1, p3 || p2]
-  }, [docHtml])
+  }, [docHtml, isAllAccessUnlocked])
 
   const filteredResources = RESOURCES_LIST.filter((item) => {
     return (
@@ -486,16 +513,23 @@ export default function ResourcesPage() {
       {/* Header section */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 mb-1.5">
+          <div className="flex items-center gap-2 mb-1.5 flex-wrap">
             <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center gap-1">
               <BookOpen size={11} /> Academic & Study Notes
             </span>
+            {isAllAccessUnlocked && (
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/30 flex items-center gap-1 shadow-sm">
+                <Sparkles size={11} /> All Resources Unlocked • hpmani91@gmail.com
+              </span>
+            )}
           </div>
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
             Resources & Study Notes
           </h1>
           <p className="text-xs sm:text-sm text-zinc-400 mt-1 max-w-2xl">
-            Access 20 updated course lecture notes and study materials with 3-image protected previews.
+            {isAllAccessUnlocked
+              ? 'Full unrestricted access unlocked for all 20 course lecture notes, architectural diagrams, and study materials.'
+              : 'Access 20 updated course lecture notes and study materials with 3-image protected previews.'}
           </p>
         </div>
 
@@ -571,10 +605,18 @@ export default function ResourcesPage() {
                 </h3>
               </div>
 
-              {/* Bottom Actions - Read Preview Button Only */}
+              {/* Bottom Actions */}
               <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between gap-2">
-                <span className="text-[11px] text-zinc-500 font-medium truncate flex items-center gap-1">
-                  <Lock size={12} className="text-amber-400/80" /> 3 Images Free Preview
+                <span className="text-[11px] font-medium truncate flex items-center gap-1">
+                  {isAllAccessUnlocked ? (
+                    <span className="text-emerald-400 font-semibold flex items-center gap-1">
+                      <CheckCircle2 size={12} className="text-emerald-400" /> Full Access Unlocked
+                    </span>
+                  ) : (
+                    <span className="text-zinc-500 flex items-center gap-1">
+                      <Lock size={12} className="text-amber-400/80" /> 3 Images Free Preview
+                    </span>
+                  )}
                 </span>
 
                 <button
@@ -582,7 +624,7 @@ export default function ResourcesPage() {
                   className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-semibold transition flex items-center gap-2 shadow-lg shadow-indigo-600/25 active:scale-95"
                 >
                   <Eye size={14} />
-                  <span>Read Notes</span>
+                  <span>{isAllAccessUnlocked ? 'Open Full Notes' : 'Read Notes'}</span>
                 </button>
               </div>
             </div>
@@ -609,7 +651,7 @@ export default function ResourcesPage() {
         </div>
       )}
 
-      {/* Reader Modal: Strictly 1 Image per Page (Max 3 Images Total) */}
+      {/* Reader Modal */}
       <AnimatePresence>
         {previewResource && (
           <div
@@ -641,22 +683,35 @@ export default function ResourcesPage() {
                   <div className="min-w-0">
                     <h3 className="text-sm font-bold text-white truncate">{previewResource.title}</h3>
                     <p className="text-[10px] text-zinc-400 flex items-center gap-1.5 mt-0.5">
-                      <span className="px-1.5 py-0.2 bg-amber-500/20 text-amber-300 rounded font-semibold text-[9px]">
-                        FREE PREVIEW (IMAGE {currentPage} / 3)
-                      </span>
+                      {isAllAccessUnlocked ? (
+                        <span className="px-1.5 py-0.2 bg-emerald-500/20 text-emerald-300 rounded font-semibold text-[9px] flex items-center gap-1">
+                          <Sparkles size={10} /> UNRESTRICTED ACCESS (PAGE {currentPage} / {docPagesHtml.length || 1})
+                        </span>
+                      ) : (
+                        <span className="px-1.5 py-0.2 bg-amber-500/20 text-amber-300 rounded font-semibold text-[9px]">
+                          FREE PREVIEW (IMAGE {currentPage} / 3)
+                        </span>
+                      )}
                       • Protected Reader Mode
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <button
-                    onClick={() => setShowUnlockModal(true)}
-                    className="px-3.5 py-1.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold rounded-lg text-xs transition flex items-center gap-1.5 shadow-md shadow-amber-500/20 active:scale-95"
-                  >
-                    <Lock size={13} />
-                    <span>Unlock All Notes</span>
-                  </button>
+                  {isAllAccessUnlocked ? (
+                    <div className="px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold rounded-lg text-xs flex items-center gap-1.5">
+                      <CheckCircle2 size={13} />
+                      <span className="hidden sm:inline">All Access Active</span>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => setShowUnlockModal(true)}
+                      className="px-3.5 py-1.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold rounded-lg text-xs transition flex items-center gap-1.5 shadow-md shadow-amber-500/20 active:scale-95"
+                    >
+                      <Lock size={13} />
+                      <span>Unlock All Notes</span>
+                    </button>
+                  )}
 
                   <button
                     onClick={() => setPreviewResource(null)}
@@ -713,7 +768,7 @@ export default function ResourcesPage() {
                     </div>
                   </div>
                 ) : (
-                  /* WORD DOCUMENT READER: EXACTLY 1 IMAGE PER PAGE VIEW */
+                  /* DOCUMENT READER */
                   <div className="flex-1 flex flex-col justify-between overflow-hidden">
                     <div className="flex-1 overflow-auto p-4 sm:p-6 select-none bg-zinc-950/60 flex items-center justify-center relative">
                       {isLoadingDoc ? (
@@ -744,7 +799,7 @@ export default function ResourcesPage() {
                         className="px-3.5 py-1.5 bg-white/[0.04] hover:bg-white/[0.08] disabled:opacity-40 disabled:hover:bg-white/[0.04] text-zinc-300 rounded-lg text-xs font-semibold transition flex items-center gap-1 border border-white/[0.06]"
                       >
                         <ChevronLeft size={14} />
-                        <span>Previous Image</span>
+                        <span>Previous {isAllAccessUnlocked ? 'Page' : 'Image'}</span>
                       </button>
 
                       {/* Zoom Controls */}
@@ -779,10 +834,29 @@ export default function ResourcesPage() {
 
                       <button
                         onClick={handleNextPage}
-                        className="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-bold transition flex items-center gap-1 shadow-md shadow-indigo-600/30 active:scale-95"
+                        disabled={isAllAccessUnlocked && currentPage >= (docPagesHtml.length || 1)}
+                        className="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 disabled:hover:bg-indigo-600 text-white rounded-lg text-xs font-bold transition flex items-center gap-1 shadow-md shadow-indigo-600/30 active:scale-95"
                       >
-                        <span>{currentPage >= 3 ? 'Finish Free Preview' : 'Next Image'}</span>
-                        {currentPage >= 3 ? <Lock size={13} className="text-amber-300" /> : <ChevronRight size={14} />}
+                        <span>
+                          {isAllAccessUnlocked
+                            ? currentPage >= (docPagesHtml.length || 1)
+                              ? 'End of Notes'
+                              : 'Next Page'
+                            : currentPage >= 3
+                            ? 'Finish Free Preview'
+                            : 'Next Image'}
+                        </span>
+                        {isAllAccessUnlocked ? (
+                          currentPage < (docPagesHtml.length || 1) ? (
+                            <ChevronRight size={14} />
+                          ) : (
+                            <CheckCircle2 size={13} className="text-emerald-300" />
+                          )
+                        ) : currentPage >= 3 ? (
+                          <Lock size={13} className="text-amber-300" />
+                        ) : (
+                          <ChevronRight size={14} />
+                        )}
                       </button>
                     </div>
                   </div>

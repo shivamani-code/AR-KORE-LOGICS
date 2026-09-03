@@ -18,6 +18,7 @@ export default function SignupPage() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [agreedToTerms, setAgreedToTerms] = useState(false)
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
@@ -25,6 +26,12 @@ export default function SignupPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
+
+    if (!agreedToTerms) {
+      setError('You must agree to the Terms of Service and Privacy Policy to create an account.')
+      return
+    }
+
     setIsLoading(true)
 
     try {
@@ -236,16 +243,26 @@ export default function SignupPage() {
                 <input
                   id="terms"
                   type="checkbox"
+                  checked={agreedToTerms}
+                  onChange={(e) => setAgreedToTerms(e.target.checked)}
                   className="w-4 h-4 mt-0.5 bg-zinc-950 border-white/[0.08] text-indigo-600 rounded focus:ring-offset-0 focus:ring-indigo-500 cursor-pointer"
                   required
                 />
                 <span className="text-zinc-500 text-xs font-medium leading-normal">
                   I agree to the{' '}
-                  <Link href="#" className="text-zinc-300 hover:text-white font-medium transition-colors">
+                  <Link
+                    href="/terms"
+                    target="_blank"
+                    className="text-zinc-200 hover:text-white font-medium underline underline-offset-2 transition-colors"
+                  >
                     Terms of Service
                   </Link>{' '}
                   and{' '}
-                  <Link href="#" className="text-zinc-300 hover:text-white font-medium transition-colors">
+                  <Link
+                    href="/privacy"
+                    target="_blank"
+                    className="text-zinc-200 hover:text-white font-medium underline underline-offset-2 transition-colors"
+                  >
                     Privacy Policy
                   </Link>
                 </span>

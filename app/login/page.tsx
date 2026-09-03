@@ -17,6 +17,7 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [agreedToTerms, setAgreedToTerms] = useState(false)
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
@@ -24,6 +25,12 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
+
+    if (!agreedToTerms) {
+      setError('You must agree to the Terms of Service and Privacy Policy to log in.')
+      return
+    }
+
     setIsLoading(true)
 
     try {
@@ -220,15 +227,48 @@ export default function LoginPage() {
               </div>
             </div>
 
-            <div className="flex items-center pt-1">
-              <label htmlFor="remember" className="flex items-center gap-2.5 cursor-pointer select-none">
-                <input
-                  id="remember"
-                  type="checkbox"
-                  className="w-3.5 h-3.5 bg-zinc-950 border-white/[0.08] text-indigo-600 rounded focus:ring-offset-0 focus:ring-indigo-500 cursor-pointer"
-                />
-                <span className="text-zinc-400 text-xs font-medium">Keep me signed in</span>
-              </label>
+            <div className="space-y-3 pt-1">
+              <div className="flex items-center">
+                <label htmlFor="remember" className="flex items-center gap-2.5 cursor-pointer select-none">
+                  <input
+                    id="remember"
+                    type="checkbox"
+                    className="w-3.5 h-3.5 bg-zinc-950 border-white/[0.08] text-indigo-600 rounded focus:ring-offset-0 focus:ring-indigo-500 cursor-pointer"
+                  />
+                  <span className="text-zinc-400 text-xs font-medium">Keep me signed in</span>
+                </label>
+              </div>
+
+              <div>
+                <label htmlFor="login-terms" className="flex items-start gap-2.5 cursor-pointer select-none">
+                  <input
+                    id="login-terms"
+                    type="checkbox"
+                    checked={agreedToTerms}
+                    onChange={(e) => setAgreedToTerms(e.target.checked)}
+                    required
+                    className="w-4 h-4 mt-0.5 bg-zinc-950 border-white/[0.08] text-indigo-600 rounded focus:ring-offset-0 focus:ring-indigo-500 cursor-pointer"
+                  />
+                  <span className="text-zinc-400 text-xs font-medium leading-normal">
+                    I agree to the{' '}
+                    <Link
+                      href="/terms"
+                      target="_blank"
+                      className="text-zinc-200 hover:text-white font-medium underline underline-offset-2 transition-colors"
+                    >
+                      Terms of Service
+                    </Link>{' '}
+                    and{' '}
+                    <Link
+                      href="/privacy"
+                      target="_blank"
+                      className="text-zinc-200 hover:text-white font-medium underline underline-offset-2 transition-colors"
+                    >
+                      Privacy Policy
+                    </Link>
+                  </span>
+                </label>
+              </div>
             </div>
 
             <button

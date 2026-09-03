@@ -22,15 +22,22 @@ export async function GET() {
       )
     }
 
+    const isHpmani = user.email?.toLowerCase() === 'hpmani91@gmail.com' || authUser.email?.toLowerCase() === 'hpmani91@gmail.com'
+    const role = isHpmani ? 'admin' : user.role
+    const enrolledCourses = isHpmani && (!user.enrolledCourses || user.enrolledCourses.length === 0)
+      ? ['ai-cbse9', 'ai-ml']
+      : user.enrolledCourses
+
     return NextResponse.json({
       success: true,
       user: {
         id: user.id,
         name: user.name,
         email: user.email,
-        role: user.role,
+        role,
         careerPath: user.careerPath,
-        enrolledCourses: user.enrolledCourses,
+        enrolledCourses,
+        isUnlocked: isHpmani || role === 'admin',
       },
     })
   } catch (error) {

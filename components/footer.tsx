@@ -26,6 +26,15 @@ export function Footer() {
           <p className="text-zinc-600 text-[10px]">
             © 2026 AR KORE LOGICS. All rights reserved.
           </p>
+          <div className="flex items-center gap-4 text-[10px] text-zinc-500">
+            <Link href="/terms" className="hover:text-zinc-300 transition-colors">
+              Terms of Service
+            </Link>
+            <span>•</span>
+            <Link href="/privacy" className="hover:text-zinc-300 transition-colors">
+              Privacy Policy
+            </Link>
+          </div>
           <p className="text-zinc-600 text-[10px]">
             Transforming careers through structured AI education
           </p>
