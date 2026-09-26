@@ -89,7 +89,7 @@ const dashboardFeatures: Feature[] = [
     category: 'ai',
     description: 'Essential developer tools in one place: code formatters, regex testers, JSON parsers, and system design calculators.',
     details: ['Fast web utilities', 'Zero-setup developer tools', 'Productivity boosters'],
-    href: 'hhttps://toolz-studio.netlify.app/',
+    href: 'https://toolz-studio.netlify.app/',
     external: true,
     accent: 'purple',
   },
